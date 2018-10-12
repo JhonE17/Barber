@@ -1,7 +1,3 @@
-<?php  
-session_start();  
-if((isset($_SESSION["user"]) and $_SESSION['privilegio']=='0' ) or (isset($_SESSION["user"]) and $_SESSION['privilegio']=='1' ) ){
-?> 
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -600,9 +596,3 @@ if((isset($_SESSION["user"]) and $_SESSION['privilegio']=='0' ) or (isset($_SESS
 	
   </body>
 </html>
-<?php 
-}else{
- header("location:index.php");
-    
-}
-?>
