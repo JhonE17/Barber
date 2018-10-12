@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(isset($_SESSION["username"])){
+  // header("lacation.index.php");
+};
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -32,14 +38,17 @@
           <section class="login_content">
             <form>
               <h1>Inicio de sesión</h1>
+                <!-- Nombre de usuario -->
+                <div>
+                  <input type="text" class="form-control" name="username" placeholder="Nombre de usuario" required="" placeholder="Usuario" onBlur="if(this.value == '') this.value = 'Usuario'" onFocus="if(this.value == 'Usuario') this.value = ''" required/> <!-- JS because of IE support; better: placeholder="Usuario" -->
+                </div>
+                <!-- Contraseña -->
+                <div>
+                  <input type="password" class="form-control" name="password" placeholder="Contraseña" required="" onFocus="if(this.value == 'password') this.value = ''" required /> <!-- JS because of IE support; better: placeholder="Password" -->
+                </div>
+                <!-- Boton de incio de sesion -->
               <div>
-                <input type="text" class="form-control" placeholder="Nombre de usuario" required="" />
-              </div>
-              <div>
-                <input type="password" class="form-control" placeholder="Contraseña" required="" />
-              </div>
-              <div>
-                <a class="btn btn-default submit" href="index.html">Ingresar</a>
+                <a class="btn btn-default submit" href="index.php">Ingresar</a>
                 <a class="reset_pass" href="#">Perdiste tu constrseña?</a>
               </div>
 
@@ -101,3 +110,51 @@
     </div>
   </body>
 </html>
+
+
+<?php
+   include('../db.php');
+  
+   
+   if($_SERVER["REQUEST_METHOD"] == "POST") {
+      // username and password sent from form 
+      
+      $myusername = mysqli_real_escape_string($con,$_POST['username']);
+      $mypassword = mysqli_real_escape_string($con,$_POST['password']); 
+         
+       
+       
+      
+      $sql = "SELECT * FROM login WHERE `username` = '$myusername' and `password` = '$mypassword'";
+      $result = mysqli_query($con,$sql);
+      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+      $active = $row['active'];
+      $_SESSION['privilegio'] = $row['privilegio'];
+       $_SESSION['tipoUsu'] = $row['tipoUsuario'];
+    
+      $count = mysqli_num_rows($result);
+        $_SESSION['username'] = $myusername;
+      
+      // If result matched $myusername and $mypassword, table row must be 1 row
+		
+      if($_SESSION['privilegio'] == 0 ) {
+         
+    
+         header("location: index.php");
+      }
+       else if($_SESSION['privilegio'] == 1) {
+           
+         
+         header("location: index.php");
+      }
+      else if($_SESSION['privilegio'] == 2) {
+         
+
+         header("location:index.php");
+      }
+       
+       else {
+         echo '<script>alert("Tu Nombre de usuario o contraseña son invalidos") </script>' ;
+      }
+   }
+?>

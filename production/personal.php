@@ -1,3 +1,10 @@
+<?php  
+session_start();  
+if(!isset($_SESSION["user"]))
+{
+ header("location:index.php");
+}
+?> 
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -117,7 +124,7 @@
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="profile.php"> Perfil</a></li>
                  
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a></li>
+                    <li><a href="login.php"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a></li>
                   </ul>
                 </li>
 
