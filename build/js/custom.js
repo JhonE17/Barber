@@ -1791,9 +1791,9 @@ if (typeof NProgress != 'undefined') {
 			  transitionEffect: 'slide'
 			});
 
-			$('.buttonNext').addClass('btn btn-success');
-			$('.buttonPrevious').addClass('btn btn-primary');
-			$('.buttonFinish').addClass('btn btn-default');
+			$('.buttonNext').addClass('btn btn-primary');
+			$('.buttonPrevious').addClass('btn btn-default');
+			$('.buttonFinish').addClass('btn btn-success');
 			
 		};
 	   
@@ -2495,15 +2495,15 @@ if (typeof NProgress != 'undefined') {
 					  dom: "Blfrtip",
 					  buttons: [
 						{
-						  extend: "copy",
+						  extend: "copiar",
 						  className: "btn-sm"
 						},
 						{
-						  extend: "csv",
+						  extend: "Eportar csv",
 						  className: "btn-sm"
 						},
 						{
-						  extend: "excel",
+						  extend: "Excel",
 						  className: "btn-sm"
 						},
 						{
@@ -2511,7 +2511,7 @@ if (typeof NProgress != 'undefined') {
 						  className: "btn-sm"
 						},
 						{
-						  extend: "print",
+						  extend: "Imprimir",
 						  className: "btn-sm"
 						},
 					  ],
@@ -3284,8 +3284,8 @@ if (typeof NProgress != 'undefined') {
 
 			  echartLine.setOption({
 				title: {
-				  text: 'Line Graph',
-				  subtext: 'Subtitle'
+				  text: '',
+				  subtext: ''
 				},
 				tooltip: {
 				  trigger: 'axis'
@@ -3293,7 +3293,7 @@ if (typeof NProgress != 'undefined') {
 				legend: {
 				  x: 220,
 				  y: 40,
-				  data: ['Intent', 'Pre-order', 'Deal']
+				  data: ['Intención', 'Pedidos', 'Acuerdos']
 				},
 				toolbox: {
 				  show: true,
@@ -3301,20 +3301,20 @@ if (typeof NProgress != 'undefined') {
 					magicType: {
 					  show: true,
 					  title: {
-						line: 'Line',
-						bar: 'Bar',
-						stack: 'Stack',
-						tiled: 'Tiled'
+						line: 'Lineal',
+						bar: 'Barras',
+						stack: 'Apilado',
+						tiled: 'Embaldosado'
 					  },
-					  type: ['line', 'bar', 'stack', 'tiled']
+					  type: ['Lineal', 'Barras', 'Apilado', 'Empbaldosado']
 					},
 					restore: {
 					  show: true,
-					  title: "Restore"
+					  title: "Restaurar"
 					},
 					saveAsImage: {
 					  show: true,
-					  title: "Save Image"
+					  title: "Guardar imagen"
 					}
 				  }
 				},
@@ -3322,14 +3322,14 @@ if (typeof NProgress != 'undefined') {
 				xAxis: [{
 				  type: 'category',
 				  boundaryGap: false,
-				  data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+				  data: ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom']
 				}],
 				yAxis: [{
 				  type: 'value'
 				}],
 				series: [{
-				  name: 'Deal',
-				  type: 'line',
+				  name: 'Acuerdo',
+				  type: 'Lineal',
 				  smooth: true,
 				  itemStyle: {
 					normal: {
