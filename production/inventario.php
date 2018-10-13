@@ -294,14 +294,14 @@ include('../db.php');
                                           INSERT INTO `inventario` (
                                             `nombre`,
                                             `stock`,
-                                            `categoria`,
-                                            `fecha_registro`
+                                            `categoria`
+                                           
                                             
                                           ) VALUES (
                                             '" . mysqli_real_escape_string($con, $nom_inventario) . "',
                                             '" . mysqli_real_escape_string($con, $stock) . "',
                                             '" . mysqli_real_escape_string($con, $ctg) . "',
-                                            'fecha_registro'
+                                            
                                           )
                                         ";
                                         if (mysqli_query($con, $sql)) {
@@ -358,9 +358,7 @@ include('../db.php');
                                                                         <td>".$row['stock']."</td>
                                                                         <td>".$row['categoria']."</td>
                                                                         <td>".$row['fecha_registro']."</td>
-                                                                        <td>
-                                                                          <button class='item' data-toggle='tooltip' data-placement='top' title='Eliminar servicio'><i class='fa fa-trash'></i></button>
-                                                                        </td>
+                                                                        <td><a href=removeinventario.php?eid=".$id ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Eliminar</button></td>
                                                                     </tr>";
                                                                 }
                                                                 else
@@ -371,9 +369,7 @@ include('../db.php');
                                                                         <td>".$row['stock']."</td>
                                                                         <td>".$row['categoria']."</td>
                                                                         <td>".$row['fecha_registro']."</td>
-                                                                        <td>
-                                                                        <button class='item' data-toggle='tooltip' data-placement='top' title='Eliminar servicio'><i class='fa fa-trash'></i></button>
-                                                                        </td>
+                                                                        <td><a href=removeinventario.php?eid=".$id ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Eliminar</button></td>
                                                                     </tr>";
                                                                 
                                                                 }

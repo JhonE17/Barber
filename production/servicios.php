@@ -334,14 +334,14 @@
                                   <td>" .$row['id_servicio']."</td>
                                           <td>" .$row['servicio']."</td>
                                           <td>" .$row['precio']."</td>
-                                          <td><button <a href=usersettingdel.php?eid=".$id ."  title='Eliminar servicio'><i class='fa fa-trash'></i></button></td>
+                                          <td><a href=removeservicios.php?eid=".$id ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Eliminar</button></td>
                                           </tr>";
                                         } else {
                                           echo "<tr>
                                           <td>" .$row['id_servicio']."</td>
                                           <td>" .$row['servicio']."</td>
                                           <td>" .$row['precio']."</td>
-                                          <td><button <a href=usersettingdel.php?eid=".$id ." title='Eliminar servicio'><i class='fa fa-trash'></i></button></td>
+                                          <td><a href=removeservicios.php?eid=".$id ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Eliminar</button></td>
                                       </tr>";
                                       
                                     }
