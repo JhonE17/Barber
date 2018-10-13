@@ -9,8 +9,8 @@ include('../db.php');
 			//  header("location: ereservas.php");
 		}
 		else {
-        $id = $_GET["rid"]; $id = (int)$id;
-				$curdate = date("Y/m/d");
+        $id = $_GET["rid"]; $idR = (int)$idR;
+				// $curdate = date("Y/m/d");
 				include ('../db.php');
 				// $id = $_GET['id'];
 				
@@ -271,38 +271,47 @@ include('../db.php');
 
                           <tr>
                             <th>Nombre cliente</th>
+                            <th><?php echo $nombreR; ?></th>
                           </tr>
 
                           <tr>
                             <th>Email</th>
+                            <th><?php echo $emailR; ?></th>
                           </tr>
 
                           <tr>
                             <th>Telefóno</th>
+                            <th><?php echo $telefonoR; ?></th>
                           </tr>
 
                           <tr>
                             <th>Tipo de servicios</th>
+                            <?php echo $tiposervicioR; ?>
                           </tr>
 
                           <tr>
                             <th>N° de reservas</th>
+                            <?php echo $nreservasR; ?>
                           </tr>
 
                           <tr>
                             <th>Fecha y hora de la reserva</th>
+                            <th><?php $fechaR; ?></th>
                           </tr>
 
                           <tr>
                             <th>Estado de la reserva</th>
+                            <th><?php echo $estadoR; ?></th>
                           </tr>
 
                           <tr>
                             <th>Subtotal</th>
+                            <th><?php $totalR; ?></th>
                           </tr>
 
                           <tr>
                             <th>Total</th>
+                            <th><?php echo"$".$total= $nreservas*$total; ?></th>
                           </tr>
 
                        </table>
