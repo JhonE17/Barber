@@ -304,10 +304,10 @@
 
                     </table>
                      <!-- Boton agregar -->
-                  <div class="form-group" class="text-center">
+                     <div class="form-group" class="text-center">
                         <div class="col-md-offset-5 col-xs-offset-4">
-                            <button  type="button" name="addP"lass="btn btn-secondary mb-1"  data-toggle="modal" data-target="#mediumModal2"><i class='fa fa-plus'></i>
-                                Agregar nuevo personal
+                            <button  type="button" class="btn btn-secondary mb-1"  data-toggle="modal" data-target="#mediumModal2"><i class='fa fa-plus'></i>
+                                Agregar nuevo usuario
                             </button>
                         </div>
                     </div>
