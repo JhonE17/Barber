@@ -273,8 +273,9 @@
                           <td>".$cargoP."</td>
                           <td>".$estadoP."</td>
                           <td>".$fechaP."</td>
-                          <td><button class='item' data-toggle='tooltip' data-placement='top' title='Despedir'><i class='glyphicon glyphicon-ban-circle'></i></button>
-                          <button class='item' data-toggle='tooltip' data-placement='top' title='Eliminar'><i class='fa fa-trash'></i></button></td>
+                          <td><a href=despedir.php?eid=".$id_personal ." <button class='btn btn-warning'> <i class='fa fa-edit' ></i> Despedir</button></td>
+
+                          <td><a href=removepersonal.php?eid=".$id_personal ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Eliminar</button></td>
 												</tr>";
 											}
 											else
@@ -289,10 +290,12 @@
                         <td>".$cargoP."</td>
                         <td>".$estadoP."</td>
                         <td>".$fechaP."</td>
-                        <td><button class='item' data-toggle='tooltip' data-placement='top' title='Despedir'><i class='glyphicon glyphicon-ban-circle'></i></button>
-                        <button class='item' data-toggle='tooltip' data-placement='top' title='Eliminar'><i class='fa fa-trash'></i></button></td>
+                        <td><a href=despedir.php?eid=".$id_personal ." <button class='btn btn-warning'> <i class='fa fa-edit' ></i> Despedir</button></td>
+
+                        <td><a href=removepersonal.php?eid=".$id_personal ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Eliminar</button></td>
                       </tr>";
-											
+                   
+                      // <td><a href=despedir.php?eid=".$id ." <button class='btn btn-warning'> <i class='fa fa-edit' ></i> Despedir</button></td>
 											}
 										
 										}
@@ -399,7 +402,7 @@
                    
                    
 							
-							$newsql ="Insert into personal (nombre,documento,emailP,telefono,direccion,cargo,estado) values ('$newnom','$newdoc','$newem','$newtel','$newdir','$newcar','$newest')";
+							$newsql ="INSERT INTO personal (nombre,documento,emailP,telefono,direccion,cargo,estado) values ('$newnom','$newdoc','$newem','$newtel','$newdir','$newcar','$newest')";
 							if(mysqli_query($con,$newsql))
 							{
 							echo' <script language="javascript" type="text/javascript"> alert("!Nuevo Usuario Agregado!") </script>';
