@@ -358,7 +358,7 @@ include('../db.php');
                                                                         <td>".$row['stock']."</td>
                                                                         <td>".$row['categoria']."</td>
                                                                         <td>".$row['fecha_registro']."</td>
-                                                                        <td><a href=removeinventario.php?eid=".$id ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Eliminar</button></td>
+                                                                        <td><a href=removeinventario.php?eid=".$id ." <button class='btn btn-danger'> <i class='fa fa-trash' ></i> Eliminar</button></td>
                                                                     </tr>";
                                                                 }
                                                                 else
@@ -369,7 +369,7 @@ include('../db.php');
                                                                         <td>".$row['stock']."</td>
                                                                         <td>".$row['categoria']."</td>
                                                                         <td>".$row['fecha_registro']."</td>
-                                                                        <td><a href=removeinventario.php?eid=".$id ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Eliminar</button></td>
+                                                                        <td><a href=removeinventario.php?eid=".$id ." <button class='btn btn-danger '> <i class='fa fa-trash' ></i> Eliminar</button></td>
                                                                     </tr>";
                                                                 
                                                                 }

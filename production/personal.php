@@ -273,9 +273,9 @@
                           <td>".$cargoP."</td>
                           <td>".$estadoP."</td>
                           <td>".$fechaP."</td>
-                          <td><a href=despedir.php?eid=".$id_personal ." <button class='btn btn-warning'> <i class='fa fa-edit' ></i> Despedir</button></td>
+                          <td><a href=despedir.php?eid=".$id_personal ." <button class='btn btn-default'> <i class='glyphicon glyphicon-ban-circle' ></i> Despedir</button></td>
 
-                          <td><a href=removepersonal.php?eid=".$id_personal ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Eliminar</button></td>
+                          <td><a href=removepersonal.php?eid=".$id_personal ." <button class='btn btn-danger'> <i class='fa fa-trash' ></i> Eliminar</button></td>
 												</tr>";
 											}
 											else
@@ -290,9 +290,9 @@
                         <td>".$cargoP."</td>
                         <td>".$estadoP."</td>
                         <td>".$fechaP."</td>
-                        <td><a href=despedir.php?eid=".$id_personal ." <button class='btn btn-warning'> <i class='fa fa-edit' ></i> Despedir</button></td>
+                        <td><a href=despedir.php?eid=".$id_personal ." <button class='btn btn-warning'> <i class='glyphicon glyphicon-ban-circle' ></i> Despedir</button></td>
 
-                        <td><a href=removepersonal.php?eid=".$id_personal ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Eliminar</button></td>
+                        <td><a href=removepersonal.php?eid=".$id_personal ." <button class='btn btn-danger'> <i class='fa fa-trash' ></i> Eliminar</button></td>
                       </tr>";
                    
                       // <td><a href=despedir.php?eid=".$id ." <button class='btn btn-warning'> <i class='fa fa-edit' ></i> Despedir</button></td>
