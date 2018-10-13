@@ -396,17 +396,12 @@
               $newdir = $_POST['dir'];
               $newcar = $_POST['cargoP'];
               $newest = 'Activo';
-                   
-                   
-							
+              
 							$newsql ="INSERT INTO personal (nombre,documento,emailP,telefono,direccion,cargo,estado) values ('$newnom','$newdoc','$newem','$newtel','$newdir','$newcar','$newest')";
 							if(mysqli_query($con,$newsql))
 							{
 							echo' <script language="javascript" type="text/javascript"> alert("!Nuevo Usuario Agregado!") </script>';
-              //No agrega la fecha, revisalo
-              //hay que hacer una condicioón para que no se agregue dos veces con el mismo documento
-              
-						
+  					
 							}
 						// header("Location: personal.php");
 						}
