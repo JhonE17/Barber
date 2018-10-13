@@ -303,12 +303,13 @@
                      <!-- Boton agregar -->
                   <div class="form-group" class="text-center">
                         <div class="col-md-offset-5 col-xs-offset-4">
-                            <button  type="button" class="btn btn-secondary mb-1"  data-toggle="modal" data-target="#mediumModal"><i class='fa fa-plus'></i>
+                            <button  type="button" name="addP"lass="btn btn-secondary mb-1"  data-toggle="modal" data-target="#mediumModal2"><i class='fa fa-plus'></i>
                                 Agregar nuevo personal
                             </button>
                         </div>
                     </div>
                       <!-- Fin boton -->   
+           
                   </div>
                 
                 </div>
@@ -328,7 +329,7 @@
         <!-- /page content -->
 
         <!-- modal medium -->
-			<div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+			<div class="modal fade" id="mediumModal2" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -341,16 +342,6 @@
                   <div class="modal-body col-md-6 col-sm-6 col-xs-12">
                       <label>Nombre completo</label>
                       <input name="fullname" type="text"  class="form-control" placeholder="Ingrese nombre completo"></div>
-                      
-                  <div class="modal-body col-md-6 col-sm-6 col-xs-12">
-                      <label>Nombre de usuario</label>
-                      <input name="username" type="text" class="form-control" placeholder="Ingrese nombre de usuario">
-                  </div>
-                      
-                  <div class="modal-body col-md-6 col-sm-6 col-xs-12">
-                      <label>Contraseña</label>
-                      <input name="pass" type="password" class="form-control" placeholder="Ingrese contraseña">     
-                  </div>
                     
                   <div class="modal-body col-md-6 col-sm-6 col-xs-12">
                       <label>Documento</label>
@@ -374,7 +365,7 @@
 
                   <div class="modal-body col-md-6 col-sm-6 col-xs-12">
                       <label>Cargo</label>
-                      <select name="newtu" class="form-control" required>
+                      <select name="cargoP" class="form-control" required>
                       <option value selected>Escoga un cargo</option>
                       <option value="Barbero">Barbero</option>
                       <option value="Limpieza">Limpieza</option> 
@@ -383,7 +374,7 @@
                   
                   <div class="modal-body col-md-6 col-sm-6 col-xs-12">
                           <label>Tipo de Usuario</label>
-                          <select name="newtu" class="form-control" required>
+                          <select name="tipouP" class="form-control" required>
                           <option value selected>Escoga un tipo de usuario</option>
                           <option value="Administrador">Administrador</option>
                           <option value="Empleado">Empleado</option> 
@@ -391,16 +382,73 @@
                   </div>
                      
                   
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="sumbit" name="aggP" class="btn btn-primary">Confirmar</button>
+                  </div>   
                 </form>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary">Confirmar</button>
-                    </div>   
             </div>
           </div>
         </div>
         <!-- end modal medium -->
-  
+        <!-- Agregar Modal -->
+        <?php
+                                include('../db.php');
+                                if (isset($_POST['aggP'])) {
+                                    $nombre = $_POST['fullname'];
+                                    // $user = $_POST['username'];
+                                    // $pass = $_POST['pass'];
+                                    $documento = $_POST['doc'];
+                                    $email = $_POST['email'];
+                                    $tel = $_POST['phone'];
+                                    $dir = $_POST['dir'];
+                                    $cargo = $_POST['cargoP'];
+                                    $tipou = $_POST['tipouP'];
+                                    $estado = 'Activo';
+
+                                    /* Uso "mysqli_real_escape_string()" para escapar las cadenas */
+                                    $check = " SELECT * FROM `personal` WHERE nombre = '" . mysqli_real_escape_string($con, $nombre) . "' AND documento = '" . mysqli_real_escape_string($con, $documento) . "'";
+                                    $rs = mysqli_query($con, $check);
+                                    /* Comprobamos si hubo un error durante la ejecución de la consulta */
+                                    if ($rs === false) {
+                                        die('ERROR SQL: ' . htmlspecialchars(mysqli_error($con)));
+                                    }
+                                    $data = mysqli_fetch_array($rs, MYSQLI_NUM);
+                                    if ($data[0] > 1) {
+                                        echo "<script type='text/javascript'> alert('El servicio que desea agregar ya existe')</script>";
+                                    } else {
+                                        /* También hay que escapar aquí las cadenas */
+                                        $sql = "
+                                          INSERT INTO `personal` (
+                                            `nombre`,
+                                            `documento`,
+                                            `emailP`,
+                                            `telefono`,
+                                            `direccion`,
+                                            `cargo`,
+                                            `estado`,
+                                            `fecha_registro`
+
+                                          ) VALUES (
+                                            '" . mysqli_real_escape_string($con, $nombre) . "',
+                                            '" . mysqli_real_escape_string($con, $documento) . "',
+                                            '" . mysqli_real_escape_string($con, $emailP) . "',
+                                            '" . mysqli_real_escape_string($con, $tel) . "',
+                                            '" . mysqli_real_escape_string($con, $dir) . "',
+                                            '" . mysqli_real_escape_string($con, $cargoP) . "',
+                                            '" . mysqli_real_escape_string($con, $estado) . "',
+                                            '" . mysqli_real_escape_string($con, 'fecha_registro') . "',
+                                          )
+                                        ";
+                                        if (mysqli_query($con, $sql)) {
+                                            echo '<script>alert("Personal agregado") </script>';
+                                        } else {
+                                            echo '<script>alert("Lo Siento ! Revisar el sistema") </script>';
+                                        }
+                                    }
+                                }
+                            ?>
+        <!-- /Agregar Modal -->
         <!-- footer content -->
         <footer>
             <div class="pull-right">
