@@ -373,6 +373,7 @@
               $newpriU = $_POST['priU'];
               $newtipU = $_POST['tipU'];
               
+              
 							$newsql ="INSERT INTO login (username,password,email,privilegio,tipoUsuario) values ('$newuserU','$newpassU','$newemU','$newpriU','$newtipU')";
 							if(mysqli_query($con,$newsql))
 							{
