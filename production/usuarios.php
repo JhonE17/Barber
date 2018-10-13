@@ -260,7 +260,7 @@
                           <td>".$email_login."</td>
                           <td>".$tipoU_login."</td>
                           <td>".$fecha_login."</td>
-                          <td><a href=removeusuarios.php?eid=".$id_login ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Eliminar</button></td>
+                          <td><a href=removeusuarios.php?eid=".$id_login ." <button class='btn btn-danger'> <i class='fa fa-trash' ></i> Eliminar</button></td>
 												</tr>";
 											}
 											else
@@ -271,7 +271,7 @@
                           <td>".$email_login."</td>
                           <td>".$tipoU_login."</td>
                           <td>".$fecha_login."</td>
-                          <td><a href=removeusuarios.php?eid=".$id_login ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Eliminar</button></td>
+                          <td><a href=removeusuarios.php?eid=".$id_login ." <button class='btn btn-danger'> <i class='fa fa-trash' ></i> Eliminar</button></td>
                       </tr>";
 											
 											}
