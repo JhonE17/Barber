@@ -48,7 +48,7 @@ if(isset($_SESSION["username"])){
                 </div>
                 <!-- Boton de incio de sesion -->
               <div>
-                <a class="btn btn-default submit" href="index.php">Ingresar</a>
+                <button type="sumbit" name="add" class="btn btn-default " href="index.php">Ingresar</button>
                 <a class="reset_pass" href="#">Perdiste tu constrseña?</a>
               </div>
 
@@ -85,7 +85,7 @@ if(isset($_SESSION["username"])){
                 <input type="password" class="form-control" placeholder="Contraseña" required="" />
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Registrar</a>
+                <button class="btn btn-default submit" href="index.html">Registrar</button>
               </div>
 
               <div class="clearfix"></div>
@@ -125,7 +125,7 @@ if(isset($_SESSION["username"])){
        
        
       
-      $sql = "SELECT * FROM login WHERE `username` = '$myusername' and `password` = '$mypassword'";
+      $sql = "SELECT * FROM `login` WHERE `username` = '$myusername' AND `password` = '$mypassword'";
       $result = mysqli_query($con,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       $active = $row['active'];

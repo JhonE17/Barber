@@ -1,10 +1,3 @@
-<?php  
-session_start();  
-if(!isset($_SESSION["username"]))
-{
- header("location:index.php");
-}
-?> 
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -54,38 +47,38 @@ if(!isset($_SESSION["username"]))
 
             <!-- <br /> -->
 
-           <!-- sidebar menu -->
-           <div id="sidebar-menu" class="menu_fixed hidden-print main_menu">
-            <div class="menu_section">
-             
-              <ul class="nav side-menu">
-                <li><a href="index.php"><i class="fa fa-home"></i>Menú Principal</a></li>
-
-                <li><a href="#"><i class="fa fa-bar-chart-o"></i>Pagos & Ganancias<span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                      <li><a href="pagos.php">Pagos</a></li>
-                      <li><a href="ganancias.php">Ganancias</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="inventario.php"><i class="fa fa-archive"></i>Inventario</a></li>
-                
-                <li><a href="personal.php"><i class="fa fa-group"></i>Personal & Usuarios</a></li>
-
-                <li><a><i class="fa fa-calendar"></i>Reservas<span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="reservas.php">Crear Reserva</a></li>
-                    <li><a href="ereservas.php">Estado de las reservas</a></li>
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="menu_fixed hidden-print main_menu">
+                <div class="menu_section">
+                 
+                  <ul class="nav side-menu">
+                    <li><a href="index.php"><i class="fa fa-home"></i>Menú Principal</a></li>
+  
+                    <li><a href="#"><i class="fa fa-bar-chart-o"></i>Pagos & Ganancias<span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                          <li><a href="pagos.php">Pagos</a></li>
+                          <li><a href="ganancias.php">Ganancias</a></li>
+                        </ul>
+                    </li>
+  
+                    <li><a href="inventario.php"><i class="fa fa-archive"></i>Inventario</a></li>
+                    
+                    <li><a href="personal.php"><i class="fa fa-group"></i>Personal & Usuarios</a></li>
+  
+                    <li><a><i class="fa fa-calendar"></i>Reservas<span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                        <li><a href="reservas.php">Crear Reserva</a></li>
+                        <li><a href="ereservas.php">Estado de las reservas</a></li>
+                      </ul>
+                    </li>
+  
+                    <li><a href="servicios.php"><i class="fa fa-suitcase"></i>Servicios</a>
                   </ul>
-                </li>
-
-                <li><a href="servicios.php"><i class="fa fa-suitcase"></i>Servicios</a>
-              </ul>
-            </div>
-            
-
-          </div>
-          <!-- /sidebar menu -->
+                </div>
+                
+  
+              </div>
+              <!-- /sidebar menu -->
   
 
           </div>
@@ -108,7 +101,7 @@ if(!isset($_SESSION["username"]))
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="profile.php"> Perfil</a></li>
                  
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a></li>
+                    <li><a href="login.php"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a></li>
                   </ul>
                 </li>
 
