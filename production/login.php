@@ -1,9 +1,3 @@
-<?php
-session_start();
-if(isset($_SESSION["username"])){
-  // header("lacation.index.php");
-};
-?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
