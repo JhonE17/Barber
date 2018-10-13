@@ -399,7 +399,7 @@
                    
                    
 							
-							$newsql ="Insert into personal (nombre,documento,emailP,telefono,direccion,cargo,estado,fecha_registro) values ('$newnom','$newdoc','$newem','$newtel','$newdir','$newcar','$newest','$fecha_registro')";
+							$newsql ="INSERT INTO personal (nombre,documento,emailP,telefono,direccion,cargo,estado,fecha_registro) values ('$newnom','$newdoc','$newem','$newtel','$newdir','$newcar','$newest','$fecha_registro')";
 							if(mysqli_query($con,$newsql))
 							{
 							echo' <script language="javascript" type="text/javascript"> alert("!Nuevo Usuario Agregado!") </script>';
