@@ -46,28 +46,32 @@
             <!-- /menu profile quick info -->
 
             <!-- <br /> -->
-   <!-- sidebar menu -->
-   <div id="sidebar-menu" class="menu_fixed hidden-print main_menu">
+ <!-- sidebar menu -->
+ <div id="sidebar-menu" class="menu_fixed hidden-print main_menu">
     <div class="menu_section">
      
       <ul class="nav side-menu">
         <li><a href="index.php"><i class="fa fa-home"></i>Menú Principal</a></li>
 
-        <li><a href="#"><i class="fa fa-bar-chart-o"></i>Pagos & Ganancias<span class="fa fa-chevron-down"></span></a>
-          <ul class="nav child_menu">
-              <li><a href="pagos.php">Pagos</a></li>
-              <li><a href="ganancias.php">Ganancias</a></li>
-            </ul>
+        <li><a href="ganancias.php"><i class="fa fa-bar-chart-o"></i>Ganancias</a>
+        
         </li>
 
         <li><a href="inventario.php"><i class="fa fa-archive"></i>Inventario</a></li>
         
-        <li><a href="personal.php"><i class="fa fa-group"></i>Personal & Usuarios</a></li>
+        <li><a href="#"><i class="fa fa-group"></i>Personal & Usuarios<span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="personal.php">Personal</a></li>
+            <li><a href="usuarios.php">Usuarios</a></li>
+          </ul>
+        </li>
+        
 
         <li><a><i class="fa fa-calendar"></i>Reservas<span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
             <li><a href="reservas.php">Crear Reserva</a></li>
-            <li><a href="ereservas.php">Estado de las reservas</a></li>
+            <li><a href="pagos.php">Facturas</a></li>
+            <li><a href="ereservas.php">Estado</a></li>
           </ul>
         </li>
 
@@ -117,7 +121,7 @@
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="profile.php"> Perfil</a></li>
                  
-                    <li><a href="login.php"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a></li>
+                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a></li>
                   </ul>
                 </li>
 
@@ -196,7 +200,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>PERSONAL & USUARIOS REGISTRADOS</h3><br>
+                <h3>PERSONAL REGISTRADO</h3><br>
               </div>
               
 
@@ -215,102 +219,12 @@
             <div class="clearfix"></div>
 
             <div class="row">
-              
 
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Usuarios Registrados</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-                    </ul>
-
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <?php
-                        include ('../db.php');
-                        $sql = "SELECT * FROM `login`";
-                        $re = mysqli_query($con,$sql)
-                    ?>
-                    <table class="table table-responsive table-hover">
-                      <thead >
-                        <tr >
-                          <th class="text-center">#</th>
-                          <th class="text-center">Nombre de usuario</th>
-                          <th class="text-center">Email</th>
-                          <th class="text-center">Tipo de usuario</th>
-                          <th class="text-center">Fecha de registro</th>
-                          <th class="text-center">Acciones</th>
-                        </tr>
-                      </thead>
-                      <tbody class="text-center">
-                      <?php
-										while($row = mysqli_fetch_array($re))
-										{
-										
-                      $id_login = $row['id_login'];
-											$user_login = $row['username'];
-											$fecha_login = $row['fecha_registro'];
-                      $email_login = $row['email'];
-                      $tipoU_login = $row['tipoUsuario'];
-                    
-
-											if($id_login % 2 ==0 )
-											{
-												echo"<tr>
-													<td>".$id_login."</td>
-													<td>".$user_login."</td>
-                          <td>".$email_login."</td>
-                          <td>".$tipoU_login."</td>
-                          <td>".$fecha_login."</td>
-                           <td><button class='item' data-toggle='tooltip' data-placement='top' title='Eliminar personal'><i class='fa fa-trash'></i></button></td>
-												</tr>";
-											}
-											else
-											{
-												echo"<tr>
-                        <td>".$id_login."</td>
-													<td>".$user_login."</td>
-                          <td>".$email_login."</td>
-                          <td>".$tipoU_login."</td>
-                          <td>".$fecha_login."</td>
-                         <td><button class='item' data-toggle='tooltip' data-placement='top' title='Eliminar usuario'><i class='fa fa-trash'></i></button></td>
-                      </tr>";
-											
-											}
-										
-										}
-                    ?>   
-                      </tbody>
-
-                    </table>
-                     <!-- Boton agregar -->
-                  <div class="form-group" class="text-center">
-                        <div class="col-md-offset-5 col-xs-offset-4">
-                            <button  type="button" class="btn btn-secondary mb-1"  data-toggle="modal" data-target="#mediumModal"><i class='fa fa-plus'></i>
-                                Agregar nuevo usuario
-                            </button>
-                        </div>
-                    </div>
-                      <!-- Fin boton -->   
-                  </div>
-                
-                </div>
-              
-              </div>
               <div class="clearfix"></div>
                   <!-- Tabla de personal registrado -->
       <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Personal Registrado</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-                    </ul>
 
-                    <div class="clearfix"></div>
-                  </div>
                   <div class="x_content">
                     <?php
                         include ('../db.php');

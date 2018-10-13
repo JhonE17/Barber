@@ -46,7 +46,6 @@
             <!-- /menu profile quick info -->
 
             <!-- <br /> -->
-
  <!-- sidebar menu -->
  <div id="sidebar-menu" class="menu_fixed hidden-print main_menu">
     <div class="menu_section">
@@ -67,7 +66,6 @@
           </ul>
         </li>
         
-
         <li><a><i class="fa fa-calendar"></i>Reservas<span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
             <li><a href="reservas.php">Crear Reserva</a></li>
@@ -84,6 +82,7 @@
   </div>
   <!-- /sidebar menu -->
 
+  
 
             <!-- /menu footer buttons -->
             <!-- <div class="sidebar-footer hidden-small">
@@ -200,182 +199,202 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>FACTURA DE RESERVA</h3>
+                <h3>USUARIOS REGISTRADOS</h3><br>
               </div>
+              
+
+              <!-- <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div> -->
             </div>
 
             <div class="clearfix"></div>
 
             <div class="row">
-              <div class="col-md-12">
+              
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-                
+               
                   <div class="x_content">
+                    <?php
+                        include ('../db.php');
+                        $sql = "SELECT * FROM `login`";
+                        $re = mysqli_query($con,$sql)
+                    ?>
+                    <table class="table table-responsive table-hover">
+                      <thead >
+                        <tr >
+                          <th class="text-center">#</th>
+                          <th class="text-center">Nombre de usuario</th>
+                          <th class="text-center">Email</th>
+                          <th class="text-center">Tipo de usuario</th>
+                          <th class="text-center">Fecha de registro</th>
+                          <th class="text-center">Acciones</th>
+                        </tr>
+                      </thead>
+                      <tbody class="text-center">
+                      <?php
+										while($row = mysqli_fetch_array($re))
+										{
+										
+                      $id_login = $row['id_login'];
+											$user_login = $row['username'];
+											$fecha_login = $row['fecha_registro'];
+                      $email_login = $row['email'];
+                      $tipoU_login = $row['tipoUsuario'];
+                    
 
-                    <section class="content invoice">
-                      <!-- title row -->
-                      <div class="row">
-                        <div class="col-xs-12 invoice-header">
-                          <h2>
-                                          <i class="fa fa-book"></i> Factura BarberShopQuib
-                                          <small class="pull-right">Fecha: 16/08/2016</small>
-                                      </h2>
-                        </div>
-                        <!-- /.col -->
-                      </div>
-                      <!-- info row -->
-                      <div class="row invoice-info">
-                        <div class="col-sm-4 invoice-col">
-                          De
-                          <address>
-                                          <strong>BarberShopQuib</strong>
-                                          <br>795 Freedom Ave, Suite 600
-                                          <br>New York, CA 94107
-                                          <br>Phone: 1 (804) 123-9876
-                                          <br>Email: ironadmin.com
-                                      </address>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-sm-4 invoice-col">
-                          Para
-                          <address>
-                                          <strong>Jhon Doe</strong>
-                                          <br>795 Freedom Ave, Suite 600
-                                          <br>New York, CA 94107
-                                          <br>Phone: 1 (804) 123-9876
-                                          <br>Email: jon@ironadmin.com
-                                      </address>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-sm-4 invoice-col">
-                          <b>Factura #007612</b>
-                          <br>
-                          
-                          <b>Fecha de la reserva:</b> 2/22/2014
-                          <br>
-                          <b>N° de cuenta:</b> 968-34567
-                        </div>
-                        <!-- /.col -->
-                      </div>
-                      <!-- /.row -->
+											if($id_login % 2 ==0 )
+											{
+												echo"<tr>
+													<td>".$id_login."</td>
+													<td>".$user_login."</td>
+                          <td>".$email_login."</td>
+                          <td>".$tipoU_login."</td>
+                          <td>".$fecha_login."</td>
+                           <td><button class='item' data-toggle='tooltip' data-placement='top' title='Eliminar personal'><i class='fa fa-trash'></i></button></td>
+												</tr>";
+											}
+											else
+											{
+												echo"<tr>
+                        <td>".$id_login."</td>
+													<td>".$user_login."</td>
+                          <td>".$email_login."</td>
+                          <td>".$tipoU_login."</td>
+                          <td>".$fecha_login."</td>
+                         <td><button class='item' data-toggle='tooltip' data-placement='top' title='Eliminar usuario'><i class='fa fa-trash'></i></button></td>
+                      </tr>";
+											
+											}
+										
+										}
+                    ?>   
+                      </tbody>
 
-                      <!-- Table row -->
-                      <div class="row">
-                        <div class="col-xs-12 table">
-                          <table class="table table-striped">
-                            <thead>
-                              <tr>
-                                <th class="text-center">#</th>
-                                <th class="text-center">Servicio</th>
-                                <th class="text-center">Barbero</th>
-                                <th class="text-center">N° de reservas</th>
-                                <th class="text-center">Subtotal</th>
-                                <th class="text-center">Total</th>
-                              </tr>
-                            </thead>
-                            <tbody class="text-center">
-                              <tr>
-                                <td>1</td>
-                                <td>Call of Duty</td>
-                                <td>455-981-221</td>
-                                <td>2
-                                </td>
-                                <td>$64.50</td>
-                                <td>$64.50</td>
-                              </tr>
-                              <tr>
-                                <td>1</td>
-                                <td>Need for Speed IV</td>
-                                <td>247-925-726</td>
-                                <td>1</td>
-                                <td>$50.00</td>
-                                <td>$50.00</td>
-                              </tr>
-                              <tr>
-                                <td>1</td>
-                                <td>Monsters DVD</td>
-                                <td>735-845-642</td>
-                                <td>2</td>
-                                <td>$10.70</td>
-                                <td>$10.70</td>
-                              </tr>
-                              <tr>
-                                <td>1</td>
-                                <td>Grown Ups Blue Ray</td>
-                                <td>422-568-642</td>
-                                <td>3</td>
-                                <td>$25.99</td>
-                                <td>$25.99</td>
-                              </tr>
-                            </tbody>
-                          </table>
+                    </table>
+                     <!-- Boton agregar -->
+                  <div class="form-group" class="text-center">
+                        <div class="col-md-offset-5 col-xs-offset-4">
+                            <button  type="button" class="btn btn-secondary mb-1"  data-toggle="modal" data-target="#mediumModal"><i class='fa fa-plus'></i>
+                                Agregar nuevo usuario
+                            </button>
                         </div>
-                        <!-- /.col -->
-                      </div>
-                      <!-- /.row -->
-
-                      <div class="row">
-                        <!-- accepted payments column -->
-                        <div class="col-xs-6">
-                          <p class="lead">Metodos de pago:</p>
-                          <img src="images/visa.png" alt="Visa">
-                          <img src="images/mastercard.png" alt="Mastercard">
-                          <img src="images/american-express.png" alt="American Express">
-                          <img src="images/paypal.png" alt="Paypal">
-
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-xs-4">
-                          
-                          <div class="table-responsive" >
-                            <table class="table table-hover">
-                              <tbody class="text-center">
-                                <tr>
-                                  <th class="text-left">Subtotal:</th>
-                                  <td>$250.30</td>
-                                </tr>
-                                <tr>
-                                  <th class="text-left">Iva (16%)</th>
-                                  <td>$10.34</td>
-                                </tr>
-                                <tr>
-                                  <th class="text-letf">Total:</th>
-                                  <td>$265.24</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                        <!-- /.col -->
-                      </div>
-                      <!-- /.row -->
-
-                      <!-- this row will not appear when printing -->
-                      <div class="row no-print">
-                        <div class="col-xs-12">
-                          <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i> Imprimir</button>
-                          <button class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Pagar</button>
-                          <button class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="glyphicon glyphicon-floppy-save"></i> Generar PDF</button>
-                        </div>
-                      </div>
-                    </section>
+                    </div>
+                      <!-- Fin boton -->   
                   </div>
+                
                 </div>
+              
               </div>
+         
+              <div class="clearfix"></div>
             </div>
           </div>
         </div>
         <!-- /page content -->
+      <!-- Fin tabla -->
+            </div>
+            
+          </div>
+          
+        </div>
+        <!-- /page content -->
 
-         <!-- footer content -->
-         <footer>
+        <!-- modal medium -->
+			<div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="mediumModalLabel">Datos del nuevo usuario</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form method="post">
+                  <div class="modal-body col-md-6 col-sm-6 col-xs-12">
+                      <label>Nombre completo</label>
+                      <input name="fullname" type="text"  class="form-control" placeholder="Ingrese nombre completo"></div>
+                      
+                  <div class="modal-body col-md-6 col-sm-6 col-xs-12">
+                      <label>Nombre de usuario</label>
+                      <input name="username" type="text" class="form-control" placeholder="Ingrese nombre de usuario">
+                  </div>
+                      
+                  <div class="modal-body col-md-6 col-sm-6 col-xs-12">
+                      <label>Contraseña</label>
+                      <input name="pass" type="password" class="form-control" placeholder="Ingrese contraseña">     
+                  </div>
+                    
+                  <div class="modal-body col-md-6 col-sm-6 col-xs-12">
+                      <label>Documento</label>
+                      <input name="doc" type="text" class="form-control" placeholder="Ingrese documento de identidad">     
+                  </div>
+
+                  <div class="modal-body col-md-6 col-sm-6 col-xs-12">
+                      <label>Email</label>
+                      <input name="email" type="email" class="form-control" placeholder="Ingresar Email">     
+                  </div>
+
+                  <div class="modal-body col-md-6 col-sm-6 col-xs-12">
+                      <label>Telefóno</label>
+                      <input name="phone" type="tel"  class="form-control" placeholder="Ingrese telefóno">     
+                  </div>
+
+                  <div class="modal-body col-md-6 col-sm-6 col-xs-12">
+                      <label>Dirección</label>
+                      <input name="dir" type="text" class="form-control" placeholder="Ingrese dirección">     
+                  </div>
+
+                  <div class="modal-body col-md-6 col-sm-6 col-xs-12">
+                      <label>Cargo</label>
+                      <select name="newtu" class="form-control" required>
+                      <option value selected>Escoga un cargo</option>
+                      <option value="Barbero">Barbero</option>
+                      <option value="Limpieza">Limpieza</option> 
+                  </select>
+              </div>
+                  
+                  <div class="modal-body col-md-6 col-sm-6 col-xs-12">
+                          <label>Tipo de Usuario</label>
+                          <select name="newtu" class="form-control" required>
+                          <option value selected>Escoga un tipo de usuario</option>
+                          <option value="Administrador">Administrador</option>
+                          <option value="Empleado">Empleado</option> 
+                      </select>
+                  </div>
+                     
+                  
+                </form>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary">Confirmar</button>
+                    </div>   
+            </div>
+          </div>
+        </div>
+        <!-- end modal medium -->
+  
+        <!-- footer content -->
+        <footer>
             <div class="pull-right">
                 &COPY; BarberShopQuib - TODOS LOS DERECHOS SON RESERVADOS </a>
             </div>
             <div class="clearfix"></div>
           </footer>
-        <!-- footer content -->
+        <!-- /footer content -->
       </div>
+      <!-- Fin modal agregar-->
+
+  
     </div>
 
     <!-- jQuery -->
@@ -386,6 +405,8 @@
     <script src="../vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>

@@ -54,21 +54,25 @@
       <ul class="nav side-menu">
         <li><a href="index.php"><i class="fa fa-home"></i>Menú Principal</a></li>
 
-        <li><a href="#"><i class="fa fa-bar-chart-o"></i>Pagos & Ganancias<span class="fa fa-chevron-down"></span></a>
-          <ul class="nav child_menu">
-              <li><a href="pagos.php">Pagos</a></li>
-              <li><a href="ganancias.php">Ganancias</a></li>
-            </ul>
+        <li><a href="ganancias.php"><i class="fa fa-bar-chart-o"></i>Ganancias</a>
+        
         </li>
 
         <li><a href="inventario.php"><i class="fa fa-archive"></i>Inventario</a></li>
         
-        <li><a href="personal.php"><i class="fa fa-group"></i>Personal & Usuarios</a></li>
+        <li><a href="#"><i class="fa fa-group"></i>Personal & Usuarios<span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="personal.php">Personal</a></li>
+            <li><a href="usuarios.php">Usuarios</a></li>
+          </ul>
+        </li>
+        
 
         <li><a><i class="fa fa-calendar"></i>Reservas<span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
             <li><a href="reservas.php">Crear Reserva</a></li>
-            <li><a href="ereservas.php">Estado de las reservas</a></li>
+            <li><a href="pagos.php">Facturas</a></li>
+            <li><a href="ereservas.php">Estado</a></li>
           </ul>
         </li>
 
@@ -222,16 +226,12 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Reservas pendientes</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-                    </ul>
-
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                   <?php
                     include('../db.php');
-                    $sql = "SELECT * FROM ereservas   ";
+                    $sql = "SELECT * FROM ereservas WHERE estado_reserva = 'Pendiente'";
                     $re = mysqli_query($con, $sql)
                   ?>
                     <table class="table table-striped ">

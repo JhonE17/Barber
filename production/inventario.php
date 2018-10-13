@@ -1,3 +1,6 @@
+<?php
+include('../db.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -46,39 +49,42 @@
             <!-- /menu profile quick info -->
 
             <!-- <br /> -->
+ <!-- sidebar menu -->
+ <div id="sidebar-menu" class="menu_fixed hidden-print main_menu">
+    <div class="menu_section">
+     
+      <ul class="nav side-menu">
+        <li><a href="index.php"><i class="fa fa-home"></i>Menú Principal</a></li>
 
-         <!-- sidebar menu -->
-         <div id="sidebar-menu" class="menu_fixed hidden-print main_menu">
-            <div class="menu_section">
-             
-              <ul class="nav side-menu">
-                <li><a href="index.php"><i class="fa fa-home"></i>Menú Principal</a></li>
+        <li><a href="ganancias.php"><i class="fa fa-bar-chart-o"></i>Ganancias</a>
+        
+        </li>
 
-                <li><a href="#"><i class="fa fa-bar-chart-o"></i>Pagos & Ganancias<span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                      <li><a href="pagos.php">Pagos</a></li>
-                      <li><a href="ganancias.php">Ganancias</a></li>
-                    </ul>
-                </li>
+        <li><a href="inventario.php"><i class="fa fa-archive"></i>Inventario</a></li>
+        
+        <li><a href="#"><i class="fa fa-group"></i>Personal & Usuarios<span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="personal.php">Personal</a></li>
+            <li><a href="usuarios.php">Usuarios</a></li>
+          </ul>
+        </li>
+        
 
-                <li><a href="inventario.php"><i class="fa fa-archive"></i>Inventario</a></li>
-                
-                <li><a href="personal.php"><i class="fa fa-group"></i>Personal & Usuarios</a></li>
+        <li><a><i class="fa fa-calendar"></i>Reservas<span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="reservas.php">Crear Reserva</a></li>
+            <li><a href="pagos.php">Facturas</a></li>
+            <li><a href="ereservas.php">Estado</a></li>
+          </ul>
+        </li>
 
-                <li><a><i class="fa fa-calendar"></i>Reservas<span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="reservas.php">Crear Reserva</a></li>
-                    <li><a href="ereservas.php">Estado de las reservas</a></li>
-                  </ul>
-                </li>
+        <li><a href="servicios.php"><i class="fa fa-suitcase"></i>Servicios</a>
+      </ul>
+    </div>
+    
 
-                <li><a href="servicios.php"><i class="fa fa-suitcase"></i>Servicios</a>
-              </ul>
-            </div>
-            
-
-          </div>
-          <!-- /sidebar menu -->
+  </div>
+  <!-- /sidebar menu -->
 
 
             <!-- /menu footer buttons -->
@@ -309,9 +315,7 @@
                     </div>
                 </div>
               </div>
-             
-              <div class="clearfix"></div>
-
+                                
               <div class="col-md-6 col-sm-6 col-xs-12">
                   <div class="x_panel">
                     <div class="x_title">
@@ -383,9 +387,12 @@
                     </div>
                   </div>
                 </div>
-  
-                <div class="clearfix"></div>
-                
+                    
+
+              <div class="clearfix"></div>
+
+   
+               
 
               <!-- Tabla para facturas -->
               <!-- <div class="col-md-12 col-sm-12 col-xs-12">

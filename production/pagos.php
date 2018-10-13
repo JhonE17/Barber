@@ -46,28 +46,32 @@
             <!-- /menu profile quick info -->
 
             <!-- <br /> -->
-   <!-- sidebar menu -->
-   <div id="sidebar-menu" class="menu_fixed hidden-print main_menu">
+ <!-- sidebar menu -->
+ <div id="sidebar-menu" class="menu_fixed hidden-print main_menu">
     <div class="menu_section">
      
       <ul class="nav side-menu">
         <li><a href="index.php"><i class="fa fa-home"></i>Menú Principal</a></li>
 
-        <li><a href="#"><i class="fa fa-bar-chart-o"></i>Pagos & Ganancias<span class="fa fa-chevron-down"></span></a>
-          <ul class="nav child_menu">
-              <li><a href="pagos.php">Pagos</a></li>
-              <li><a href="ganancias.php">Ganancias</a></li>
-            </ul>
+        <li><a href="ganancias.php"><i class="fa fa-bar-chart-o"></i>Ganancias</a>
+        
         </li>
 
         <li><a href="inventario.php"><i class="fa fa-archive"></i>Inventario</a></li>
         
-        <li><a href="personal.php"><i class="fa fa-group"></i>Personal & Usuarios</a></li>
+        <li><a href="#"><i class="fa fa-group"></i>Personal & Usuarios<span class="fa fa-chevron-down"></span></a>
+          <ul class="nav child_menu">
+            <li><a href="personal.php">Personal</a></li>
+            <li><a href="usuarios.php">Usuarios</a></li>
+          </ul>
+        </li>
+        
 
         <li><a><i class="fa fa-calendar"></i>Reservas<span class="fa fa-chevron-down"></span></a>
           <ul class="nav child_menu">
             <li><a href="reservas.php">Crear Reserva</a></li>
-            <li><a href="ereservas.php">Estado de las reservas</a></li>
+            <li><a href="pagos.php">Facturas</a></li>
+            <li><a href="ereservas.php">Estado</a></li>
           </ul>
         </li>
 
@@ -78,7 +82,6 @@
 
   </div>
   <!-- /sidebar menu -->
-
   
 
           </div>
@@ -181,7 +184,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>PAGOS</h3>
+                <h3>FACTURAS DE LAS RESERVAS</h3>
               </div>
 
             
@@ -193,13 +196,13 @@
         
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-                  <div class="x_title">
-                    <h2>FACTURA DE LAS RESERVAS</h2>
+                  <!-- <div class="x_title">
+                    <small>FACTURA DE LAS RESERVAS<small>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                     </ul>
                     <div class="clearfix"></div>
-                  </div>
+                  </div> -->
                   <div class="x_content">
                   <?php
                     include('../db.php');
@@ -244,9 +247,9 @@
                                               <td>" .$row['id_ereservas']."</td>
                                               <td>" .$row['fullname']."</td>
                                               <td>" .$row['barbero']."</td>
-                                              <td>" .$row['fecha']."</td>
-                                              <td>" .$row['nreservas']."</td>
                                               <td>" .$row['tipo_servicio']."</td>
+                                              <td>" .$row['nreservas']."</td>
+                                              <td>" .$row['fecha']."</td>
                                               <td>" .$row['estado_reserva']."</td>
                                               <td>" .$row['estado_pago']."</td>
                                               <td><button class='btn btn-default' ><a href='invoice.php'><i class='glyphicon glyphicon-eye-open'></i> Ver factura</a></button></td>
