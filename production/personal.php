@@ -372,82 +372,44 @@
                   </select>
               </div>
                   
-                  <div class="modal-body col-md-6 col-sm-6 col-xs-12">
-                          <label>Tipo de Usuario</label>
-                          <select name="tipouP" class="form-control" required>
-                          <option value selected>Escoga un tipo de usuario</option>
-                          <option value="Administrador">Administrador</option>
-                          <option value="Empleado">Empleado</option> 
-                      </select>
-                  </div>
+              
                      
                   
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="sumbit" name="aggP" class="btn btn-primary">Confirmar</button>
-                  </div>   
-                </form>
+                    <!-- <button type="sumbit" name="aggP" class="btn btn-primary">Confirmar</button> -->
+                    <input type="submit" name="in" value="Confirmar" class="btn btn-primary">
+                  </form>
+                </div>   
             </div>
           </div>
         </div>
         <!-- end modal medium -->
         <!-- Agregar Modal -->
         <?php
-                                include('../db.php');
-                                if (isset($_POST['aggP'])) {
-                                    $nombre = $_POST['fullname'];
-                                    // $user = $_POST['username'];
-                                    // $pass = $_POST['pass'];
-                                    $documento = $_POST['doc'];
-                                    $email = $_POST['email'];
-                                    $tel = $_POST['phone'];
-                                    $dir = $_POST['dir'];
-                                    $cargo = $_POST['cargoP'];
-                                    $tipou = $_POST['tipouP'];
-                                    $estado = 'Activo';
-
-                                    /* Uso "mysqli_real_escape_string()" para escapar las cadenas */
-                                    $check = " SELECT * FROM `personal` WHERE nombre = '" . mysqli_real_escape_string($con, $nombre) . "' AND documento = '" . mysqli_real_escape_string($con, $documento) . "'";
-                                    $rs = mysqli_query($con, $check);
-                                    /* Comprobamos si hubo un error durante la ejecución de la consulta */
-                                    if ($rs === false) {
-                                        die('ERROR SQL: ' . htmlspecialchars(mysqli_error($con)));
-                                    }
-                                    $data = mysqli_fetch_array($rs, MYSQLI_NUM);
-                                    if ($data[0] > 1) {
-                                        echo "<script type='text/javascript'> alert('El servicio que desea agregar ya existe')</script>";
-                                    } else {
-                                        /* También hay que escapar aquí las cadenas */
-                                        $sql = "
-                                          INSERT INTO `personal` (
-                                            `nombre`,
-                                            `documento`,
-                                            `emailP`,
-                                            `telefono`,
-                                            `direccion`,
-                                            `cargo`,
-                                            `estado`,
-                                            `fecha_registro`
-
-                                          ) VALUES (
-                                            '" . mysqli_real_escape_string($con, $nombre) . "',
-                                            '" . mysqli_real_escape_string($con, $documento) . "',
-                                            '" . mysqli_real_escape_string($con, $emailP) . "',
-                                            '" . mysqli_real_escape_string($con, $tel) . "',
-                                            '" . mysqli_real_escape_string($con, $dir) . "',
-                                            '" . mysqli_real_escape_string($con, $cargoP) . "',
-                                            '" . mysqli_real_escape_string($con, $estado) . "',
-                                            '" . mysqli_real_escape_string($con, 'fecha_registro') . "',
-                                          )
-                                        ";
-                                        if (mysqli_query($con, $sql)) {
-                                            echo '<script>alert("Personal agregado") </script>';
-                                        } else {
-                                            echo '<script>alert("Lo Siento ! Revisar el sistema") </script>';
-                                        }
-                                    }
-                                }
-                            ?>
+						if(isset($_POST['in']))
+						{
+							$newnom = $_POST['fullname'];
+							$newdoc = $_POST['doc'];
+              $newem = $_POST['email'];
+              $newtel = $_POST['phone'];
+              $newdir = $_POST['dir'];
+              $newcar = $_POST['cargoP'];
+              $newest = 'Activo';
+                   
+                   
+							
+							$newsql ="Insert into personal (nombre,documento,emailP,telefono,direccion,cargo,estado,fecha_registro) values ('$newnom','$newdoc','$newem','$newtel','$newdir','$newcar','$newest','$fecha_registro')";
+							if(mysqli_query($con,$newsql))
+							{
+							echo' <script language="javascript" type="text/javascript"> alert("!Nuevo Usuario Agregado!") </script>';
+              //No agrega la fecha, revisalo
+              
+						
+							}
+						// header("Location: personal.php");
+						}
+						?>
         <!-- /Agregar Modal -->
         <!-- footer content -->
         <footer>
