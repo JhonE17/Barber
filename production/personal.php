@@ -404,6 +404,7 @@
 							{
 							echo' <script language="javascript" type="text/javascript"> alert("!Nuevo Usuario Agregado!") </script>';
               //No agrega la fecha, revisalo
+              //hay que hacer una condicioón para que no se agregue dos veces con el mismo documento
               
 						
 							}
