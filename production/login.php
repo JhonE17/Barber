@@ -30,16 +30,52 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form>
-              <h1>Inicio de sesión</h1>
+            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+            <?php session_start();
+              require 'admin/config.php';
+              require 'funtions.php';
+
+              $err = '';
+
+              if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                $password = hash('sha512', $password);
+
+                $conexion = conexion($bd_config);
+                $statement = $conexion->prepare('SELECT * FROM login WHERE username = :username AND password = :password');
+                $statement->execute([
+                  ':username' => $username,
+                  ':password' => $password
+                ]);
+                  $rs = $statement->fetch();
+
+                  if ($rs != false) {
+                    $_SESSION['username'] = $username;
+                    header('Location: '.RUTA.'validate.php');
+                  } else {
+                    $err .= '<li class="error">Tu usuario y contraseña son incorrectos</li>';
+                  }
+
+              }
+
+           ?>
+            
+            <h1>Inicio de sesión</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Nombre de usuario" required="" />
+                <input type="text" class="form-control" name="username" placeholder="Nombre de usuario" />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Contraseña" required="" />
+                <input type="password" class="form-control" name="password" placeholder="Contraseña"/>
               </div>
               <div>
-                <a class="btn btn-default submit" href="index.html">Ingresar</a>
+                <ul>
+                     <?php if (!empty($err)) : ?>
+                        <?php echo $err ?>
+                      <?php endif; ?>
+                </ul>
+                
+              <button type="submit" name="submit" class="btn btn-success" href="index.php">Ingresar</button>
                 <a class="reset_pass" href="#">Perdiste tu constrseña?</a>
               </div>
 
@@ -47,7 +83,7 @@
 
               <div class="separator">
                 <p class="change_link">Eres nuevo?
-                  <a href="#signup" class="to_register">Registrate</a>
+                  <a href="<?php echo RUTA.'registro.php'?>" class="to_register">Registrate</a>
                 </p>
 
                 <div class="clearfix"></div>
@@ -64,7 +100,7 @@
 
         <div id="register" class="animate form registration_form">
           <section class="login_content">
-            <form>
+            <!-- <form>
               <h1>Crear una cuenta</h1>
               <div>
                 <input type="text" class="form-control" placeholder="Nombre de usuario" required="" />
@@ -94,7 +130,7 @@
                   <p>©2018 TODOS LOS DERECHOS SON RESERVADOS.</p>
                 </div>
               </div>
-            </form>
+            </form> -->
           </section>
         </div>
       </div>
