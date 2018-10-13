@@ -284,7 +284,7 @@
                      <!-- Boton agregar -->
                   <div class="form-group" class="text-center">
                         <div class="col-md-offset-5 col-xs-offset-4">
-                            <button  type="button" class="btn btn-secondary mb-1"  data-toggle="modal" data-target="#mediumModal"><i class='fa fa-plus'></i>
+                            <button  type="button" class="btn btn-secondary mb-1"  data-toggle="modal" data-target="#mediumModal3"><i class='fa fa-plus'></i>
                                 Agregar nuevo usuario
                             </button>
                         </div>
@@ -310,7 +310,7 @@
         <!-- /page content -->
 
         <!-- modal medium -->
-			<div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+			<div class="modal fade" id="mediumModal3" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -321,68 +321,69 @@
               </div>
               <form method="post">
                   <div class="modal-body col-md-6 col-sm-6 col-xs-12">
-                      <label>Nombre completo</label>
-                      <input name="fullname" type="text"  class="form-control" placeholder="Ingrese nombre completo"></div>
-                      
-                  <div class="modal-body col-md-6 col-sm-6 col-xs-12">
                       <label>Nombre de usuario</label>
-                      <input name="username" type="text" class="form-control" placeholder="Ingrese nombre de usuario">
-                  </div>
+                      <input name="username" type="text"  class="form-control" placeholder="Ingrese nombre de usuario"></div>
                       
                   <div class="modal-body col-md-6 col-sm-6 col-xs-12">
                       <label>Contraseña</label>
-                      <input name="pass" type="password" class="form-control" placeholder="Ingrese contraseña">     
+                      <input name="pass" type="password" class="form-control" placeholder="Ingrese contraseña">
                   </div>
-                    
-                  <div class="modal-body col-md-6 col-sm-6 col-xs-12">
-                      <label>Documento</label>
-                      <input name="doc" type="text" class="form-control" placeholder="Ingrese documento de identidad">     
-                  </div>
-
+                      
                   <div class="modal-body col-md-6 col-sm-6 col-xs-12">
                       <label>Email</label>
-                      <input name="email" type="email" class="form-control" placeholder="Ingresar Email">     
+                      <input name="email" type="email" class="form-control" placeholder="Ingrese correo electronico">     
                   </div>
-
+              
                   <div class="modal-body col-md-6 col-sm-6 col-xs-12">
-                      <label>Telefóno</label>
-                      <input name="phone" type="tel"  class="form-control" placeholder="Ingrese telefóno">     
+                      <label>Privilegio</label>
+                      <select name="priU" class="form-control" required>
+                        <option value selected>Escoga un cargo</option>
+                        <option value="1">Administrador</option>
+                        <option value="2">Trabajador</option> 
+                      </select>
                   </div>
-
-                  <div class="modal-body col-md-6 col-sm-6 col-xs-12">
-                      <label>Dirección</label>
-                      <input name="dir" type="text" class="form-control" placeholder="Ingrese dirección">     
-                  </div>
-
-                  <div class="modal-body col-md-6 col-sm-6 col-xs-12">
-                      <label>Cargo</label>
-                      <select name="newtu" class="form-control" required>
-                      <option value selected>Escoga un cargo</option>
-                      <option value="Barbero">Barbero</option>
-                      <option value="Limpieza">Limpieza</option> 
-                  </select>
-              </div>
                   
                   <div class="modal-body col-md-6 col-sm-6 col-xs-12">
                           <label>Tipo de Usuario</label>
-                          <select name="newtu" class="form-control" required>
-                          <option value selected>Escoga un tipo de usuario</option>
-                          <option value="Administrador">Administrador</option>
-                          <option value="Empleado">Empleado</option> 
-                      </select>
+                          <select name="tipU" class="form-control" required>
+                            <option value selected>Escoga un tipo de usuario</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Trabajador">Trabajador</option> 
+                          </select>
                   </div>
                      
                   
-                </form>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-primary">Confirmar</button>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <input type="submit" name="inU" value="Confirmar" class="btn btn-primary">
+                  </form>
                     </div>   
             </div>
           </div>
         </div>
         <!-- end modal medium -->
-  
+        
+               <!-- Agregar Modal -->
+               <?php
+						if(isset($_POST['inU']))
+						{
+							$newuserU = $_POST['username'];
+							$newpassU = $_POST['pass'];
+              $newemU = $_POST['email'];
+              $newpriU = $_POST['priU'];
+              $newtipU = $_POST['tipU'];
+              
+							$newsql ="INSERT INTO login (username,password,email,privilegio,tipoUsuario) values ('$newuserU','$newpassU','$newemU','$newpriU','$newtipU')";
+							if(mysqli_query($con,$newsql))
+							{
+							echo' <script language="javascript" type="text/javascript"> alert("!Nuevo Usuario Agregado!") </script>';
+  					
+							}
+					
+						}
+						?>
+        <!-- /Agregar Modal -->
+
         <!-- footer content -->
         <footer>
             <div class="pull-right">

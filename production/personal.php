@@ -396,12 +396,16 @@
               $newdir = $_POST['dir'];
               $newcar = $_POST['cargoP'];
               $newest = 'Activo';
-              
-							$newsql ="INSERT INTO personal (nombre,documento,emailP,telefono,direccion,cargo,estado) values ('$newnom','$newdoc','$newem','$newtel','$newdir','$newcar','$newest')";
+                   
+                   
+							
+							$newsql ="Insert into personal (nombre,documento,emailP,telefono,direccion,cargo,estado) values ('$newnom','$newdoc','$newem','$newtel','$newdir','$newcar','$newest')";
 							if(mysqli_query($con,$newsql))
 							{
 							echo' <script language="javascript" type="text/javascript"> alert("!Nuevo Usuario Agregado!") </script>';
-  					
+              
+              
+						
 							}
 						// header("Location: personal.php");
 						}
