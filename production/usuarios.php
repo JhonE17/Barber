@@ -260,7 +260,7 @@
                           <td>".$email_login."</td>
                           <td>".$tipoU_login."</td>
                           <td>".$fecha_login."</td>
-                           <td><button class='item' data-toggle='tooltip' data-placement='top' title='Eliminar personal'><i class='fa fa-trash'></i></button></td>
+                          <td><a href=removeusuarios.php?eid=".$id_login ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Eliminar</button></td>
 												</tr>";
 											}
 											else
@@ -271,7 +271,7 @@
                           <td>".$email_login."</td>
                           <td>".$tipoU_login."</td>
                           <td>".$fecha_login."</td>
-                         <td><button class='item' data-toggle='tooltip' data-placement='top' title='Eliminar usuario'><i class='fa fa-trash'></i></button></td>
+                          <td><a href=removeusuarios.php?eid=".$id_login ." <button class='btn btn-danger'> <i class='fa fa-edit' ></i> Eliminar</button></td>
                       </tr>";
 											
 											}
@@ -372,7 +372,7 @@
               $newemU = $_POST['email'];
               $newpriU = $_POST['priU'];
               $newtipU = $_POST['tipU'];
-              
+
               
 							$newsql ="INSERT INTO login (username,password,email,privilegio,tipoUsuario) values ('$newuserU','$newpassU','$newemU','$newpriU','$newtipU')";
 							if(mysqli_query($con,$newsql))
