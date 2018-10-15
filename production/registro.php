@@ -1,3 +1,44 @@
+           <?php session_start(); 
+              require 'admin/config.php';
+              require 'funtions.php';
+
+            if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+              $username = limpiarDatos($_POST['username']);
+              $password = limpiarDatos($_POST['password']);
+              $password = hash('sha512', $password);
+              $email = limpiarDatos($_POST['email']);
+
+              $err = '';
+              // Validacion de campos de texto 
+              if (empty($username) || empty($password || empty($email))) {
+                $err .= '<li class="error">Por favor llenar todos los campos</li>';
+              }else {
+                //validacion si el usuario existe
+                $conexion = conexion($bd_config);
+                $statement = $conexion->prepare('SELECT * FROM login WHERE username = :username LIMIT 1');
+                $statement->execute([
+                  ':username' => $username
+                ]);
+                $rs = $statement->fetch();
+
+                if ($rs != false) {
+                  $err .= '<li class="error"> Este usuario ya existe</li>';
+                }
+              }
+
+            if ($err == '') {
+              $conexion = conexion($bd_config);
+              $statement = $conexion->prepare('INSERT INTO login (id_login, username, password, email) VALUES (null, :username, :password, :email)');
+              $statement->execute([
+                ':username' => $username,
+                ':password' => $password,
+                ':email' => $email
+              ]);
+
+              header('Location: '.RUTA.'login.php');
+            }
+            }
+           ?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -32,59 +73,12 @@
           <section class="login_content">
 
            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
-           <?php session_start(); 
-              require 'admin/config.php';
-              require 'funtions.php';
-
-            if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-              $username = limpiarDatos($_POST['username']);
-              $password = limpiarDatos($_POST['password']);
-              $password = hash('sha512', $password);
-              $email = limpiarDatos($_POST['email']);
-
-
-              $err = '';
-
-              // Validacion de campos de texto
-              
-              if (empty($username) || empty($password || empty($email))) {
-                $err .= '<li class="error">Por favor llenar todos los campos</li>';
-              }else {
-                //validacion si el usuario existe
-                $conexion = conexion($bd_config);
-                $statement = $conexion->prepare('SELECT * FROM login WHERE username = :username LIMIT 1');
-                $statement->execute([
-                  ':username' => $username
-                ]);
-                $rs = $statement->fetch();
-
-                if ($rs != false) {
-                  $err .= '<li class="error"> Este usuario ya existe</li>';
-                }
-              }
-
-            if ($err == '') {
-              $conexion = conexion($bd_config);
-              $statement = $conexion->prepare('INSERT INTO login (id_login, username, password, email) VALUES (null, :username, :password, :email)');
-              $statement->execute([
-                ':username' => $username,
-                ':password' => $password,
-                ':email' => $email
-              ]);
-
-              header('Location: '.RUTA.'login.php');
-            }
-
-            }
-
-
-           ?>
               <h1>Crear una cuenta</h1>
               <div>
                 <input type="text" class="form-control" name="username" placeholder="Nombre de usuario"  />
               </div>
               <div>
-                <input type="email" class="form-control" name="email"aceholder="Email" />
+                <input type="email" class="form-control" name="email" placeholder="Email" />
               </div>
               <div>
                 <input type="password" class="form-control" name="password" placeholder="Contraseña"  />

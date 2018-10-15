@@ -1,3 +1,13 @@
+<?php session_start();
+require 'admin/config.php';
+require 'funtions.php';
+//comprobar sesion
+if (isset($_SESSION['username'])) {
+}else{
+  header('Location '.RUTA.'login.php');
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>

@@ -1,5 +1,4 @@
  <?php
-
 function conexion($bd_config){
 
      try{ 
@@ -19,8 +18,11 @@ function limpiarDatos($datos){
 }
 
 function iniciarSesion($table, $conexion){
-    $statement = $conexion->prepare("SELECT * FROM $table");
-    $statement->execute();
+    $statement = $conexion->prepare("SELECT * FROM $table WHERE username = :username AND password = :password");
+    $statement->execute([
+        ':usuario' => $_SESSION['username'],
+        ':password' => $_SESSION['password']
+      ]);
     return $statement->fetch(PDO::FETCH_ASSOC);
 }
 

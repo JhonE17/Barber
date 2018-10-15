@@ -1,5 +1,8 @@
-<?php
+<?php session_start();
+require 'admin/config.php';
+require 'funtions.php';
+
 session_destroy();
-unset($_SESSION["username"]);
-header("location:index.php");
+
+header('Location'.RUTA.'../index.php');
 ?>
