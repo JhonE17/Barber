@@ -228,7 +228,7 @@
                   <div class="x_content">
                     <?php
                         include ('../db.php');
-                        $sql = "SELECT * FROM `personal`";
+                        $sql = "SELECT * FROM `personal` ";
                         $re = mysqli_query($con,$sql)
                     ?>
                     <table class="table table-responsive table-hover">
@@ -247,6 +247,7 @@
                         </tr>
                       </thead>
                       <tbody class="text-center">
+
                       <?php
 										while($row = mysqli_fetch_array($re))
 										{
@@ -273,8 +274,7 @@
                           <td>".$cargoP."</td>
                           <td>".$estadoP."</td>
                           <td>".$fechaP."</td>
-                          <td><a href=despedir.php?eid=".$id_personal ." <button class='btn btn-default'> <i class='glyphicon glyphicon-ban-circle' ></i> Despedir</button></td>
-
+                          <td><a href=despedir.php?eid=".$id_personal ." <button class='btn btn-warning'> <i class='glyphicon glyphicon-ban-circle' ></i> Despedir</button></td>
                           <td><a href=removepersonal.php?eid=".$id_personal ." <button class='btn btn-danger'> <i class='fa fa-trash' ></i> Eliminar</button></td>
 												</tr>";
 											}
@@ -291,7 +291,6 @@
                         <td>".$estadoP."</td>
                         <td>".$fechaP."</td>
                         <td><a href=despedir.php?eid=".$id_personal ." <button class='btn btn-warning'> <i class='glyphicon glyphicon-ban-circle' ></i> Despedir</button></td>
-
                         <td><a href=removepersonal.php?eid=".$id_personal ." <button class='btn btn-danger'> <i class='fa fa-trash' ></i> Eliminar</button></td>
                       </tr>";
                    
@@ -399,19 +398,15 @@
               $newdir = $_POST['dir'];
               $newcar = $_POST['cargoP'];
               $newest = 'Activo';
-                   
-                   
-							
+              
 							$newsql ="INSERT INTO personal (nombre,documento,emailP,telefono,direccion,cargo,estado) values ('$newnom','$newdoc','$newem','$newtel','$newdir','$newcar','$newest')";
 							if(mysqli_query($con,$newsql))
 							{
-							echo' <script language="javascript" type="text/javascript"> alert("!Nuevo Usuario Agregado!") </script>';
+							echo' <script language="javascript" type="text/javascript"> alert("!Nuevo personal agregado!") </script>';
               
-              
-						
-							}
-						// header("Location: personal.php");
-						}
+              }
+                 header("Location: personal.php");
+						  }
 						?>
         <!-- /Agregar Modal -->
         <!-- footer content -->
