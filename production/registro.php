@@ -28,7 +28,7 @@
 
             if ($err == '') {
               $conexion = conexion($bd_config);
-              $statement = $conexion->prepare('INSERT INTO login (id_login, username, password, email) VALUES (null, :username, :password, :email)');
+              $statement = $conexion->prepare('INSERT INTO login (id_login, username, password, email,privilegio) VALUES (null, :username, :password, :email,3)');
               $statement->execute([
                 ':username' => $username,
                 ':password' => $password,
@@ -92,6 +92,7 @@
                 <button type="submit" name="submit" class="btn btn-success" href="registro.php">Registrar</button>
               </div>
 
+                </form>
               <div class="clearfix"></div>
 
               <div class="separator">
@@ -103,11 +104,10 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i>BarberShopQuib</h1>
+                  <h1><i class="fa fa-paw"></i> BarberShopQuib</h1>
                   <p>©2018 TODOS LOS DERECHOS SON RESERVADOS.</p>
                 </div>
               </div>
-            </form>
 
            
           </section>
