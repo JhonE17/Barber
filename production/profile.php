@@ -209,15 +209,7 @@ if (!isset($_SESSION['username'])) {
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Información de usuario</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                     
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
+                 
                   <div class="x_content">
                     <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
                       <div class="profile_img">
@@ -226,7 +218,7 @@ if (!isset($_SESSION['username'])) {
                           <img class="img-responsive avatar-view" src="images/picture.jpg" alt="Avatar" title="Change the avatar">
                         </div>
                       </div>
-                      <h3>Samuel Doe</h3>
+                      <h3><?php echo $_SESSION['username'];?></h3>
 
                       <ul class="list-unstyled user_data">
                         <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
@@ -245,6 +237,11 @@ if (!isset($_SESSION['username'])) {
                       <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Editar perfil</a>
                       <br />
 
+                        <div class="form-group">
+                          <label for="file-input" class=" form-control-label">Eliga una foto</label>
+                          <input type="file" id="file-input" name="file-input" class="form-control-file">
+                        </div>
+
                     </div>
                   
                   </div>
@@ -255,10 +252,10 @@ if (!isset($_SESSION['username'])) {
         </div>
         <!-- /page content -->
 
-        <!-- footer content -->
+ <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+              &COPY; BarberShopQuib - TODOS LOS DERECHOS SON RESERVADOS </a>
           </div>
           <div class="clearfix"></div>
         </footer>
