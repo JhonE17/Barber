@@ -15,9 +15,10 @@
               }else {
                 //validacion si el usuario existe
                 $conexion = conexion($bd_config);
-                $statement = $conexion->prepare('SELECT * FROM login WHERE username = :username LIMIT 1');
+                $statement = $conexion->prepare('SELECT * FROM login WHERE username = :username AND password = :password');
                 $statement->execute([
-                  ':username' => $username
+                  ':username' => $username,
+                  ':password' => $password
                 ]);
                 $rs = $statement->fetch();
 
@@ -28,7 +29,7 @@
 
             if ($err == '') {
               $conexion = conexion($bd_config);
-              $statement = $conexion->prepare('INSERT INTO login (id_login, username, password, email, privilegio, tipoUsuario) VALUES (null, :username, :password, :email, 3, "User")');
+              $statement = $conexion->prepare('INSERT INTO login (id_login, username, password, email, privilegio, tipoUsuario) VALUES (null, :username, :password, :email, 3, "Usuario")');
               $statement->execute([
                 ':username' => $username,
                 ':password' => $password,

@@ -226,7 +226,7 @@
                   <div class="x_content">
                     <?php
                         include ('../db.php');
-                        $sql = "SELECT * FROM `login`";
+                        $sql = "SELECT * FROM `login` ";
                         $re = mysqli_query($con,$sql)
                     ?>
                     <table class="table table-responsive table-hover">
