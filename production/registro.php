@@ -15,9 +15,10 @@
               }else {
                 //validacion si el usuario existe
                 $conexion = conexion($bd_config);
-                $statement = $conexion->prepare('SELECT * FROM login WHERE username = :username LIMIT 1');
+                $statement = $conexion->prepare('SELECT * FROM login WHERE username = :username AND password = :password');
                 $statement->execute([
-                  ':username' => $username
+                  ':username' => $username,
+                  ':password' => $password
                 ]);
                 $rs = $statement->fetch();
 
@@ -28,7 +29,7 @@
 
             if ($err == '') {
               $conexion = conexion($bd_config);
-              $statement = $conexion->prepare('INSERT INTO login (id_login, username, password, email) VALUES (null, :username, :password, :email)');
+              $statement = $conexion->prepare('INSERT INTO login (id_login, username, password, email, privilegio, tipoUsuario) VALUES (null, :username, :password, :email, 3, "Usuario")');
               $statement->execute([
                 ':username' => $username,
                 ':password' => $password,
@@ -78,7 +79,7 @@
                 <input type="text" class="form-control" name="username" placeholder="Nombre de usuario"  />
               </div>
               <div>
-                <input type="email" class="form-control" name="email" placeholder="Email" />
+                <input type="email" class="form-control" name="email" placeholder="Correo electronico" />
               </div>
               <div>
                 <input type="password" class="form-control" name="password" placeholder="Contraseña"  />
@@ -92,22 +93,22 @@
                 <button type="submit" name="submit" class="btn btn-success" href="registro.php">Registrar</button>
               </div>
 
+                </form>
               <div class="clearfix"></div>
 
               <div class="separator">
                 <p class="change_link">Ya estas registrado?
-                  <a href="<?php echo RUTA.'login.php' ?>" class="to_register">Inicia sesión</a>
+                  <a href="login.php" class="to_register">Inicia sesión</a>
                 </p>
 
                 <div class="clearfix"></div>
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i>BarberShopQuib</h1>
+                  <h1><i class="fa fa-paw"></i> BarberShopQuib</h1>
                   <p>©2018 TODOS LOS DERECHOS SON RESERVADOS.</p>
                 </div>
               </div>
-            </form>
 
            
           </section>
