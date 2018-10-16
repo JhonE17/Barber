@@ -78,7 +78,7 @@
                 <input type="text" class="form-control" name="username" placeholder="Nombre de usuario"  />
               </div>
               <div>
-                <input type="email" class="form-control" name="email" placeholder="Email" />
+                <input type="email" class="form-control" name="email" placeholder="Correo electronico" />
               </div>
               <div>
                 <input type="password" class="form-control" name="password" placeholder="Contraseña"  />
