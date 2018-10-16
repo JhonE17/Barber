@@ -277,6 +277,7 @@ if (!isset($_SESSION['username'])) {
                           </div>  
                        </div>
                     </div>
+                    <input type="submit" name="submit" value="Crear reserva" class="btn btn-defautl">
                 </div>
                 <?php
                 if (isset($_POST['submit'])) {
@@ -337,7 +338,7 @@ if (!isset($_SESSION['username'])) {
                                 }
                             ?>
 
-                              <input type="submit" name="submit" value="Crear reserva" class="btn btn-primary">
+                              
 						</form>
 							
             
@@ -382,6 +383,14 @@ if (!isset($_SESSION['username'])) {
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
 
+    <script src="js/jquery.datetimepicker.full.js" > </script>
+      <script>
+      $("#datetimepicker").datetimepicker({
+          format: 'd/m/Y h:i A',
+          step:60,  
+      });
+      </script>
+                        
 	
   </body>
 </html>
