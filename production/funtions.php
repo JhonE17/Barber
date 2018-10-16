@@ -17,11 +17,11 @@ function limpiarDatos($datos){
    return $datos; 
 }
 
-function iniciarSesion($table, $conexion){
+function iniciarSesion($table, $conexion, $username, $password){
     $statement = $conexion->prepare("SELECT * FROM $table WHERE username = :username AND password = :password");
     $statement->execute([
-        ':usuario' => $_SESSION['username'],
-        ':password' => $_SESSION['password']
+        ':usuario' => $username,
+        ':password' => $password
       ]);
     return $statement->fetch(PDO::FETCH_ASSOC);
 }

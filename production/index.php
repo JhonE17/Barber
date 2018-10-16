@@ -1,10 +1,9 @@
 <?php session_start();
 require 'admin/config.php';
 require 'funtions.php';
-//comprobar sesion
-if (isset($_SESSION['username'])) {
-}else{
-  header('Location '.RUTA.'login.php');
+//comprobar sesion  
+if (!isset($_SESSION['username'])) {
+  header('Location: '.RUTA.'login.php');
 }
 
 ?>
@@ -121,7 +120,7 @@ if (isset($_SESSION['username'])) {
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="profile.php"><i class="fa fa-user"></i> Perfil</a></li>
                  
-                    <li><a href="../index.php"><i class="fa fa-sign-out "></i> Cerrar Sesión</a></li>
+                    <li><a href="<?php echo RUTA.'logout.php' ?>"><i class="fa fa-sign-out "></i> Cerrar Sesión</a></li>
                   </ul>
                 </li>
 

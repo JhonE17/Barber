@@ -1,28 +1,44 @@
 <?php session_start();
+  
   require 'admin/config.php';
   require 'funtions.php';
+
+  if (isset($_SESSION['username'])) {
+  header('Location: '.RUTA.'index.php');
+  }
   $err = '';
   if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $username = $_POST['username'];
     $password = $_POST['password'];
     $password = hash('sha512', $password);
+    $password = substr($password, 0, 30);
     $conexion = conexion($bd_config);
-    $statement = $conexion->prepare('SELECT * FROM login WHERE username = :username AND password = :password');
-    $statement->execute([
+
+if (empty($username) || empty($password)) {
+  $err .= '<li>Por favor llena los datos</li>';
+}else {
+  
+  $statement = $conexion->prepare('SELECT * FROM login WHERE username = :username AND password = :password');
+  $statement->execute([
       ':username' => $username,
       ':password' => $password
     ]);
-      $rs = $statement->fetch();
-      if ($rs !== false) {
-        $_SESSION['username'] = $username;
-        header('Location: '.RUTA.'validate.php');
-      } else {
-        $err .= '<li class="error">Tu usuario y contraseña son incorrectos</li>';
-      }
-      }
+  $rs = $statement->fetch(PDO::FETCH_ASSOC);
 
+  if ($rs !== false) {
+    $_SESSION['username'] = $username;
+    header('Location: '.RUTA.'index.php');
+  }else {
+    $err .= '<li>Usuario y/o datos incorrectos</li>';
+  }
 
+     
+}
+  
+}
 ?>
+
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -55,7 +71,7 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
+            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
             
             <h1>Inicio de sesión</h1>
               <div>
@@ -69,7 +85,7 @@
                         <?php echo $err ?>
                       <?php endif; ?>
                 </ul>
-              <button type="submit" name="submit" class="btn btn-success" href="index.php">Ingresar</button>
+              <button type="submit" name="submit" class="btn btn-success">Ingresar</button>
              
 
               <div class="clearfix"></div>

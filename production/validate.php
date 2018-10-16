@@ -6,6 +6,6 @@ require 'funtions.php';
 //Comprobar sesion
     if (!isset($_SESSION['username'])){
 
-header('Location'.RUTA.'login.php');
-}
+        header('Location: '.RUTA.'login.php');
+    }
 ?>
