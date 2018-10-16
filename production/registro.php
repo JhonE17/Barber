@@ -28,7 +28,7 @@
 
             if ($err == '') {
               $conexion = conexion($bd_config);
-              $statement = $conexion->prepare('INSERT INTO login (id_login, username, password, email,privilegio) VALUES (null, :username, :password, :email,3)');
+              $statement = $conexion->prepare('INSERT INTO login (id_login, username, password, email, privilegio, tipoUsuario) VALUES (null, :username, :password, :email, 3, "User")');
               $statement->execute([
                 ':username' => $username,
                 ':password' => $password,
@@ -97,7 +97,7 @@
 
               <div class="separator">
                 <p class="change_link">Ya estas registrado?
-                  <a href="<?php echo RUTA.'login.php' ?>" class="to_register">Inicia sesión</a>
+                  <a href="login.php" class="to_register">Inicia sesión</a>
                 </p>
 
                 <div class="clearfix"></div>
