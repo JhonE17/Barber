@@ -260,10 +260,10 @@ html , body{
     width: 35%;
     float: left
 }
-.img-circle.profile_img {
+..profile_img {
     width: 70%;
     background: #fff;
-    margin-left: 15%;
+    margin-left: 10%;
     z-index: 1000;
     position: inherit;
     margin-top: 10px;
@@ -292,7 +292,7 @@ html , body{
 .profile.img_2 .profile_pic {
     width: 100%
 }
-.profile.img_2 .profile_pic .img-circle.profile_img {
+.profile.img_2 .profile_pic ..profile_img {
     width: 50%;
     margin: 10px 0 0
 }
