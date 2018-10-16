@@ -44,7 +44,7 @@ if (!isset($_SESSION['username'])) {
         <div class="col-md-3 left_col menu_fixed">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>BarberShopQuib</span></a>
+              <a href="index.php" class="site_title"><i class="fa fa-paw"></i> <span>BarberShopQuib</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -118,7 +118,7 @@ if (!isset($_SESSION['username'])) {
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="profile.html"> Perfil</a></li>
+                    <li><a href="profile.php"> Perfil</a></li>
                  
                     <li><a href="<?php echo RUTA.'logout.php' ?>"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a></li>
                   </ul>
