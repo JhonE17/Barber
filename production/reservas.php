@@ -195,134 +195,157 @@
             </div>
             <div class="clearfix"></div>
 
-            <div class="row">
-
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Datos de la reserva</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-
-
-                    <!-- Smart Wizard -->
-                   
-                    <div id="wizard" class="form_wizard wizard_horizontal">
-                      <ul class="wizard_steps">
-                        <li>
-                          <a href="#step-1">
-                            <span class="step_no">1</span>
-                              <span class="step_descr">
-                                Información personal<br />
-                                
-                              </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#step-2">
-                            <span class="step_no">2</span>
-                            <span class="step_descr">
-                                              Datos de la reserva<br />
-                                            
-                                          </span>
-                          </a>
-                        </li>
-                        
-                      </ul>
-                      <div id="step-1">
-                        <form class="form-horizontal form-label-left">
-
-                          <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nombre completo<span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" name="fullnameR" required="required" class="form-control col-md-7 col-xs-12">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Email <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="email"  name="emailR" required="required" class="form-control col-md-7 col-xs-12">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Telefóno</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input name="telR" class="form-control col-md-7 col-xs-12" type="tel" >
-                            </div>
-                          </div>
-                         
-                          
-                        </form>
-
-                      </div>
-                      <div id="step-2">
-                        <form class="form-horizontal form-label-left">
-
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Tipo de servicio</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                  <select name="serviceR" class="form-control" required>
-                                      <option value selected >Eliga un servicio</option>
-                                      <option value="Limpieza"> Limpieza</option>
-                                      <option value="Maquinas"> Maquinas</option> 
-                                      <option value="Insumos"> Insumos</option> 
-                                      <option value="Insumos"> Indumentaria</option>
-                                  </select>
-                                </div> <br><br>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Barbero</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                  <select name="barberoR" class="form-control" required>
-                                      <option value selected >Eliga un barbero</option>
-                                      <option value="Limpieza"> Limpieza</option>
-                                      <option value="Maquinas"> Maquinas</option> 
-                                      <option value="Insumos"> Insumos</option> 
-                                      <option value="Insumos"> Indumentaria</option>
-                                  </select>
-                                </div> <br><br>
-                            </div>
-
-                            <div class="form-group">
-                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">N° de reservas<span class="required">*</span>
-                              </label>
-                              <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="number" min="0" max="3" step="0" name="fullnameR" required="required" class="form-control col-md-7 col-xs-12">
+                <div class="row">
+                
+                <div class="col-md-5 col-sm-5 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                        INFORMACION PERSONAL
+                        </div>
+                        <div class="panel-body">
+                          <form name="form" method="POST">
+                            
+                              <div class="form-group">
+                                <label>Nombre completo</label> 
+                                <input name="nombre" class="form-control" required>
                               </div>
-                            </div>
-                            <div class="form-group">
-                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Fecha & Hora<span class="required">*</span>
-                              </label>
-                              <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="date"  name="fechaR" required="required" class="form-control col-md-7 col-xs-12">
+                            
+                              <div class="form-group">
+                                <label>Email</label>
+                                <input name="email" type="email" class="form-control" required>
                               </div>
-                            </div>
+                              
+                              <div class="form-group">
+                                <label>Teléfono</label>
+                                <input name="telefono" type ="text" class="form-control" required>                    
+                              </div>   
+                       </div>
                         
-                          </form>
-                      </div>
-                      
                     </div>
-                    <!-- End SmartWizard Content -->
-
-
-
-
-
-                 
-                    <!-- End SmartWizard Content -->
-                  </div>
                 </div>
-              </div>
-            </div>
+                
+                  
+                <div class="row">
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                          INFORMACIÓN DE RESERVA
+                        </div>
+                        <div class="panel-body">
+								          <div class="form-group">
+                            <label>Tipo de servicio*</label>
+                            <select name="tservicio"  class="form-control" required>
+                              <option value selected ></option>
+                              <option value="BARBER SHOP">  BARBER SHOP</option>
+                              <option value="AFEITAR">AFEITAR</option>
+                              <option value="CERQUILLO">CERQUILLO</option>
+                              <option value="DEPILACIÓN">DEPILACIÓN</option>
+                            </select>
+                          </div>
+							            <div class="form-group">
+                            <label>Barberos</label>
+                           <select name="barbero" class="form-control" required>
+												      <option value selected ></option>
+                              <option value="Andres Mejia"> Andres Mejia</option>
+                              <option value="Carlos Perea">Carlos Perea</option>
+												      <option value="Jorge Mosquera">Jorge Mosquera</option>
+                              <option value="William Zapata">William Zapata</option>                                             
+                           </select>
+                          </div>
+          							  <div class="form-group">
+                            <label>No. de reservas*</label>
+                            <select name="nreserva" class="form-control" required>
+												      <option value selected ></option>
+                              <option value="1">1</option>
+                              <option value="2">2</option> 
+												      <option value="3">3</option>
+												      <option value="4">4</option>
+                            </select>
+                          </div> 
+							        
+							            <div class="form-group"> 
+                            <label>Fecha Y Hora</label>
+                            <input type="text" id="datetimepicker" min="07:00" max="18:00" name="fecha" class="form-control"> 
+                          </div>  
+                       </div>
+                    </div>
+                </div>
+                <?php
+                if (isset($_POST['submit'])) {
+                  include('../db.php');
+                                    $nombre = $_POST['nombre'];
+                                    $email = $_POST['email'];
+                                    $telefono = $_POST['telefono'];
+                                    $tipo_servicio = $_POST['tservicio'];
+                                    $barbero = $_POST['barbero'];
+                                    $nreservas = $_POST['nreserva'];
+                                    $fecha = $_POST['fecha'];
+                                    $est_reserva = "Pendiente";
+                                    $est_pago = "Pendiente";
+
+                                    /* Uso "mysqli_real_escape_string()" para escapar las cadenas */
+                                    $check = " SELECT * FROM `ereservas` WHERE fecha = '" . mysqli_real_escape_string($con, $fecha) . "' AND fullname = '" . mysqli_real_escape_string($con, $nombre) . "'";
+                                    $rs = mysqli_query($con, $check);
+                                    /* Comprobamos si hubo un error durante la ejecución de la consulta */
+                                    if ($rs === false) {
+                                        die('ERROR SQL: ' . htmlspecialchars(mysqli_error($con)));
+                                    }
+                                    $data = mysqli_fetch_array($rs, MYSQLI_NUM);
+                                    if ($data[0] > 1) {
+                                        echo "<script type='text/javascript'> alert('El servicio que desea agregar ya existe')</script>";
+                                    } else {
+                                        /* También hay que escapar aquí las cadenas */
+                                        $sql = "
+                                          INSERT INTO `ereservas` (
+                                            `fullname`,
+                                            `email`,
+                                            `barbero`,
+                                            `fecha`,
+                                            `nreservas`,
+                                            `tipo_servicio`,
+                                            `telefono`,
+                                            `estado_reserva`,
+                                            `estado_pago`
+                                           
+                                          ) VALUES (
+                                            '" . mysqli_real_escape_string($con, $nombre) . "',
+                                            '" . mysqli_real_escape_string($con, $email) . "',
+                                            '" . mysqli_real_escape_string($con, $barbero) . "',
+                                            '" . mysqli_real_escape_string($con, $fecha) . "',
+                                            '" . mysqli_real_escape_string($con, $nreservas) . "',
+                                            '" . mysqli_real_escape_string($con, $tipo_servicio) . "',
+                                            '" . mysqli_real_escape_string($con, $telefono) . "',
+                                            '" . mysqli_real_escape_string($con, $est_reserva) . "',
+                                            '" . mysqli_real_escape_string($con, $est_pago) . "'
+
+                                          )
+                                        ";
+                                        if (mysqli_query($con, $sql)) {
+                                            echo '<script>alert("Reserva hecha con exíto") </script>';
+                                        } else {
+                                            echo '<script>alert("Lo Siento ! Revisar el sistema") </script>';
+                                        }
+                                    }
+                                }
+                            ?>
+
+                              <input type="submit" name="submit" value="Crear reserva" class="btn btn-primary">
+						</form>
+							
+            
+          </div>
+          
+          
+        </div>
+        
+                    
+            
+				
+					</div>
+
+
+
+
           </div>
         </div>
         <!-- /page content -->
