@@ -30,9 +30,7 @@ if (empty($username) || empty($password)) {
     header('Location: '.RUTA.'index.php');
   }else {
     $err .= '<li>Usuario y/o datos incorrectos</li>';
-  }
-
-     
+  }  
 }
   
 }

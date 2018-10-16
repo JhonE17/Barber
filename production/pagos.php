@@ -1,3 +1,11 @@
+<?php session_start();
+require 'admin/config.php';
+require 'funtions.php';
+//comprobar sesion  
+if (!isset($_SESSION['username'])) {
+  header('Location: '.RUTA.'login.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -104,7 +112,7 @@
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="profile.php"> Perfil</a></li>
                  
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a></li>
+                    <li><a href="<?php echo RUTA.'logout.php' ?>"><i class="fa fa-sign-out pull-right"></i> Cerrar Sesión</a></li>
                   </ul>
                 </li>
 

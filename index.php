@@ -1,4 +1,5 @@
 <?php
+require './production/admin/config.php';
 include('db.php');
 ?>
 <!DOCTYPE html>
@@ -179,7 +180,7 @@ include('db.php');
 		            <li><a href="#" data-nav-section="servicios"><span><i class=" icon-book"></i> Servicios</span></a></li>
 		            <li><a href="#" data-nav-section="equipo"><span><i class=" icon-users"></i> Equipo</span></a></li>
 					<li><a href="#" data-nav-section="contactenos"><span><i class=" icon-mail2"></i> Contáctenos</span></a></li>
-					<li><a href="./production/login.html"><span><i class="icon-lock"></i> Ingresar</span></a></li>
+					<li><a href="<?php echo RUTA.'./production/login.php' ?>"><span><i class="icon-lock"></i> Ingresar</span></a></li>
 				</ul>
 			</div>
 			    </nav>
