@@ -3,5 +3,5 @@ require 'admin/config.php';
 
 session_destroy();
 
-header('Location: '.RUTA.'login.php');
+header('Location: '.RUTA.'../index.php');
 ?>
