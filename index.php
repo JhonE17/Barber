@@ -464,7 +464,7 @@ include('db.php');
 						<span class="fh5co-position">Fundador & Web Developer</span>
 						<p>Creador de BARBERSHOPQUIB En hacerla una gran peluquería y con una gran visión frente a las metas de este negocio.</p>
 						<ul class="social social-circle">
-							<li><a href="#"><i class="icon-whatsapp"></i></a></li>
+							<li><a href="3183919028"><i class="icon-whatsapp"></i></a></li>
 							<li><a href="https://www.facebook.com/Stiiwar.Asprilla"><i class="icon-facebook"></i></a></li>
 							<li><a href="https://www.instagram.com/stiwar_asprilla/"><i class="icon-instagram"></i></a></li>
 							<li><a href="https://twitter.com/AsprillaStiwar"><i class="icon-twitter"></i></a></li>
