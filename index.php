@@ -180,7 +180,7 @@ include('db.php');
 		            <li><a href="#" data-nav-section="servicios"><span><i class=" icon-book"></i> Servicios</span></a></li>
 		            <li><a href="#" data-nav-section="equipo"><span><i class=" icon-users"></i> Equipo</span></a></li>
 					<li><a href="#" data-nav-section="contactenos"><span><i class=" icon-mail2"></i> Contáctenos</span></a></li>
-					<li><a href="<?php echo RUTA.'./production/login.php' ?>"><span><i class="icon-lock"></i> Ingresar</span></a></li>
+					<li><a href="<?php echo RUTA.'login.php'?>"><span><i class="icon-lock"></i> Ingresar</span></a></li>
 				</ul>
 			</div>
 			    </nav>
@@ -242,7 +242,7 @@ include('db.php');
 				
 			</div>
 					<div class="row watch-video text-center to-animate">				
-						<a href="./Barber2.0-admin/reservas.php" class="btn btn-lg"><h2><i class="fh5co-intro-icon icon-calendar-check-o"></i> ¡RESERVA AQUI TU TURNO!</h2></a> 
+						<a href="<?php echo RUTA.'reservas.php' ?>" class="btn btn-lg"><h2><i class="fh5co-intro-icon icon-calendar-check-o"></i> ¡RESERVA AQUI TU TURNO!</h2></a> 
 					</div>
 		</div>
 	</section>
@@ -465,11 +465,10 @@ include('db.php');
 						<p>Creador de BARBERSHOPQUIB En hacerla una gran peluquería y con una gran visión frente a las metas de este negocio.</p>
 						<ul class="social social-circle">
 							<li><a href="#"><i class="icon-whatsapp"></i></a></li>
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-instagram"></i></a></li>
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-dropbox"></i></a></li>
-							<li><a href="#"><i class="icon-mail2"></i></a></li>
+							<li><a href="https://www.facebook.com/Stiiwar.Asprilla"><i class="icon-facebook"></i></a></li>
+							<li><a href="https://www.instagram.com/stiwar_asprilla/"><i class="icon-instagram"></i></a></li>
+							<li><a href="https://twitter.com/AsprillaStiwar"><i class="icon-twitter"></i></a></li>
+							<li><a href="https://plus.google.com/u/0/108394991375482197359"><i class="icon-mail2"></i></a></li>
 						</ul>
 					</div>
 				</div>
@@ -484,7 +483,6 @@ include('db.php');
 							<li><a href="#"><i class="icon-facebook"></i></a></li>
 							<li><a href="#"><i class="icon-instagram"></i></a></li>
 							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-dropbox"></i></a></li>
 							<li><a href="#"><i class="icon-mail2"></i></a></li>
 						</ul>
 					</div>
