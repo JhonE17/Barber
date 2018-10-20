@@ -6,6 +6,7 @@ if (!isset($_SESSION['username'])) {
   header('Location: '.RUTA.'login.php');
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -271,7 +272,7 @@ if (!isset($_SESSION['username'])) {
                                               <td>" .$row['tipo_servicio']."</td>
                                               <td>" .$row['estado_reserva']."</td>
                                               <td>" .$row['estado_pago']."</td>
-                                              <td><button class='item' data-toggle='tooltip' data-placement='top' title='Ver detalles'><i class='glyphicon glyphicon-eye-open'></i></button></td>
+                                              <td><button  type='button' class='btn btn-secondary mb-1'  data-toggle='modal' data-target='#reservascheck'><i class='glyphicon glyphicon-eye-open'></i> Ver</button></td>
                                               </tr>";
                               } else {
                                         echo "<tr>
@@ -283,7 +284,7 @@ if (!isset($_SESSION['username'])) {
                                               <td>" .$row['tipo_servicio']."</td>
                                               <td>" .$row['estado_reserva']."</td>
                                               <td>" .$row['estado_pago']."</td>
-                                              <td><button class='item' data-toggle='tooltip' data-placement='top' title='Ver detalles'><i class='glyphicon glyphicon-eye-open'></i></button></td>
+                                              <td><button  type='button' class='btn btn-secondary mb-1'  data-toggle='modal' data-target='#reservascheck'><i class='glyphicon glyphicon-eye-open'></i> ver</button></td>
                                               </tr>";
 
                               }
@@ -314,7 +315,7 @@ if (!isset($_SESSION['username'])) {
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <form method="POST">
+              <form method="POST" >
                  
                           <div class="panel-body">
                 
@@ -322,53 +323,53 @@ if (!isset($_SESSION['username'])) {
                                   <table class="table table-hover">
                                       <tr>
                                         <th>Codigo de reserva</th>
-                                        <th>10 </th>
+                                        <th> <?php echo $id; ?> </th>
                                       </tr>
                                       <tr>
                                         <th>Nombre completo</th>
-                                        <th>Sr. stiwar asprilla </th>
+                                        <th><?php echo $nombre; ?> </th>
                                       </tr>
                                       <tr>
                                         <th>Email</th>
-                                        <th>carlosjuniorsalamandra@hotmail.com </th>
+                                        <th><?php echo $email; ?> </th>
                                       </tr>
                                       <tr>
                                         <th>Telefóno</th>
-                                        <th>3183919028</th>
+                                        <th><?php echo $telefono; ?> </th>
                                       </tr>
                                       <tr>
                                         <th>Tipo de servicio</th>
-                                        <th>BARBER SHOP</th>
+                                        <th><?php echo $tipo_servicio; ?> </th>
                                       </tr>
                                       <tr>
                                         <th>N° de resevas</th>
-                                        <th>2</th>
+                                        <th><?php echo $nreservas; ?> </th>
                                       </tr>
                                       <tr>
                                         <th>Fecha & Hora de reserva</th>
-                                        <th>2018-03-10</th>
+                                        <th><?php echo $fecha; ?> </th>
                                       </tr>
                                       <tr>
                                       <th>Estado de reserva</th>
-                                      <th>Pendiente</th>
+                                      <th><?php echo $estadoR; ?> </th>
                                      </tr>
                                       <tr>
                                         <th>Subtotal</th>
-                                        <th>$7000</th>
+                                        <th><?php echo $subtotal = $total; ?> </th>
                                       </tr>
                                       <tr>
                                         <th>Total</th>
-                                        <th>$14000</th>
+                                        <th><?php echo $total = $nreservas*$total; ?> </th>
                                       </tr>
                                 </table>
-                                <div class="modal-body col-md-6 col-sm-6 col-xs-12">
-                                    <label>Desea confirmar?</label>
-                                    <select name="newtu" class="form-control" required>
-                                    <option value selected>Escoga un tipo de usuario</option>
+                               
+                                <label>Que acción desea hacer?</label>
+                                <select name="confR" class="form-control" required>
+                                    <option value selected>Escoga una opción</option>
                                     <option value="Confirmado">Confirmar reserva</option>
                                     <option value="Cancelado">Cancelar reserva</option> 
                                 </select>
-                            </div>
+                            
                               </div>
                           </div>
                           
@@ -381,7 +382,8 @@ if (!isset($_SESSION['username'])) {
           </div>
         </div>
         <!-- end modal medium -->
-  
+        
+          
         <!-- footer content -->
         <footer>
             <div class="pull-right">

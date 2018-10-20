@@ -412,8 +412,9 @@ if (!isset($_SESSION['username'])) {
 							{
 							echo' <script language="javascript" type="text/javascript"> alert("!Nuevo personal agregado!") </script>';
               
+              header("Location: personal.php");
               }
-                 header("Location: personal.php");
+              
 						  }
 						?>
         <!-- /Agregar Modal -->
