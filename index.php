@@ -262,87 +262,106 @@ include('db.php');
 			</div>
 			<div class="row row-bottom-padded-sm">
 				<div class="col-md-4 col-sm-6 col-xxs-12">
-					<a href="images/cor01.jpg" class="fh5co-project-item image-popup to-animate">
-						<img src="images/cor01.jpg" alt="Image" class="img-responsive">
-						<div class="fh5co-text">
-						<h2>Jersey</h2>
-						</div>
+					<a href="images/1.jpg" class="fh5co-project-item image-popup to-animate">
+						<img src="images/1.jpg" alt="Image" class="img-responsive">
+					
 					</a>
 				</div>
 				<div class="col-md-4 col-sm-6 col-xxs-12">
-					<a href="images/cor02.jpg" class="fh5co-project-item image-popup to-animate">
-						<img src="images/cor02.jpg" alt="Image" class="img-responsive">
-						<div class="fh5co-text">
-						<h2>Corte Completo</h2>
-						</div>
+					<a href="images/2.jpg" class="fh5co-project-item image-popup to-animate">
+						<img src="images/2.jpg" alt="Image" class="img-responsive">
+					
 					</a>
 				</div>
 
 				<div class="clearfix visible-sm-block"></div>
 
 				<div class="col-md-4 col-sm-6 col-xxs-12">
-					<a href="images/cor03.jpg" class="fh5co-project-item image-popup to-animate">
-						<img src="images/cor03.jpg" alt="Image" class="img-responsive">
-						<div class="fh5co-text">
-						<h2>Jersey + Barba</h2>
-						</div>
+					<a href="images/3.jpg" class="fh5co-project-item image-popup to-animate">
+						<img src="images/3.jpg" alt="Image" class="img-responsive">
+					
 					</a>
 				</div>
 				<div class="col-md-4 col-sm-6 col-xxs-12">
-					<a href="images/cor04.jpg" class="fh5co-project-item image-popup to-animate">
-						<img src="images/cor04.jpg" alt="Image" class="img-responsive">
-						<div class="fh5co-text">
-						<h2>Jersey + Barba</h2>
-						</div>
+					<a href="images/4.jpg" class="fh5co-project-item image-popup to-animate">
+						<img src="images/4.jpg" alt="Image" class="img-responsive">
+					
 					</a>
 				</div>
 				
 				<div class="clearfix visible-sm-block"></div>
 
 				<div class="col-md-4 col-sm-6 col-xxs-12">
-					<a href="images/cor05.jpg" class="fh5co-project-item image-popup to-animate">
-						<img src="images/cor05.jpg" alt="Image" class="img-responsive">
-						<div class="fh5co-text">
-						<h2>Jersey</h2>
-						</div>
+					<a href="images/5.jpg" class="fh5co-project-item image-popup to-animate">
+						<img src="images/5.jpg" alt="Image" class="img-responsive">
+					
 					</a>
 				</div>
 				<div class="col-md-4 col-sm-6 col-xxs-12">
-					<a href="images/cor06.jpg" class="fh5co-project-item image-popup to-animate">
-						<img src="images/cor06.jpg" alt="Image" class="img-responsive">
-						<div class="fh5co-text">
-						<h2>Jersey + Barba</h2>
-						</div>
+					<a href="images/6.jpg" class="fh5co-project-item image-popup to-animate">
+						<img src="images/6.jpg" alt="Image" class="img-responsive">
+					
 					</a>
 				</div>
 				
 				<div class="clearfix visible-sm-block"></div>
 
 				<div class="col-md-4 col-sm-6 col-xxs-12">
-					<a href="images/cor07.jpg" class="fh5co-project-item image-popup to-animate">
-						<img src="images/cor07.jpg" alt="Image" class="img-responsive">
-						<div class="fh5co-text">
-						<h2>Broklyn + Barbar</h2>
-						</div>
+					<a href="images/7.jpg" class="fh5co-project-item image-popup to-animate">
+						<img src="images/7.jpg" alt="Image" class="img-responsive">
+					
 					</a>
 				</div>
 				<div class="col-md-4 col-sm-6 col-xxs-12">
-					<a href="images/cor08.jpg" class="fh5co-project-item image-popup to-animate">
-						<img src="images/cor08.jpg" alt="Image" class="img-responsive">
-						<div class="fh5co-text">
-						<h2>Tinturada</h2>
-						</div>
+					<a href="images/8.jpg" class="fh5co-project-item image-popup to-animate">
+						<img src="images/8.jpg" alt="Image" class="img-responsive">
+					
+					</a>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xxs-12">
+					<a href="images/9.jpg" class="fh5co-project-item image-popup to-animate">
+						<img src="images/9.jpg" alt="Image" class="img-responsive">
+					
+					</a>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xxs-12">
+					<a href="images/10.jpg" class="fh5co-project-item image-popup to-animate">
+						<img src="images/10.jpg" alt="Image" class="img-responsive">
+					
+					</a>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xxs-12">
+					<a href="images/11.jpg" class="fh5co-project-item image-popup to-animate">
+						<img src="images/11.jpg" alt="Image" class="img-responsive">
+					
+					</a>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xxs-12">
+					<a href="images/12.jpg" class="fh5co-project-item image-popup to-animate">
+						<img src="images/12.jpg" alt="Image" class="img-responsive">
+					
 					</a>
 				</div>
 
 				<div class="clearfix visible-sm-block"></div>
 
 				<div class="col-md-4 col-sm-6 col-xxs-12">
-					<a href="images/cor09.jpg" class="fh5co-project-item image-popup to-animate">
-						<img src="images/cor09.jpg" alt="Image" class="img-responsive">
-						<div class="fh5co-text">
-						<h2>Lados + Barba</h2>
-						</div>
+					<a href="images/13.jpg" class="fh5co-project-item image-popup to-animate">
+						<img src="images/13.jpg" alt="Image" class="img-responsive">
+					
+					</a>
+				</div>
+
+								<div class="col-md-4 col-sm-6 col-xxs-12">
+					<a href="images/14.jpg" class="fh5co-project-item image-popup to-animate">
+						<img src="images/14.jpg" alt="Image" class="img-responsive">
+						
+					</a>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xxs-12">
+					<a href="images/15.jpg" class="fh5co-project-item image-popup to-animate">
+						<img src="images/15.jpg" alt="Image" class="img-responsive">
+				
 					</a>
 				</div>
 			</div>
@@ -409,37 +428,37 @@ include('db.php');
 				<div class="col-md-12 section-heading text-left">
 					<h2 class=" left-border to-animate">Servicios</h2>
 					<div class="row">
-						<div class="col-md-8 subtext to-animate">
+						<div class="col-md-10 subtext to-animate">
 							<h3>¡Te ofrecemos una gran cantidad de servicios para todos tus gustos y darte una experiencia inolvidable!</h3>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6 col-sm-6 fh5co-service to-animate">
+				<div class="col-md-4 col-sm-4 fh5co-service to-animate">
 					<i class="icon to-animate-2 icon-mustache"></i>
 					<h3>Expertos en bigotes </h3>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean</p>
+					<p>Usamos las mejores tecnicas para arreglo de bigotes y dejartelas de una manera espectacular</p>
 				</div>
-				<div class="col-md-6 col-sm-6 fh5co-service to-animate">
+				<div class="col-md-4 col-sm-4 fh5co-service to-animate">
 					<i class="icon to-animate-2 icon-hand-lizard-o"></i>
 					<h3>Crema &amp; Shampoo</h3>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean</p>
+					<p>Te ofrecemos un gran tratamiento para tu relajación y fortalecer tu cuero cabelludo con execelentes masajes</p>
 				</div>
 
 				<div class="clearfix visible-sm-block"></div>
 
-				<div class="col-md-6 col-sm-6 fh5co-service to-animate">
+				<div class="col-md-4 col-sm-4 fh5co-service to-animate">
 					<i class="icon to-animate-2 icon-cut"></i>
 					<h3>Afeitado &amp; Corte de pelo</h3>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean</p>
+					<p>Gran variedad en cortes que te daran un gran cambio de apariencia ¡Ven esocoge uno de nuestros servicios y disfruta de un gran cambio! </p>
 				</div>
-				<div class="col-md-6 col-sm-6 fh5co-service to-animate">
+				<!-- <div class="col-md-6 col-sm-6 fh5co-service to-animate">
 					<i class="icon to-animate-2 icon-cut"></i>
 					<h3>Corte de pelo &amp; Peines</h3>
 					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean</p>
 				</div>
-				
+				 -->
 			</div>
 		</div>
 	</section>
@@ -479,11 +498,11 @@ include('db.php');
 						<span class="fh5co-position">Co-Fundador & Web Developer</span>
 						<p>Creador de BARBERSHOPQUIB En hacerla una gran peluquería y con una gran visión frente a las metas de este negocio.</p>
 						<ul class="social social-circle">
-							<li><a href="#"><i class="icon-whatsapp"></i></a></li>
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-instagram"></i></a></li>
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-mail2"></i></a></li>
+							<li><a href="3146955452"><i class="icon-whatsapp"></i></a></li>
+							<li><a href="https://www.facebook.com/JhonE01"><i class="icon-facebook"></i></a></li>
+							<li><a href="https://www.instagram.com/jhon_e_p/"><i class="icon-instagram"></i></a></li>
+							<li><a href="https://twitter.com/JhonE_99"><i class="icon-twitter"></i></a></li>
+							<li><a href="https://plus.google.com/u/0/117387463829492863266"><i class="icon-mail2"></i></a></li>
 						</ul>
 					</div>
 				</div>
@@ -541,10 +560,16 @@ include('db.php');
 				<div class="col-md-2">
 				<div class="fh5co-counter to-animate">
 					<h3>SÁBADO</h3>
-					<span class="fh5co-counter-label">8:00AM - 11:30AM   2:00PM - 6:00PM</span> 
+					<span class="fh5co-counter-label">8:00AM - 11:30AM   2:00PM - 6:00PM</span> <br>
 				</div>	
 				</div>
-
+				
+				<div class="col-md-2">
+				<div class="fh5co-counter to-animate">
+					<h3>FESTIVOS</h3>
+					<span class="fh5co-counter-label">8:00AM - 11:30AM   2:00PM - 3:00PM</span> 
+				</div>	
+				</div>
 			</div>
 		</div>
 	</section>
