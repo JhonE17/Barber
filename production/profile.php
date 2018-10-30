@@ -219,29 +219,15 @@ if (!isset($_SESSION['username'])) {
                         </div>
                       </div>
                       <h3><?php echo $_SESSION['username'];?></h3>
-
-                      <ul class="list-unstyled user_data">
-                        <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
-                        </li>
-
-                        <li>
-                          <i class="fa fa-briefcase user-profile-icon"></i> Software Engineer
-                        </li>
-
-                        <li class="m-top-xs">
-                          <i class="fa fa-external-link user-profile-icon"></i>
-                          <a href="http://www.kimlabs.com/profile/" target="_blank">www.kimlabs.com</a>
-                        </li>
-                      </ul>
-
-                      <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Editar perfil</a>
-                      <br />
-
-                        <div class="form-group">
-                          <label for="file-input" class=" form-control-label">Eliga una foto</label>
-                          <input type="file" id="file-input" name="file-input" class="form-control-file">
-                        </div>
-
+                      
+                      <div class="form-group">
+                        <label for="file-input" class=" form-control-label">Eliga una foto</label>
+                        <input type="file" id="file-input" name="file-input" class="form-control-file">
+                      </div>
+                      <br>                      
+                      <button type="button" class="btn btn-inverse btn-small  " data-toggle="modal" data-target="#smallmodal">
+                          Editar Perfil
+                      </button>
                     </div>
                   
                   </div>
@@ -251,6 +237,30 @@ if (!isset($_SESSION['username'])) {
           </div>
         </div>
         <!-- /page content -->
+
+          <div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="smallmodalLabel">Cambiar datos de usuario</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <label> Ingrese nuevo nombre de usuario:</label>
+                           <input type="text" name="nombreU" class="form-control" placeholder="Ingrese su nuevo nombre de usuario"> <br>
+                           <label> Ingrese nueva contraseña:</label>
+                           <input type="password" name="passU" class="form-control" placeholder="Ingrese su nueva contraseña"> <br>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="sumbit" name="updateU" class="btn btn-primary">Guardar cambios</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
  <!-- footer content -->
         <footer>
