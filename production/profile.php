@@ -224,10 +224,16 @@ if (!isset($_SESSION['username'])) {
                         <label for="file-input" class=" form-control-label">Eliga una foto</label>
                         <input type="file"  name="file" class=" form-control-file">
                       </div>
-                      <br>                      
+                      <br> 
+                    
+                      
                       <button type="button" class="btn btn-inverse btn-small  " data-toggle="modal" data-target="#smallmodal">
-                          Editar Perfil
+                        Editar contraseña
                       </button>
+                      <button type="button" class="btn btn-inverse btn-small  " data-toggle="modal" data-target="#smallmodal2">
+                        Editar nombre
+                      </button>
+                   
                     </div>
                   
                   </div>
@@ -248,12 +254,33 @@ if (!isset($_SESSION['username'])) {
                             </button>
                         </div>
                         <div class="modal-body">
-                            <label> Ingrese nuevo nombre de usuario:</label>
-                           <input type="text" name="nombreU" class="form-control" placeholder="Ingrese su nuevo nombre de usuario"> <br>
-                           <label> Ingrese contraseña actual:</label>
+                            <label> Ingrese contraeña actual:</label>
                            <input type="password" name="passA" class="form-control" placeholder="Ingrese contraseña actual"> <br>
                            <label> Ingrese nueva contraseña:</label>
-                           <input type="password" name="passU" class="form-control" placeholder="Ingrese su nueva contraseña"> <br>
+                           <input type="password" name="passU" class="form-control" placeholder="Ingrese nueva contraseña"> <br>
+                           <label> Confirme nueva contraseña:</label>
+                           <input type="password" name="passU2" class="form-control" placeholder="Confirme nueva contraseña"> <br>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="sumbit" name="updateU" class="btn btn-primary">Guardar cambios</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="smallmodal2" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="smallmodalLabel">Cambiar datos de usuario</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <label> Ingrese nuevo nombre de usuario:</label>
+                           <input type="text" name="nomU" class="form-control" placeholder="Ingrese su nuevo nombre de usuario"> <br>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
