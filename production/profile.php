@@ -211,18 +211,18 @@ if (!isset($_SESSION['username'])) {
                 <div class="x_panel">
                  
                   <div class="x_content">
-                    <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                    <div class="col-md-3 col-sm-3 col-xs-12 profile_left ">
                       <div class="profile_img">
                         <div id="crop-avatar">
                           <!-- Current avatar -->
-                          <img class="img-responsive avatar-view" src="images/picture.jpg" alt="Avatar" title="Change the avatar">
+                          <img class=" img-rounded avatar-view" src="images/picture.jpg" alt="Avatar" >
                         </div>
                       </div>
                       <h3><?php echo $_SESSION['username'];?></h3>
                       
                       <div class="form-group">
                         <label for="file-input" class=" form-control-label">Eliga una foto</label>
-                        <input type="file" id="file-input" name="file-input" class="form-control-file">
+                        <input type="file"  name="file" class=" form-control-file">
                       </div>
                       <br>                      
                       <button type="button" class="btn btn-inverse btn-small  " data-toggle="modal" data-target="#smallmodal">
@@ -250,6 +250,8 @@ if (!isset($_SESSION['username'])) {
                         <div class="modal-body">
                             <label> Ingrese nuevo nombre de usuario:</label>
                            <input type="text" name="nombreU" class="form-control" placeholder="Ingrese su nuevo nombre de usuario"> <br>
+                           <label> Ingrese contraseña actual:</label>
+                           <input type="password" name="passA" class="form-control" placeholder="Ingrese contraseña actual"> <br>
                            <label> Ingrese nueva contraseña:</label>
                            <input type="password" name="passU" class="form-control" placeholder="Ingrese su nueva contraseña"> <br>
                         </div>
