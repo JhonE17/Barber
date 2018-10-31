@@ -12,7 +12,7 @@ $resultado = @move_uploaded_file($_FILES["imagen"]["tmp_name"], $ruta);
 
 if (!empty($resultado)){
 
-                @mysqli_query($conexion,"INSERT INTO login VALUES ('". $nombre."','" . $destino . "')"); 
+                @mysqli_query($con,"INSERT INTO login VALUES ('". $nombre."','" . $destino . "')"); 
                 echo "el archivo ha sido movido exitosamente";
 
                 }else{

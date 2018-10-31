@@ -221,11 +221,13 @@ if (!isset($_SESSION['username'])) {
                       <h3><?php echo $_SESSION['username'];?></h3> 
                       
                       <form action="fotoUp.php" method="POST" enctype="multipart/form-data">
-                      <div class=" form-inline">
+
+                       <div class=" form-inline">
                             <input name="imagen" type="file" maxlength="200">
                             <br>                                     
                             <input type="submit" value="Agregar" name="enviar"  class="btn btn-default">
                         </div>
+
                       </form>
 
                       <br> 
