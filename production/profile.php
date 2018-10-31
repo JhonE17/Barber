@@ -218,15 +218,18 @@ if (!isset($_SESSION['username'])) {
                           <img class=" img-rounded avatar-view" src="images/picture.jpg" alt="Avatar" >
                         </div>
                       </div>
-                      <h3><?php echo $_SESSION['username'];?></h3>
+                      <h3><?php echo $_SESSION['username'];?></h3> 
                       
-                      <div class="form-group">
-                        <label for="file-input" class=" form-control-label">Eliga una foto</label>
-                        <input type="file"  name="file" class=" form-control-file">
-                      </div>
+                      <form action="fotoUp.php" method="POST" enctype="multipart/form-data">
+                      <div class=" form-inline">
+                            <input name="imagen" type="file" maxlength="200">
+                            <br>                                     
+                            <input type="submit" value="Agregar" name="enviar"  class="btn btn-default">
+                        </div>
+                      </form>
+
                       <br> 
-                    
-                      
+                 
                       <button type="button" class="btn btn-inverse btn-small  " data-toggle="modal" data-target="#smallmodal">
                         Editar contraseña
                       </button>
