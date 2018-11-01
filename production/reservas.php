@@ -5,6 +5,14 @@ require 'funtions.php';
 if (!isset($_SESSION['username'])) {
   header('Location: '.RUTA.'login.php');
 }
+require '../db.php';
+
+$consulta="SELECT foto FROM login WHERE id_login='12'";
+$rs= mysqli_query($con, $consulta);
+while ($fila=mysqli_fetch_array($rs)) {
+  $ruta_img=$fila["foto"];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -52,7 +60,7 @@ if (!isset($_SESSION['username'])) {
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="/Barber2.0/images/<?php echo $ruta_img;?>" alt="Foto de perfil" width="10%" class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Bienvenido</span>
@@ -113,7 +121,7 @@ if (!isset($_SESSION['username'])) {
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt=""> <?php echo $_SESSION['username'];?>
+                    <img src="/Barber2.0/images/<?php echo $ruta_img;?>" alt="Foto de perfil" width="10%"> <?php echo $_SESSION['username'];?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">

@@ -1,10 +1,19 @@
 <?php session_start();
 require 'admin/config.php';
 require 'funtions.php';
+require '../db.php'; 
 //comprobar sesion  
 if (!isset($_SESSION['username'])) {
   header('Location: '.RUTA.'login.php');
 }
+
+$consulta="SELECT foto FROM login WHERE id_login='12'";
+$rs= mysqli_query($con, $consulta);
+while ($fila=mysqli_fetch_array($rs)) {
+  $ruta_img=$fila["foto"];
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -52,7 +61,7 @@ if (!isset($_SESSION['username'])) {
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="/Barber2.0/images/<?php echo $ruta_img;?>" alt="Foto de perfil" width="10%" class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Bienvenido</span>
@@ -114,7 +123,7 @@ if (!isset($_SESSION['username'])) {
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt=""> <?php echo $_SESSION['username'];?>
+                    <img src="/Barber2.0/images/<?php echo $ruta_img;?>" alt="Foto de perfil" width="10%"> <?php echo $_SESSION['username'];?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -215,7 +224,7 @@ if (!isset($_SESSION['username'])) {
                       <div class="profile_img">
                         <div id="crop-avatar">
                           <!-- Current avatar -->
-                          <img class=" img-rounded avatar-view" src="images/picture.jpg" alt="Avatar" >
+                          <img class=" img-rounded avatar-view" src="/Barber2.0/images/<?php echo $ruta_img;?>" alt="Foto de perfil" width="60%" >
                         </div>
                       </div>
                       <h3><?php echo $_SESSION['username'];?></h3> 
@@ -225,7 +234,7 @@ if (!isset($_SESSION['username'])) {
                        <div class=" form-inline">
                             <input name="imagen" type="file" maxlength="200">
                             <br>                                     
-                            <input type="submit" value="Agregar" name="enviar"  class="btn btn-default">
+                            <input type="submit" value="Agregar" name="enviar"  class="btn btn-default" action="profile.php">
                         </div>
 
                       </form>
