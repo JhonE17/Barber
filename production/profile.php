@@ -7,12 +7,12 @@ if (!isset($_SESSION['username'])) {
   header('Location: '.RUTA.'login.php');
 }
 
-$consulta="SELECT foto FROM login WHERE id_login='12'";
+$id =$_GET['fid'];	
+$consulta="SELECT foto FROM login WHERE id_login='$id'";
 $rs= mysqli_query($con, $consulta);
 while ($fila=mysqli_fetch_array($rs)) {
   $ruta_img=$fila["foto"];
 }
-
 
 ?>
 <!DOCTYPE html>
@@ -61,7 +61,7 @@ while ($fila=mysqli_fetch_array($rs)) {
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="/Barber2.0/images/<?php echo $ruta_img;?>" alt="Foto de perfil" width="10%" class="img-circle profile_img">
+                <img src="/Barber2.0/images/<?php echo $ruta_img;?>" alt="Foto de perfil" width="20%"  class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Bienvenido</span>
@@ -234,7 +234,7 @@ while ($fila=mysqli_fetch_array($rs)) {
                        <div class=" form-inline">
                             <input name="imagen" type="file" maxlength="200">
                             <br>                                     
-                            <input type="submit" value="Agregar" name="enviar"  class="btn btn-default" action="profile.php">
+                            <input type="submit" value="Agregar" name="enviar"  class="btn btn-default">
                         </div>
 
                       </form>
