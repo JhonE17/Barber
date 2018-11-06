@@ -360,7 +360,7 @@ while ($fila=mysqli_fetch_array($rs)) {
                                 </tr>
                                 <tr>
                                   <th class="text-left">Iva (19%)</th>
-                                  <td>%19</td>
+                                  <td>19%</td>
                                 </tr>
                                 <tr>
                                   <th class="text-letf">Total:</th>
