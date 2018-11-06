@@ -40,7 +40,11 @@ while ($fila=mysqli_fetch_array($rs)) {
     <!-- JQVMap -->
     <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
+<<<<<<< HEAD
+    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+=======
     <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet"/>
+>>>>>>> 17ba563cfe04faeb2ab5d49ed3b2f7a30149aef5
     <!--Datetimepicker -->
     <link href="./css/jquery.datetimepicker.min.css" rel="stylesheet">
 
