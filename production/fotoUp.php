@@ -25,9 +25,9 @@ move_uploaded_file($_FILES["imagen"]["tmp_name"], $ruta . $nombre);
     echo "El tamaño es muy grade";
 }
 
+//$id=$_GET['$id_login'];
 $sql="UPDATE login SET foto='$nombre' WHERE id_login = '12'";
 $rs = mysqli_query($con,$sql);
-
 header('Location: '.RUTA.'./profile.php');
 
 ?>
