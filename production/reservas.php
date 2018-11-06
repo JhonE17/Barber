@@ -201,7 +201,7 @@ while ($fila=mysqli_fetch_array($rs)) {
         </div>
         <!-- /top navigation -->
         <!-- page content -->
-        <div class="right_col" role="main">
+        <div class="right_col" >
           <div class="">
             <div class="page-title">
               <div class="title_left">
@@ -209,12 +209,13 @@ while ($fila=mysqli_fetch_array($rs)) {
               </div>
 
             </div>
+           </div>
             <div class="clearfix"></div>
 
                 <div class="row">
                 
                 <div class="col-md-5 col-sm-5 col-xs-12">
-                    <div class="panel panel-default">
+                    <div class="panel-default">
                         <div class="panel-heading">
                         INFORMACION PERSONAL
                         </div>
@@ -243,7 +244,7 @@ while ($fila=mysqli_fetch_array($rs)) {
                   
                 <div class="row">
                   <div class="col-md-6 col-sm-6 col-xs-12">
-                    <div class="panel panel-default">
+                    <div class="panel-default">
                         <div class="panel-heading">
                           INFORMACIÓN DE RESERVA
                         </div>

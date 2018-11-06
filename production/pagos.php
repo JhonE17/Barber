@@ -256,7 +256,7 @@ while ($fila=mysqli_fetch_array($rs)) {
                                               <td>" .$row['fecha']."</td>
                                               <td>" .$row['estado_reserva']."</td>
                                               <td>" .$row['estado_pago']."</td>
-                                              <td><button class='btn btn-default' ><a href='invoice.php?pid=".$id ." '><i class='glyphicon glyphicon-eye-open'></i> Ver factura</a></button></td>
+                                              <td><button class='btn btn-default' ><a href='invoice.php?pag=".$id ." '><i class='glyphicon glyphicon-eye-open'></i> Ver factura</a></button></td>
                                               </tr>";
                               } else {
                                         echo "<tr>
@@ -268,7 +268,7 @@ while ($fila=mysqli_fetch_array($rs)) {
                                               <td>" .$row['fecha']."</td>
                                               <td>" .$row['estado_reserva']."</td>
                                               <td>" .$row['estado_pago']."</td>
-                                              <td><button class='btn btn-default' ><a href='invoice.php?pid=".$id ." '><i class='glyphicon glyphicon-eye-open'></i> Ver factura</a></button></td>
+                                              <td><button class='btn btn-default' ><a href='invoice.php?pag=".$id ." '><i class='glyphicon glyphicon-eye-open'></i> Ver factura</a></button></td>
                                               </tr>";
 
                               }

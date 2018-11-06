@@ -18,12 +18,12 @@ while ($fila=mysqli_fetch_array($rs)) {
 	<?php
 	ob_start();	
 	include ('../db.php');
-
-	$pid = $_GET['pid'];
+  $curdate=date("d/m/Y");
+	$pag = $_GET['pag'];
 	
 	
 	
-	$sql ="SELECT * FROM ereservas where id_ereservas = '$pid' ";
+	$sql ="SELECT * FROM ereservas where id_ereservas = '$pag' ";
 	$re = mysqli_query($con,$sql);
 	while($row=mysqli_fetch_array($re))
 	{
@@ -268,7 +268,7 @@ while ($fila=mysqli_fetch_array($rs)) {
                         <div class="col-xs-12 invoice-header">
                           <h2>
                                           <i class="fa fa-book"></i> Factura BarberShopQuib
-                                          <small class="pull-right">Fecha: 16/08/2016</small>
+                                          <small class="pull-right"> <h4>Fecha: <?php echo $curdate; ?> </h4></small>
                                       </h2>
                         </div>
                         <!-- /.col -->
@@ -281,7 +281,7 @@ while ($fila=mysqli_fetch_array($rs)) {
                                           <strong>BarberShopQuib</strong>
                                           <br>Calle 30 - N° 24-50
                                           <br>Quibdo-chocó
-                                          <br>Teléfono: 3183199028
+                                          <br>Teléfono: (+57) 318-391-9028 - (+57) 314-695-5452
                                           <br>Email: stiwar.asprilla1998@gmail.com
                                       </address>
                         </div>
@@ -301,7 +301,7 @@ while ($fila=mysqli_fetch_array($rs)) {
                           
                           <b>Fecha de la reserva:</b> <?php echo $fecha; ?>
                           <br>
-                          <b>N° de cuenta:</b> 968-34567
+                          
                         </div>
                         <!-- /.col -->
                       </div>
@@ -338,16 +338,16 @@ while ($fila=mysqli_fetch_array($rs)) {
                       </div>
                       <!-- /.row -->
 
-                      <div class="row">
+                      <!-- <div class="row"> -->
                         <!-- accepted payments column -->
-                        <div class="col-xs-6">
+                        <!-- <div class="col-xs-6">
                           <p class="lead">Metodos de pago:</p>
                           <img src="images/visa.png" alt="Visa">
                           <img src="images/mastercard.png" alt="Mastercard">
                           <img src="images/american-express.png" alt="American Express">
-                          <img src="images/paypal.png" alt="Paypal">
+                          <img src="images/paypal.png" alt="Paypal"> -->
 
-                        </div>
+                        <!-- </div> -->
                         <!-- /.col -->
                         <div class="col-xs-4">
                           
@@ -378,7 +378,7 @@ while ($fila=mysqli_fetch_array($rs)) {
                       <div class="row no-print">
                         <div class="col-xs-12">
                           <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i> Imprimir</button>
-                          <button class="btn btn-success pull-right"><i class="fa fa-credit-card"> <a href='checkpagos.php?pid=".$id." '> </i> Pagar </a></button>
+                          <button class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Pagar </button>
                   
                           <button class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="glyphicon glyphicon-floppy-save"></i> Generar PDF</button>
                         </div>
