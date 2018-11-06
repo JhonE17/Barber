@@ -378,7 +378,7 @@ while ($fila=mysqli_fetch_array($rs)) {
                       <div class="row no-print">
                         <div class="col-xs-12">
                           <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i> Imprimir</button>
-                          <button class="btn btn-success pull-right"><i class="fa fa-credit-card"> <a href='checkpagos.php?pid=".$id." '> </i> Pagar </button>
+                          <button class="btn btn-success pull-right"><i class="fa fa-credit-card"> <a href='checkpagos.php?pid=".$id." '> </i> Pagar </a></button>
                   
                           <button class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="glyphicon glyphicon-floppy-save"></i> Generar PDF</button>
                         </div>
