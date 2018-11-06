@@ -6,7 +6,42 @@ if (!isset($_SESSION['username'])) {
   header('Location: '.RUTA.'login.php');
 }
 ?>
+<?php
+		if(!isset($_GET["rid"]))
+		{
+				
+			 header("location:checkreservas.php");
+		}
+		else {
+        $id = $_GET["rid"]; $id = (int)$id;
+				// $curdate=date("Y/m/d");
+				include ('../db.php');
+				// $id = $_GET['id'];
+				
+				
+        $sql ="SELECT * FROM ereservas where id_ereservas=".$id;
+                
+				$re = mysqli_query($con,$sql);
+				while($row=mysqli_fetch_array($re))
+				{
+          $id = $row['id_ereservas'];
+					$nombre = $row['fullname'];
+					$email = $row['email'];
+					$barbero = $row['barbero'];
+					$fecha = $row['fecha'];
+					$nreservas = $row['nreservas'];
+					$tipservicio = $row['tipo_servicio'];
+					$telefono = $row['telefono'];
+					$estadoR = $row['estado_reserva'];
+					$estadoP = $row['estado_pago'];
+          $total = $row['total'];
+          //echo $nombre , $apellido , $id;
 
+				}
+      }
+?> 
+      
+      
 
 <!DOCTYPE html>
 <html lang="es">
@@ -211,7 +246,7 @@ if (!isset($_SESSION['username'])) {
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>ESTADO DE LAS RESERVAS</h3><br>
+                <h3>DETALLES DE LA RESERVA</h3>
               </div>
               
 
@@ -229,57 +264,68 @@ if (!isset($_SESSION['username'])) {
 
             <div class="clearfix"></div>
 
-
-             <div class="panel panel-default">
-                        
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Nombre</th>
-                                            <th>Email</th>
-											                      <th>Barbero</th>
-											                      <th>Fecha Y Hora</th>
-											                      <th>N° De Reservas</th>
-										                      	<th>Tipo De Servicio</th>
-											                      <th>Estado</th>
-											                      <th>Más</th>		
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                          <?php
-                                              include("../db.php");	
-                                              $tsql = "SELECT * FROM ereservas";
-                                              $tre = mysqli_query($con,$tsql);
-                                              
-                                              
-                                              while($trow=mysqli_fetch_array($tre) )
-                                              {	
-                                                $co =$trow['estado_reserva']; 
-                                                if($co=="Pendiente")
-                                                {
-                                                  echo"<tr>
-                                                  <th>".$trow['id_ereservas']."</th>
-                                                  <th>".$trow['fullname']."</th>
-                                                  <th>".$trow['email']."</th>
-                                                  <th>".$trow['barbero']."</th>
-                                                  <th>".$trow['fecha']."</th>
-                                                  <th>".$trow['nreservas']."</th>
-                                                  <th>".$trow['tipo_servicio']."</th>
-                                                  <th>".$trow['estado_reserva']."</th>
-                                                  <th><a href='checkreservas.php?rid=".$trow['id_ereservas']." ' class='btn btn-secondary mb-1 '> <i class = 'glyphicon glyphicon-eye-open'> </i> Más</a></th>
-                                                  </tr>";
-                                                }
-                                              }	
-                                           ?>
-                                    </tbody>
+                          <div class="panel-body">
+                
+                          <div class="table-responsive">
+                                  <table class="table table-hover">
+                                      <tr>
+                                        <th>Codigo de reserva</th>
+                                        <th> <?php echo $id; ?> </th>
+                                      </tr>
+                                      <tr>
+                                        <th>Nombre completo</th>
+                                        <th><?php echo $nombre; ?> </th>
+                                      </tr>
+                                      <tr>
+                                        <th>Email</th>
+                                        <th><?php echo $email; ?> </th>
+                                      </tr>
+                                      <tr>
+                                        <th>Telefóno</th>
+                                        <th><?php echo $telefono; ?> </th>
+                                      </tr>
+                                      <tr>
+                                        <th>Tipo de servicio</th>
+                                        <th><?php echo $tipservicio; ?> </th>
+                                      </tr>
+                                      <tr>
+                                        <th>N° de resevas</th>
+                                        <th><?php echo $nreservas; ?> </th>
+                                      </tr>
+                                      <tr>
+                                        <th>Fecha & Hora de reserva</th>
+                                        <th><?php echo $fecha; ?> </th>
+                                      </tr>
+                                      <tr>
+                                      <th>Estado de reserva</th>
+                                      <th><?php echo $estadoR; ?> </th>
+                                     </tr>
+                                      <tr>
+                                        <th>Sub-total</th>
+                                        <th><?php echo $subtotal = $total; ?> </th>
+                                      </tr>
+                                      <tr>
+                                        <th>Total</th>
+                                        <th><?php echo $total = $nreservas*$total; ?> </th>
+                                      </tr>
                                 </table>
-                            </div>
-                        </div>
-                                              
-                    </div>
+                               
+                              </div>
+
+                                <label>Que acción desea hacer?</label>
+                            <div class="form-group">
+                                <form method="POST" action="estadoreserva.php?eid= <?php echo $id;?>">
+                                <select  name="conf" id="conf" class="form-control"required>
+                                    <option value selected>Escoga una opción</option>
+                                    <option value="Confirmado">Confirmar reserva</option>
+                                    <option value="Cancelado">Cancelar reserva</option> 
+                                </select> <br>
+                              
+                              <input type="submit" name="co" value="Aceptar" class="btn btn-secondary mb-1" >  
+                        </form>
+
+                          </div>
+        
           
         <!-- footer content -->
         <footer>
