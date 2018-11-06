@@ -5,49 +5,44 @@ require 'funtions.php';
 if (!isset($_SESSION['username'])) {
   header('Location: '.RUTA.'login.php');
 }
-require '../db.php';
-
-$consulta="SELECT foto FROM login WHERE id_login='12'";
-$rs= mysqli_query($con, $consulta);
-while ($fila=mysqli_fetch_array($rs)) {
-  $ruta_img=$fila["foto"];
-}
-
 ?>
+<?php
+		if(!isset($_GET["pid"]))
+		{
+				
+			 header("location:checkpagos.php");
+		}
+		else {
+        $id = $_GET["pid"]; $id = (int)$id;
+				// $curdate=date("Y/m/d");
+				include ('../db.php');
+				// $id = $_GET['id'];
+				
+				
+        $sql ="SELECT * FROM ereservas where id_ereservas=".$id;
+                
+				$re = mysqli_query($con,$sql);
+				while($row=mysqli_fetch_array($re))
+				{
+          $id = $row['id_ereservas'];
+					$nombre = $row['fullname'];
+					$email = $row['email'];
+					$barbero = $row['barbero'];
+					$fecha = $row['fecha'];
+					$nreservas = $row['nreservas'];
+					$tipservicio = $row['tipo_servicio'];
+					$telefono = $row['telefono'];
+					$estadoR = $row['estado_reserva'];
+					$estadoP = $row['estado_pago'];
+          $total = $row['total'];
+          //echo $nombre , $apellido , $id;
 
-	<?php
-	ob_start();	
-	include ('../db.php');
+				}
+      }
+?> 
+      
+      
 
-	$pid = $_GET['pid'];
-	
-	
-	
-	$sql ="SELECT * FROM ereservas where id_ereservas = '$pid' ";
-	$re = mysqli_query($con,$sql);
-	while($row=mysqli_fetch_array($re))
-	{
-		$id = $row['id_ereservas'];
-		
-		$nombre = $row['fullname'];
-		
-		$tipservicio = $row['tipo_servicio'];
-		$barbero = $row['barbero'];
-		$fecha = $row['fecha'];
-	
-		$nreservas = $row['nreservas'];
-		$email = $row['email'];
-		$telefono = $row['telefono'];
-		// $stotal = $row['stotal'];
-		$total = $row['total'];
-	
-		
-		
-	
-	}
-	
-									
-	?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -86,7 +81,7 @@ while ($fila=mysqli_fetch_array($rs)) {
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="/Barber2.0/images/<?php echo $ruta_img;?>" alt="Foto de perfil" width="10%" class="img-circle profile_img">
+                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Bienvenido</span>
@@ -97,8 +92,8 @@ while ($fila=mysqli_fetch_array($rs)) {
 
             <!-- <br /> -->
 
- <!-- sidebar menu -->
- <div id="sidebar-menu" class="menu_fixed hidden-print main_menu">
+   <!-- sidebar menu -->
+   <div id="sidebar-menu" class="menu_fixed hidden-print main_menu">
     <div class="menu_section">
      
       <ul class="nav side-menu">
@@ -134,6 +129,7 @@ while ($fila=mysqli_fetch_array($rs)) {
   </div>
   <!-- /sidebar menu -->
 
+  
 
             <!-- /menu footer buttons -->
             <!-- <div class="sidebar-footer hidden-small">
@@ -165,7 +161,7 @@ while ($fila=mysqli_fetch_array($rs)) {
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="/Barber2.0/images/<?php echo $ruta_img;?>" alt="Foto de perfil" width="10%"> <?php echo $_SESSION['username'];?>
+                    <img src="images/img.jpg" alt=""><?php echo $_SESSION['username'];?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -250,156 +246,99 @@ while ($fila=mysqli_fetch_array($rs)) {
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>FACTURA DE RESERVA</h3>
+                <h3>DETALLES DE LA RESERVA</h3>
               </div>
+              
+
+              <!-- <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div> -->
             </div>
 
             <div class="clearfix"></div>
 
-            <div class="row">
-              <div class="col-md-12">
-                <div class="x_panel">
+                          <div class="panel-body">
                 
-                  <div class="x_content">
+                          <div class="table-responsive">
+                                  <table class="table table-hover">
+                                      <tr>
+                                        <th>Codigo de reserva</th>
+                                        <th> <?php echo $id; ?> </th>
+                                      </tr>
+                                      <tr>
+                                        <th>Nombre completo</th>
+                                        <th><?php echo $nombre; ?> </th>
+                                      </tr>
+                                      <tr>
+                                        <th>Email</th>
+                                        <th><?php echo $email; ?> </th>
+                                      </tr>
+                                      <tr>
+                                        <th>Telefóno</th>
+                                        <th><?php echo $telefono; ?> </th>
+                                      </tr>
+                                      <tr>
+                                        <th>Tipo de servicio</th>
+                                        <th><?php echo $tipservicio; ?> </th>
+                                      </tr>
+                                      <tr>
+                                        <th>N° de resevas</th>
+                                        <th><?php echo $nreservas; ?> </th>
+                                      </tr>
+                                      <tr>
+                                        <th>Fecha & Hora de reserva</th>
+                                        <th><?php echo $fecha; ?> </th>
+                                      </tr>
+                                      <tr>
+                                      <th>Estado de reserva</th>
+                                      <th><?php echo $estadoR; ?> </th>
+                                     </tr>
+                                     <tr>
+                                      <th>Estado de pago</th>
+                                      <th><?php echo $estadoP; ?> </th>
+                                     </tr>
+                                      <tr>
+                                        <th>Sub-total</th>
+                                        <th><?php echo $subtotal = $total; ?> </th>
+                                      </tr>
+                                      <tr>
+                                        <th>Total</th>
+                                        <th><?php echo $total = $nreservas*$total; ?> </th>
+                                      </tr>
+                                </table>
+                               
+                              </div>
 
-                    <section class="content invoice">
-                      <!-- title row -->
-                      <div class="row">
-                        <div class="col-xs-12 invoice-header">
-                          <h2>
-                                          <i class="fa fa-book"></i> Factura BarberShopQuib
-                                          <small class="pull-right">Fecha: 16/08/2016</small>
-                                      </h2>
-                        </div>
-                        <!-- /.col -->
-                      </div>
-                      <!-- info row -->
-                      <div class="row invoice-info">
-                        <div class="col-sm-4 invoice-col">
-                          De
-                          <address>
-                                          <strong>BarberShopQuib</strong>
-                                          <br>Calle 30 - N° 24-50
-                                          <br>Quibdo-chocó
-                                          <br>Teléfono: 3183199028
-                                          <br>Email: stiwar.asprilla1998@gmail.com
-                                      </address>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-sm-4 invoice-col">
-                          Para
-                          <address>
-                                          <strong><?php echo $nombre; ?></strong>
-                                          <br>Telefono: <?php echo $telefono; ?>
-                                          <br>Email: <?php echo $email; ?>
-                                      </address>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-sm-4 invoice-col">
-                          <b>Factura <?php echo "#".$id; ?></b>
-                          <br>
-                          
-                          <b>Fecha de la reserva:</b> <?php echo $fecha; ?>
-                          <br>
-                          <b>N° de cuenta:</b> 968-34567
-                        </div>
-                        <!-- /.col -->
-                      </div>
-                      <!-- /.row -->
-
-                      <!-- Table row -->
-                      <div class="row">
-                        <div class="col-xs-12 table">
-                          <table class="table table-striped">
-                            <thead>
-                              <tr>
-                                <th class="text-center">#</th>
-                                <th class="text-center">Servicio</th>
-                                <th class="text-center">Barbero</th>
-                                <th class="text-center">N° de reservas</th>
-                                <th class="text-center">Subtotal</th>
-                                <th class="text-center">Total</th>
-                              </tr>
-                            </thead>
-                            <tbody class="text-center">
-                              <tr>
-                                <td><?php echo $id; ?></td>
-                                <td><?php echo $tipservicio; ?></td>
-                                <td><?php echo $barbero; ?></td>
-                                <td><?php echo $nreservas; ?></td>
-                                <td><?php echo "$".$total; ?></td>
-                                <td><?php echo "$".$nreservas*$total; ?></td>
-                              </tr>
+                                <label>Que acción desea hacer?</label>
+                            <div class="form-group">
+                                <form method="POST" action="estadoreserva.php?eid= <?php echo $id;?>">
+                                <select  name="conf" id="conf" class="form-control"required>
+                                    <option value selected>Escoga una opción</option>
+                                    <option value="Confirmado">Confirmar reserva</option>
+                                    <option value="Cancelado">Cancelar reserva</option> 
+                                </select> <br>
                               
-                            </tbody>
-                          </table>
-                        </div>
-                        <!-- /.col -->
-                      </div>
-                      <!-- /.row -->
+                              <input type="submit" name="co" value="Aceptar" class="btn btn-secondary mb-1" >  
+                        </form>
 
-                      <div class="row">
-                        <!-- accepted payments column -->
-                        <div class="col-xs-6">
-                          <p class="lead">Metodos de pago:</p>
-                          <img src="images/visa.png" alt="Visa">
-                          <img src="images/mastercard.png" alt="Mastercard">
-                          <img src="images/american-express.png" alt="American Express">
-                          <img src="images/paypal.png" alt="Paypal">
-
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-xs-4">
-                          
-                          <div class="table-responsive" >
-                            <table class="table table-hover">
-                              <tbody class="text-center">
-                                <tr>
-                                  <th class="text-left">Subtotal:</th>
-                                  <td><?php echo "$".$total; ?></td>
-                                </tr>
-                                <tr>
-                                  <th class="text-left">Iva (19%)</th>
-                                  <td>%19</td>
-                                </tr>
-                                <tr>
-                                  <th class="text-letf">Total:</th>
-                                  <td><?php echo "$".$nreservas*$total; ?></td>
-                                </tr>
-                              </tbody>
-                            </table>
                           </div>
-                        </div>
-                        <!-- /.col -->
-                      </div>
-                      <!-- /.row -->
-
-                      <!-- this row will not appear when printing -->
-                      <div class="row no-print">
-                        <div class="col-xs-12">
-                          <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i> Imprimir</button>
-                          <button class="btn btn-success pull-right"><i class="fa fa-credit-card"> <a href='checkpagos.php?pid=".$id." '> </i> Pagar </a></button>
-                  
-                          <button class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="glyphicon glyphicon-floppy-save"></i> Generar PDF</button>
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /page content -->
-
-         <!-- footer content -->
-         <footer>
+        
+          
+        <!-- footer content -->
+        <footer>
             <div class="pull-right">
                 &COPY; BarberShopQuib - TODOS LOS DERECHOS SON RESERVADOS </a>
             </div>
             <div class="clearfix"></div>
           </footer>
-        <!-- footer content -->
+        <!-- /footer content -->
       </div>
     </div>
 
@@ -411,6 +350,8 @@ while ($fila=mysqli_fetch_array($rs)) {
     <script src="../vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>

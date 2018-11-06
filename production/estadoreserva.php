@@ -14,7 +14,7 @@ include ('../db.php');
 							
 						
 				}
-			header("Location: checkreservas.php?rid=".$id."");
+			header("Location: ereservas.php?rid=".$id."");
 		
 ?>
 

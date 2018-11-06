@@ -96,7 +96,7 @@ while ($fila=mysqli_fetch_array($rs)) {
           <ul class="nav child_menu">
             <li><a href="reservas.php">Crear Reserva</a></li>
             <li><a href="pagos.php">Facturas</a></li>
-            <li><a href="ereservas.php">Estado de las reservas</a></li>
+            <li><a href="ereservas.php">Estado</a></li>
           </ul>
         </li>
 
