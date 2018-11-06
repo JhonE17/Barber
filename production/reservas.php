@@ -27,23 +27,25 @@ while ($fila=mysqli_fetch_array($rs)) {
     <title>Admin BarberShop</title>
 
     <!-- Bootstrap -->
-    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Font Awesome -->
-    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
     <!-- NProgress -->
-    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet"/>
     <!-- iCheck -->
-    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet"/>
 	
     <!-- bootstrap-progressbar -->
-    <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet"/>
     <!-- JQVMap -->
     <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
-    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet"/>
+    <!--Datetimepicker -->
+    <link href="./css/jquery.datetimepicker.min.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="../build/css/custom.min.css" rel="stylesheet">
+    <link href="../build/css/custom.min.css" rel="stylesheet"/>
   </head>
 
   <body class="nav-md">
@@ -369,15 +371,8 @@ while ($fila=mysqli_fetch_array($rs)) {
         <!-- /page content -->
 
            <!-- footer content -->
-           <footer>
-              <div class="pull-right">
-                  &COPY; BarberShopQuib - TODOS LOS DERECHOS SON RESERVADOS </a>
-              </div>
-              <div class="clearfix"></div>
-            </footer>
-            <!-- /footer content -->
-      </div>
     </div>
+  </div>
 
     <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
@@ -392,7 +387,7 @@ while ($fila=mysqli_fetch_array($rs)) {
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
 
-    <script src="js/jquery.datetimepicker.full.js" > </script>
+    <script src="./js/jquery.datetimepicker.full.js" > </script>
       <script>
       $("#datetimepicker").datetimepicker({
           format: 'd/m/Y h:i A',
@@ -400,6 +395,13 @@ while ($fila=mysqli_fetch_array($rs)) {
       });
       </script>
                         
+           <footer>
+              <div class="pull-right">
+                  &COPY; BarberShopQuib - TODOS LOS DERECHOS SON RESERVADOS </a>
+              </div>
+              <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
 	
   </body>
 </html>
