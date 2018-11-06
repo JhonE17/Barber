@@ -230,11 +230,12 @@ if (!isset($_SESSION['username'])) {
             <div class="clearfix"></div>
 
 
-             <div class="panel panel-default">
-                        
+                 <div class="row">
+        
+              <div class="panel-default">
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table">
+                                <table class="table table-condensed table-striped" >
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -276,12 +277,12 @@ if (!isset($_SESSION['username'])) {
                                            ?>
                                     </tbody>
                                 </table>
-                            </div>
                         </div>
-                                              
                     </div>
-          
+                  </div>
+                </div>
         <!-- footer content -->
+                        
         <footer>
             <div class="pull-right">
                 &COPY; BarberShopQuib - TODOS LOS DERECHOS SON RESERVADOS </a>
