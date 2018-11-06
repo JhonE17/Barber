@@ -371,6 +371,13 @@ while ($fila=mysqli_fetch_array($rs)) {
         <!-- /page content -->
 
            <!-- footer content -->
+      <footer>
+         <div class="pull-right">
+             &COPY; BarberShopQuib - TODOS LOS DERECHOS SON RESERVADOS </a>
+         </div>
+         <div class="clearfix"></div>
+       </footer>
+       <!-- /footer content -->
     </div>
   </div>
 
@@ -391,17 +398,8 @@ while ($fila=mysqli_fetch_array($rs)) {
       <script>
       $("#datetimepicker").datetimepicker({
           format: 'd/m/Y h:i A',
-          step:60,  
+          step:45,  
       });
-      </script>
-                        
-           <footer>
-              <div class="pull-right">
-                  &COPY; BarberShopQuib - TODOS LOS DERECHOS SON RESERVADOS </a>
-              </div>
-              <div class="clearfix"></div>
-            </footer>
-            <!-- /footer content -->
-	
+      </script>                  
   </body>
 </html>
