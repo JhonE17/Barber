@@ -40,13 +40,10 @@ while ($fila=mysqli_fetch_array($rs)) {
     <!-- JQVMap -->
     <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
-<<<<<<< HEAD
     <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-=======
-    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet"/>
->>>>>>> 17ba563cfe04faeb2ab5d49ed3b2f7a30149aef5
     <!--Datetimepicker -->
     <link href="./css/jquery.datetimepicker.min.css" rel="stylesheet">
+
 
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet"/>
@@ -398,12 +395,24 @@ while ($fila=mysqli_fetch_array($rs)) {
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
 
+    <script src="../vendors/moment/min/moment.min.js"></script>
     <script src="./js/jquery.datetimepicker.full.js" > </script>
       <script>
-      $("#datetimepicker").datetimepicker({
-          format: 'd/m/Y h:i A',
-          step:45,  
-      });
+      $(function(){
+      $("#datetimepicker").datetimepicker({ 
+        //Desahabilitar dias domingos
+        disabledWeekDays: [6],
+         format: 'd/m/Y h:i A',
+         //intervalo de hora
+         disabledTimeIntervals:[[moment({h:0}), moment({h:7})], [moment({h:19}), moment({h:24})]],
+         step:30,
+         //Fecha actual en adelante.
+         minDate:0,
+         //Tiempo acutal en adelante para todos los dias.
+         minTime: 0,
+        // maxTime: 1,
+         });
+    });
       </script>                  
   </body>
 </html>
