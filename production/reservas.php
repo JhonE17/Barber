@@ -41,6 +41,10 @@ while ($fila=mysqli_fetch_array($rs)) {
     <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
     <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 28ca0d629d8f85d00f813b5f12307e83e7fa0e01
     <!--Datetimepicker -->
     <link href="./css/jquery.datetimepicker.min.css" rel="stylesheet">
 
@@ -60,11 +64,11 @@ while ($fila=mysqli_fetch_array($rs)) {
 
             <div class="clearfix"></div>
 
-            <!-- menu profile quick info -->
-            <div class="profile clearfix">
-              <div class="profile_pic">
-                <img src="/Barber2.0/images/<?php echo $ruta_img;?>" alt="Foto de perfil" width="10%" class="img-circle profile_img">
-              </div>
+<!-- menu profile quick info -->
+<div class="profile clearfix">
+              <!-- <div class="profile_pic">
+                <img src="/Barber2.0/images/<?php echo $ruta_img;?>" alt="Foto de perfil" width="20%"  class="img-circle profile_img">
+              </div> -->
               <div class="profile_info">
                 <span>Bienvenido</span>
                 <h2><?php echo $_SESSION['username'];?></h2>
@@ -72,6 +76,7 @@ while ($fila=mysqli_fetch_array($rs)) {
             </div>
             <!-- /menu profile quick info -->
 
+            <br />
             <br />
 
               <!-- sidebar menu -->

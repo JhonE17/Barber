@@ -7,8 +7,8 @@ if (!isset($_SESSION['username'])) {
   header('Location: '.RUTA.'login.php');
 }
 
-$id =$_GET['fid'];	
-$consulta="SELECT foto FROM login WHERE id_login='$id'";
+// $id =$_GET['fid'];	
+$consulta="SELECT foto FROM login WHERE id_login='id_login'";
 $rs= mysqli_query($con, $consulta);
 while ($fila=mysqli_fetch_array($rs)) {
   $ruta_img=$fila["foto"];
@@ -60,9 +60,9 @@ while ($fila=mysqli_fetch_array($rs)) {
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              <div class="profile_pic">
+              <!-- <div class="profile_pic">
                 <img src="/Barber2.0/images/<?php echo $ruta_img;?>" alt="Foto de perfil" width="20%"  class="img-circle profile_img">
-              </div>
+              </div> -->
               <div class="profile_info">
                 <span>Bienvenido</span>
                 <h2><?php echo $_SESSION['username'];?></h2>

@@ -7,7 +7,7 @@ if (!isset($_SESSION['username'])) {
 }
 require '../db.php';
 
-$consulta="SELECT foto FROM login WHERE id_login='12'";
+$consulta="SELECT foto FROM login WHERE id_login='id_login'";
 $rs= mysqli_query($con, $consulta);
 while ($fila=mysqli_fetch_array($rs)) {
   $ruta_img=$fila["foto"];
@@ -58,11 +58,11 @@ while ($fila=mysqli_fetch_array($rs)) {
 
             <div class="clearfix"></div>
 
-            <!-- menu profile quick info -->
-            <div class="profile clearfix">
-              <div class="profile_pic">
-                <img class="img-circle profile_img" src="/Barber2.0/images/<?php echo $ruta_img;?>" alt="Foto de perfil" width="10%">
-              </div>
+         <!-- menu profile quick info -->
+         <div class="profile clearfix">
+              <!-- <div class="profile_pic">
+                <img src="/Barber2.0/images/<?php echo $ruta_img;?>" alt="Foto de perfil" width="20%"  class="img-circle profile_img">
+              </div> -->
               <div class="profile_info">
                 <span>Bienvenido</span>
                 <h2><?php echo $_SESSION['username'];?></h2>
@@ -126,7 +126,7 @@ while ($fila=mysqli_fetch_array($rs)) {
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="profile.php"><i class="fa fa-user"></i> Perfil</a></li>
+                    <li><a href="profile.php" <i class="fa fa-user"></i> Perfil</a></li>
                  
                     <li><a href="<?php echo RUTA.'logout.php' ?>"><i class="fa fa-sign-out "></i> Cerrar Sesión</a></li>
                   </ul>
