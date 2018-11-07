@@ -7,7 +7,7 @@ if (!isset($_SESSION['username'])) {
 }
 require '../db.php';
 
-$consulta="SELECT foto FROM login WHERE id_login='id_login'";
+$consulta="SELECT foto FROM login WHERE id_login='12'";
 $rs= mysqli_query($con, $consulta);
 while ($fila=mysqli_fetch_array($rs)) {
   $ruta_img=$fila["foto"];

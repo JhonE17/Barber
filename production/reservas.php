@@ -404,9 +404,9 @@ while ($fila=mysqli_fetch_array($rs)) {
         //Desahabilitar dias domingos
         disabledWeekDays: [6],
         //Formato de fecha & hora.
-         format: 'd/m/Y h:i A',
+         format: 'd/m/Y h:i a',
          //Hora por defecto.
-         defaultTime: ('8:00'),
+        // defaultTime: ('8:00'),
          //intervalo de hora
          allowTimes: function getArr() {
         var allowTimes = [
@@ -424,8 +424,8 @@ while ($fila=mysqli_fetch_array($rs)) {
          //Fecha limite de reservas.
          maxDate: new Date(2018,11,31),
          //Tiempo acutal en adelante para todos los dias.
-        // minTime:0,
-         maxTime:-1,
+         //minTime:0,
+         //maxTime:0,
          });
     });
       </script>                  
