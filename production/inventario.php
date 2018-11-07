@@ -53,17 +53,19 @@ include('../db.php');
 
             <div class="clearfix"></div>
 
-            <!-- menu profile quick info -->
-            <div class="profile clearfix">
-              <div class="profile_pic">
-                <img src="/Barber2.0/images/<?php echo $ruta_img;?>" alt="Foto de perfil" width="10%" class="img-circle profile_img">
-              </div>
+<!-- menu profile quick info -->
+<div class="profile clearfix">
+              <!-- <div class="profile_pic">
+                <img src="/Barber2.0/images/<?php echo $ruta_img;?>" alt="Foto de perfil" width="20%"  class="img-circle profile_img">
+              </div> -->
               <div class="profile_info">
                 <span>Bienvenido</span>
                 <h2><?php echo $_SESSION['username'];?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
+
+            <br />
 
             <!-- <br /> -->
  <!-- sidebar menu -->
