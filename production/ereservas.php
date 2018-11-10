@@ -236,19 +236,19 @@ if (!isset($_SESSION['username'])) {
         
               <div class="panel-default">
                         <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-condensed table-striped" >
+                            <div class="table table-striped">
+                                <table class="table table-hover table-condensed " >
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>Nombre</th>
-                                            <th>Email</th>
-											                      <th>Barbero</th>
-											                      <th>Fecha Y Hora</th>
-											                      <th>N° De Reservas</th>
-										                      	<th>Tipo De Servicio</th>
-											                      <th>Estado</th>
-											                      <th>Más</th>		
+                                            <th class="text-center">#</th>
+                                            <th class="text-center">Nombre</th>
+                                            <th class="text-center">Email</th>
+											                      <th class="text-center">Barbero</th>
+											                      <th class="text-center">Fecha Y Hora</th>
+											                      <th class="text-center">N° De Reservas</th>
+										                      	<th class="text-center">Tipo De Servicio</th>
+											                      <th class="text-center">Estado</th>
+											                      <th class="text-center">Más</th>		
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -257,22 +257,21 @@ if (!isset($_SESSION['username'])) {
                                               $tsql = "SELECT * FROM ereservas";
                                               $tre = mysqli_query($con,$tsql);
                                               
-                                              
                                               while($trow=mysqli_fetch_array($tre) )
                                               {	
                                                 $co =$trow['estado_reserva']; 
                                                 if($co=="Pendiente")
                                                 {
                                                   echo"<tr>
-                                                  <th>".$trow['id_ereservas']."</th>
-                                                  <th>".$trow['fullname']."</th>
-                                                  <th>".$trow['email']."</th>
-                                                  <th>".$trow['barbero']."</th>
-                                                  <th>".$trow['fecha']."</th>
-                                                  <th>".$trow['nreservas']."</th>
-                                                  <th>".$trow['tipo_servicio']."</th>
-                                                  <th>".$trow['estado_reserva']."</th>
-                                                  <th><a href='checkreservas.php?rid=".$trow['id_ereservas']." ' class='btn btn-secondary mb-1 '> <i class = 'glyphicon glyphicon-eye-open'> </i> Más</a></th>
+                                                  <td class='text-center'>".$trow['id_ereservas']."</td>
+                                                  <td class='text-center'>".$trow['fullname']."</td>
+                                                  <td class='text-center'>".$trow['email']."</td>
+                                                  <td class='text-center'>".$trow['barbero']."</td>
+                                                  <td class='text-center'>".$trow['fecha']."</td>
+                                                  <td class='text-center'>".$trow['nreservas']."</td>
+                                                  <td class='text-center'>".$trow['tipo_servicio']."</td>
+                                                  <td class='text-center'>".$trow['estado_reserva']."</td>
+                                                  <th class='text-center'><a href='checkreservas.php?rid=".$trow['id_ereservas']." ' class='btn btn-secondary mb-1 '> <i class = 'glyphicon glyphicon-eye-open'> </i> Más</a></th>
                                                   </tr>";
                                                 }
                                               }	

@@ -403,15 +403,29 @@ while ($fila=mysqli_fetch_array($rs)) {
       $("#datetimepicker").datetimepicker({ 
         //Desahabilitar dias domingos
         disabledWeekDays: [6],
-         format: 'd/m/Y h:i A',
+        //Formato de fecha & hora.
+         format: 'd/m/Y h:i a',
+         //Hora por defecto.
+        // defaultTime: ('8:00'),
          //intervalo de hora
-         disabledTimeIntervals:[[moment({h:0}), moment({h:7})], [moment({h:19}), moment({h:24})]],
-         step:30,
+         allowTimes: function getArr() {
+        var allowTimes = [
+           '08:00', '08:30', '09:00', '09:30', '10:00', 
+           '10:30', '11:00', '11:30', '14:00', '14:30', 
+           '15:00', '15:30', '16:00', '16:30', '17:00',
+           '17:30', '18:00'
+            ];
+         return allowTimes;
+          }(),
+         //disabledTimeIntervals:[moment({H:7}), moment({H:18})],
+        // step:30,
          //Fecha actual en adelante.
          minDate:0,
+         //Fecha limite de reservas.
+         maxDate: new Date(2018,11,31),
          //Tiempo acutal en adelante para todos los dias.
-         minTime: 0,
-        // maxTime: 1,
+         //minTime:0,
+         //maxTime:0,
          });
     });
       </script>                  
