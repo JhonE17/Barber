@@ -206,7 +206,7 @@ while ($fila=mysqli_fetch_array($rs)) {
         <div class="right_col" role="main">
          
         <div class="row" style=" padding-top:100px;padding-left:285px">
-        <img src="images/Logo Barberìa 1.png" alt="" width="500" height="500" >
+        <img src="images/logo.png" alt=""  >
         </div>
         
         <!-- top tiles -->
@@ -618,6 +618,6 @@ while ($fila=mysqli_fetch_array($rs)) {
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
-	
+    
   </body>
 </html>

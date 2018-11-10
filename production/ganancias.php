@@ -293,7 +293,7 @@ while ($fila=mysqli_fetch_array($rs)) {
     <script src="../vendors/jszip/dist/jszip.min.js"></script>
     <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
-
+   
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
 
