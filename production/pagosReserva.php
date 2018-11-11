@@ -289,8 +289,8 @@ while ($fila=mysqli_fetch_array($rs)) {
                                             <td class='text-center'>".$trow['tipo_servicio']."</td>
                                             <td class='text-center'>".$trow['estado_reserva']."</td>
                                             <td class='text-center'>".$trow['estado_pago']."</td>
-                                            <td class='text-center'>".$trow['total']."</td>
-                                            <td class='text-center'>".$row * $row2. "</td>
+                                            <td class='text-center'>" ."$".$trow['total']."</td>
+                                            <td class='text-center'>" ."$".$row * $row2. "</td>
                                             <td class='text-center'><a href=checkpagos.php?eid=".$trow['id_ereservas'] ." <button class='btn btn-success'><i class='fa fa-credit-card'></i> Pagar</button></td>
                                             </tr>";
                                           }
