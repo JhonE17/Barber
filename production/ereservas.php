@@ -39,16 +39,14 @@ if (!isset($_SESSION['username'])) {
         <div class="col-md-3 left_col menu_fixed">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.php" class="site_title"><i class="fa fa-paw"></i> <span>BarberShopQuib</span></a>
+            <a href="index.php" class="site_title"><img src="images/logo3.png" alt=""><small>Barbershopquib</small></a>
             </div>
 
             <div class="clearfix"></div>
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
-              <!-- <div class="profile_pic">
-                <img src="/Barber2.0/images/<?php echo $ruta_img;?>" alt="Foto de perfil" width="20%"  class="img-circle profile_img">
-              </div> -->
+             
               <div class="profile_info">
                 <span>Bienvenido</span>
                 <h2><?php echo $_SESSION['username'];?></h2>

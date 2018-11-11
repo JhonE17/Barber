@@ -14,40 +14,6 @@ while ($fila=mysqli_fetch_array($rs)) {
 }
 
 ?>
-
-	<?php
-	ob_start();	
-	include ('../db.php');
-  $curdate=date("d/m/Y");
-	$pag = $_GET['pag'];
-	
-	
-	
-	$sql ="SELECT * FROM ereservas where id_ereservas = '$pag' ";
-	$re = mysqli_query($con,$sql);
-	while($row=mysqli_fetch_array($re))
-	{
-		$id = $row['id_ereservas'];
-		
-		$nombre = $row['fullname'];
-		
-		$tipservicio = $row['tipo_servicio'];
-		$barbero = $row['barbero'];
-		$fecha = $row['fecha'];
-	
-		$nreservas = $row['nreservas'];
-		$email = $row['email'];
-		$telefono = $row['telefono'];
-		// $stotal = $row['stotal'];
-		$total = $row['total'];
-	
-		
-		
-	
-	}
-	
-									
-	?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -83,6 +49,7 @@ while ($fila=mysqli_fetch_array($rs)) {
             </div>
 
             <div class="clearfix"></div>
+
 <!-- menu profile quick info -->
 <div class="profile clearfix">
           
@@ -94,8 +61,8 @@ while ($fila=mysqli_fetch_array($rs)) {
             <!-- /menu profile quick info -->
 
             <br />
-            <!-- <br /> -->
 
+            <!-- <br /> -->
  <!-- sidebar menu -->
  <div id="sidebar-menu" class="menu_fixed hidden-print main_menu">
     <div class="menu_section">
@@ -122,6 +89,7 @@ while ($fila=mysqli_fetch_array($rs)) {
             <li><a href="reservas.php">Crear Reserva</a></li>
             <li><a href="pagos.php">Facturas</a></li>
             <li><a href="ereservas.php">Estado</a></li>
+            <li><a href="pagosReserva.php">Pagos</a></li>
           </ul>
         </li>
 
@@ -133,6 +101,7 @@ while ($fila=mysqli_fetch_array($rs)) {
   </div>
   <!-- /sidebar menu -->
 
+  
 
             <!-- /menu footer buttons -->
             <!-- <div class="sidebar-footer hidden-small">
@@ -249,157 +218,205 @@ while ($fila=mysqli_fetch_array($rs)) {
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>FACTURA DE RESERVA</h3>
+                <h3>PANEL DE PAGOS </h3><br>
               </div>
+              
+
+              <!-- <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div> -->
             </div>
 
             <div class="clearfix"></div>
 
             <div class="row">
-              <div class="col-md-12">
+
+              <div class="clearfix"></div>
+                  <!-- Tabla de personal registrado -->
+                 <div class="row">
+              
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-                
+               
                   <div class="x_content">
-
-                    <section class="content invoice">
-                      <!-- title row -->
-                      <div class="row">
-                        <div class="col-xs-12 invoice-header">
-                          <h2>
-                                          <i class="fa fa-book"></i> Factura BarberShopQuib
-                                          <small class="pull-right"> <h4>Fecha: <?php echo $curdate; ?> </h4></small>
-                                      </h2>
-                        </div>
-                        <!-- /.col -->
-                      </div>
-                      <!-- info row -->
-                      <div class="row invoice-info">
-                        <div class="col-sm-4 invoice-col">
-                          De
-                          <address>
-                                          <strong>BarberShopQuib</strong>
-                                          <br>Calle 30 - N° 24-50
-                                          <br>Quibdo-chocó
-                                          <br>Teléfono: (+57) 318-391-9028 - (+57) 314-695-5452
-                                          <br>Email: stiwar.asprilla1998@gmail.com
-                                      </address>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-sm-4 invoice-col">
-                          Para
-                          <address>
-                                          <strong><?php echo $nombre; ?></strong>
-                                          <br>Telefono: <?php echo $telefono; ?>
-                                          <br>Email: <?php echo $email; ?>
-                                      </address>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-sm-4 invoice-col">
-                          <b>Factura <?php echo "#".$id; ?></b>
-                          <br>
-                          
-                          <b>Fecha de la reserva:</b> <?php echo $fecha; ?>
-                          <br>
-                          
-                        </div>
-                        <!-- /.col -->
-                      </div>
-                      <!-- /.row -->
-
-                      <!-- Table row -->
-                      <div class="row">
-                        <div class="col-xs-12 table">
-                          <table class="table table-striped">
-                            <thead>
-                              <tr>
-                                <th class="text-center">#</th>
-                                <th class="text-center">Servicio</th>
-                                <th class="text-center">Barbero</th>
-                                <th class="text-center">N° de reservas</th>
-                                <th class="text-center">Subtotal</th>
-                                <th class="text-center">Total</th>
-                              </tr>
-                            </thead>
-                            <tbody class="text-center">
-                              <tr>
-                                <td><?php echo $id; ?></td>
-                                <td><?php echo $tipservicio; ?></td>
-                                <td><?php echo $barbero; ?></td>
-                                <td><?php echo $nreservas; ?></td>
-                                <td><?php echo "$".$total; ?></td>
-                                <td><?php echo "$".$nreservas*$total; ?></td>
-                              </tr>
-                              
-                            </tbody>
-                          </table>
-                        </div>
-                        <!-- /.col -->
-                      </div>
-                      <!-- /.row -->
-
-                      <!-- <div class="row"> -->
-                        <!-- accepted payments column -->
-                        <!-- <div class="col-xs-6">
-                          <p class="lead">Metodos de pago:</p>
-                          <img src="images/visa.png" alt="Visa">
-                          <img src="images/mastercard.png" alt="Mastercard">
-                          <img src="images/american-express.png" alt="American Express">
-                          <img src="images/paypal.png" alt="Paypal"> -->
-
-                        <!-- </div> -->
-                        <!-- /.col -->
-                        <div class="col-xs-4">
-                          
-                          <div class="table-responsive" >
-                            <table class="table table-hover">
-                              <tbody class="text-center">
-                                <tr>
-                                  <th class="text-left">Subtotal:</th>
-                                  <td><?php echo "$".$total; ?></td>
-                                </tr>
-                                <tr>
-                                  <th class="text-left">Iva (19%)</th>
-                                  <td>19%</td>
-                                </tr>
-                                <tr>
-                                  <th class="text-letf">Total:</th>
-                                  <td><?php echo "$".$nreservas*$total; ?></td>
-                                </tr>
+                          <table class="table table-hover table-condensed " >
+                              <thead>
+                                  <tr>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center">Nombre completo</th>
+                                    <th class="text-center">Documento</th>
+                                    <th class="text-center">Email</th>
+                                    <th class="text-center">Telefóno</th>
+                                    <th class="text-center">Dirección</th>
+                                    <th class="text-center">Cargo</th>
+                                    <th class="text-center">Estado</th>
+                                    <th class="text-center">Fecha de registro</th>
+                                    <th class="text-right">Acciones</th>	
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                    <?php
+                                        include("../db.php");	
+                                        $tsql = "SELECT * FROM personal";
+                                        $tre = mysqli_query($con,$tsql);
+                                        
+                                        while($trow=mysqli_fetch_array($tre) )
+                                        {	
+                                          $co =$trow['estado']; 
+                                          if($co=="Activo")
+                                          {
+                                            echo"<tr>
+                                            <td class='text-center'>".$trow['id']."</td>
+                                            <td class='text-center'>".$trow['nombre']."</td>
+                                            <td class='text-center'>".$trow['documento']."</td>
+                                            <td class='text-center'>".$trow['emailP']."</td>
+                                            <td class='text-center'>".$trow['telefono']."</td>
+                                            <td class='text-center'>".$trow['direccion']."</td>
+                                            <td class='text-center'>".$trow['cargo']."</td>
+                                            <td class='text-center'>".$trow['estado']."</td>
+                                            <td class='text-center'>".$trow['fecha_registro']."</td>
+                                            <td class='text-center'><a href=despedir.php?eid=".$trow['id'] ." <button class='btn btn-warning'> <i class='glyphicon glyphicon-ban-circle' ></i> Despedir</button></td>
+                                            <td class='text-center'><a href=removepersonal.php?eid=".$trow['id'] ." <button class='btn btn-danger'> <i class='fa fa-trash' ></i> Eliminar</button></td>
+                                            </tr>";
+                                          }
+                                        }	
+                                     ?>
                               </tbody>
-                            </table>
-                          </div>
-                        </div>
-                        <!-- /.col -->
-                      </div>
-                      <!-- /.row -->
-
-                      <!-- this row will not appear when printing -->
-                      <div class="row no-print">
-                        <div class="col-xs-12">
-                          <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i> Imprimir</button>
-                          <button class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Pagar </button>
-                  
-                          <button class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="glyphicon glyphicon-floppy-save"></i> Generar PDF</button>
-                        </div>
-                      </div>
-                    </section>
+                          </table>
                   </div>
-                </div>
               </div>
             </div>
+            </div>
+
+                     <!-- Boton agregar -->
+                     <div class="form-group" class="text-center">
+                        <div class="col-md-offset-5 col-xs-offset-4">
+                            <button  type="button" class="btn btn-secondary mb-1"  data-toggle="modal" data-target="#mediumModal2"><i class='fa fa-plus'></i>
+                                Agregar nuevo usuario
+                            </button>
+                        </div>
+                    </div>
+                      <!-- Fin boton -->   
+           
           </div>
+
+                  </div>
+                
+                </div>
+              
+              </div>
+              <div class="clearfix"></div>
+
+
+        <!-- /page content -->
+      <!-- Fin tabla -->
+            </div>
+            
+          </div>
+          
         </div>
         <!-- /page content -->
 
-         <!-- footer content -->
-         <footer>
+        <!-- modal medium -->
+			<div class="modal fade" id="mediumModal2" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="mediumModalLabel">Datos del nuevo usuario</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <form method="post">
+                  <div class="modal-body col-md-6 col-sm-6 col-xs-12">
+                      <label>Nombre completo</label>
+                      <input name="fullname" type="text"  class="form-control" placeholder="Ingrese nombre completo"></div>
+                    
+                  <div class="modal-body col-md-6 col-sm-6 col-xs-12">
+                      <label>Documento</label>
+                      <input name="doc" type="text" class="form-control" placeholder="Ingrese documento de identidad">     
+                  </div>
+
+                  <div class="modal-body col-md-6 col-sm-6 col-xs-12">
+                      <label>Email</label>
+                      <input name="email" type="email" class="form-control" placeholder="Ingresar Email">     
+                  </div>
+
+                  <div class="modal-body col-md-6 col-sm-6 col-xs-12">
+                      <label>Telefóno</label>
+                      <input name="phone" type="tel"  class="form-control" placeholder="Ingrese telefóno">     
+                  </div>
+
+                  <div class="modal-body col-md-6 col-sm-6 col-xs-12">
+                      <label>Dirección</label>
+                      <input name="dir" type="text" class="form-control" placeholder="Ingrese dirección">     
+                  </div>
+
+                  <div class="modal-body col-md-6 col-sm-6 col-xs-12">
+                      <label>Cargo</label>
+                      <select name="cargoP" class="form-control" required>
+                      <option value selected>Escoga un cargo</option>
+                      <option value="Barbero">Barbero</option>
+                      <option value="Limpieza">Limpieza</option> 
+                  </select>
+              </div>
+                  
+              
+                     
+                  
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <!-- <button type="sumbit" name="aggP" class="btn btn-primary">Confirmar</button> -->
+                    <input type="submit" name="in" value="Confirmar" class="btn btn-primary">
+                  </form>
+                </div>   
+            </div>
+          </div>
+        </div>
+        <!-- end modal medium -->
+        <!-- Agregar Modal -->
+        <?php
+						if(isset($_POST['in']))
+						{
+							$newnom = $_POST['fullname'];
+							$newdoc = $_POST['doc'];
+              $newem = $_POST['email'];
+              $newtel = $_POST['phone'];
+              $newdir = $_POST['dir'];
+              $newcar = $_POST['cargoP'];
+              $newest = 'Activo';
+              
+							$newsql ="INSERT INTO personal (nombre,documento,emailP,telefono,direccion,cargo,estado) values ('$newnom','$newdoc','$newem','$newtel','$newdir','$newcar','$newest')";
+							if(mysqli_query($con,$newsql))
+							{
+							echo' <script language="javascript" type="text/javascript"> alert("!Nuevo personal agregado!") </script>';
+              
+              header("Location: personal.php");
+              }
+              
+						  }
+						?>
+        <!-- /Agregar Modal -->
+        <!-- footer content -->
+        <footer>
             <div class="pull-right">
                 &COPY; BarberShopQuib - TODOS LOS DERECHOS SON RESERVADOS </a>
             </div>
             <div class="clearfix"></div>
           </footer>
-        <!-- footer content -->
+        <!-- /footer content -->
       </div>
+      <!-- Fin modal agregar-->
+
+  
     </div>
 
     <!-- jQuery -->
@@ -410,6 +427,8 @@ while ($fila=mysqli_fetch_array($rs)) {
     <script src="../vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>

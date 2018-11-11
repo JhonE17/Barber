@@ -5,7 +5,6 @@ require 'funtions.php';
 if (!isset($_SESSION['username'])) {
   header('Location: '.RUTA.'login.php');
 }
-
 require '../db.php';
 
 $consulta="SELECT foto FROM login WHERE id_login='12'";
@@ -13,6 +12,7 @@ $rs= mysqli_query($con, $consulta);
 while ($fila=mysqli_fetch_array($rs)) {
   $ruta_img=$fila["foto"];
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -49,9 +49,10 @@ while ($fila=mysqli_fetch_array($rs)) {
             </div>
 
             <div class="clearfix"></div>
+
 <!-- menu profile quick info -->
-              <div class="profile clearfix">
-            
+<div class="profile clearfix">
+          
               <div class="profile_info">
                 <span>Bienvenido</span>
                 <h2><?php echo $_SESSION['username'];?></h2>
@@ -60,10 +61,10 @@ while ($fila=mysqli_fetch_array($rs)) {
             <!-- /menu profile quick info -->
 
             <br />
-            <!-- <br /> -->
 
-  <!-- sidebar menu -->
-  <div id="sidebar-menu" class="menu_fixed hidden-print main_menu">
+            <!-- <br /> -->
+ <!-- sidebar menu -->
+ <div id="sidebar-menu" class="menu_fixed hidden-print main_menu">
     <div class="menu_section">
      
       <ul class="nav side-menu">
@@ -88,6 +89,7 @@ while ($fila=mysqli_fetch_array($rs)) {
             <li><a href="reservas.php">Crear Reserva</a></li>
             <li><a href="pagos.php">Facturas</a></li>
             <li><a href="ereservas.php">Estado</a></li>
+            <li><a href="pagosReserva.php">Pagos</a></li>
           </ul>
         </li>
 
@@ -98,8 +100,25 @@ while ($fila=mysqli_fetch_array($rs)) {
 
   </div>
   <!-- /sidebar menu -->
+
   
 
+            <!-- /menu footer buttons -->
+            <!-- <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div> -->
+            <!-- /menu footer buttons -->
           </div>
         </div>
 
@@ -194,72 +213,133 @@ while ($fila=mysqli_fetch_array($rs)) {
         </div>
         <!-- /top navigation -->
 
-
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>GANANCIAS</h3>
+                <h3>PANEL DE PAGOS </h3><br>
               </div>
+              
 
-            
+              <!-- <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div> -->
             </div>
 
             <div class="clearfix"></div>
 
             <div class="row">
-        
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <div class="x_panel">
-                      <div class="x_title">
-                        <h2>Graficos de lineas</h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                          </li>
-                        </ul>
-                        <div class="clearfix"></div>
-                      </div>
-                      <div class="x_content">
-    
-                        <div id="echart_line" style="height:350px;"></div>
-    
-                      </div>
-                    </div>
-                  </div>
 
-                <div class="col-md-6 col-sm-6 col-xs-12">
-                    <div class="x_panel">
-                      <div class="x_title">
-                        <h2>Grafico Circular</h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                          </li>
-                        </ul>
-                        <div class="clearfix"></div>
-                      </div>
-                      <div class="x_content">
-    
-                        <div id="echart_pie" style="height:350px;"></div>
-    
-                      </div>
-                    </div>
+              <div class="clearfix"></div>
+                  <!-- Tabla de personal registrado -->
+                 <div class="row">
+              
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+               
+                  <div class="x_content">
+                          <table class="table table-hover table-condensed " >
+                              <thead>
+                                  <tr>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center">Nombre completo</th>
+                                    <th class="text-center">Email</th>
+                                    <th class="text-center">Barbero</th>
+                                    <th class="text-center">Fecha</th>
+                                    <th class="text-center">N° Reservas</th>
+                                    <th class="text-center">Tipo De Servicio</th>
+                                    <th class="text-center">Telefono</th>
+                                    <th class="text-center">Estado Reserva</th>
+                                    <th class="text-center">Estado Pago</th>
+                                    <th class="text-center">Sub-Total</th>
+                                    <th class="text-center">Total</th>
+                                    <th class="text-center">Acciones</th>	
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                    <?php
+                                        include("../db.php");	
+                                        $tsql = "SELECT * FROM ereservas";
+                                        $tre = mysqli_query($con,$tsql);
+                                        
+                                        while($trow=mysqli_fetch_array($tre) )
+                                        {	
+                                          $co =$trow['estado_reserva']; 
+                                          if($co=="Confirmado")
+                                          $row = $trow['nreservas'];
+                                          $row2 = $trow['total'];
+                                          {
+                                            echo"<tr>
+                                            <td class='text-center'>".$trow['id_ereservas']."</td>
+                                            <td class='text-center'>".$trow['fullname']."</td>
+                                            <td class='text-center'>".$trow['email']."</td>
+                                            <td class='text-center'>".$trow['barbero']."</td>
+                                            <td class='text-center'>".$trow['fecha']."</td>
+                                            <td class='text-center'>".$trow['nreservas']."</td>
+                                            <td class='text-center'>".$trow['tipo_servicio']."</td>
+                                            <td class='text-center'>".$trow['telefono']."</td>
+                                            <td class='text-center'>".$trow['estado_reserva']."</td>
+                                            <td class='text-center'>".$trow['estado_pago']."</td>
+                                            <td class='text-center'>".$trow['total']."</td>
+                                            <td class='text-center'>".$row * $row2. "</td>
+                                            <td class='text-center'><a href=despedir.php?eid=".$trow['id_ereservas'] ." <button class='btn btn-success'> <i class='glyphicon glyphicon-ban-circle' ></i> Despedir</button></td>
+                                            
+                                            </tr>";
+                                          }
+                                        }	
+                                     ?>
+                              </tbody>
+                          </table>
                   </div>
-             
+              </div>
             </div>
+            </div>
+
+                  
+           
           </div>
+
+                  </div>
+                
+                </div>
+              
+              </div>
+              <div class="clearfix"></div>
+
+
+        <!-- /page content -->
+      <!-- Fin tabla -->
+            </div>
+            
+          </div>
+          
         </div>
         <!-- /page content -->
 
-         <!-- footer content -->
-         <footer>
+      
+        <!-- Agregar Modal -->
+
+        <!-- footer content -->
+        <footer>
             <div class="pull-right">
                 &COPY; BarberShopQuib - TODOS LOS DERECHOS SON RESERVADOS </a>
             </div>
             <div class="clearfix"></div>
           </footer>
-        <!-- footer content -->
+        <!-- /footer content -->
       </div>
+      <!-- Fin modal agregar-->
+
+  
     </div>
 
     <!-- jQuery -->
@@ -272,29 +352,8 @@ while ($fila=mysqli_fetch_array($rs)) {
     <script src="../vendors/nprogress/nprogress.js"></script>
     <!-- iCheck -->
     <script src="../vendors/iCheck/icheck.min.js"></script>
-      <!-- Chart.js -->
-    <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
-    <!-- ECharts -->
-    <script src="../vendors/echarts/dist/echarts.min.js"></script>
-    <!-- Datatables -->
-    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-    <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-    <script src="../vendors/jszip/dist/jszip.min.js"></script>
-    <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
-   
+
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
-
   </body>
 </html>

@@ -106,7 +106,7 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> BarberShopQuib</h1>
+                <h1><img src="images/logo2.png" alt=""></i> BarberShopQuib</h1>
                   <p>©2018 TODOS LOS DERECHOS SON RESERVADOS.</p>
                 </div>
               </div>
