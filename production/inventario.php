@@ -297,7 +297,7 @@ include('../db.php');
                                     $ctg = $_POST['ctg'];
 
                                     /* Uso "mysqli_real_escape_string()" para escapar las cadenas */
-                                    $check = " SELECT * FROM `inventario` WHERE nombre = '" . mysqli_real_escape_string($con, $nom_inventario) . "' AND stock = '" . mysqli_real_escape_string($con, $stock) . "' AND categoria = '" . mysqli_real_escape_string($con, $ctg) . "'";
+                                    $check = " SELECT * FROM inventario WHERE nombre = '" . mysqli_real_escape_string($con, $nom_inventario) . "' AND stock = '" . mysqli_real_escape_string($con, $stock) . "' AND categoria = '" . mysqli_real_escape_string($con, $ctg) . "'";
                                     $rs = mysqli_query($con, $check);
                                     /* Comprobamos si hubo un error durante la ejecución de la consulta */
                                     if ($rs === false) {
@@ -308,24 +308,11 @@ include('../db.php');
                                         echo "<script type='text/javascript'> alert('El implemento que desea agregar ya existe')</script>";
                                     } else {
                                         /* También hay que escapar aquí las cadenas */
-                                        $sql = "
-                                          INSERT INTO `inventario` (
-                                            `nombre`,
-                                            `stock`,
-                                            `categoria`
-                                           
-                                            
-                                          ) VALUES (
-                                            '" . mysqli_real_escape_string($con, $nom_inventario) . "',
-                                            '" . mysqli_real_escape_string($con, $stock) . "',
-                                            '" . mysqli_real_escape_string($con, $ctg) . "',
-                                            
-                                          )
-                                        ";
+                                        $sql = "INSERT INTO inventario (nombre,stock,categoria) VALUES ('" . mysqli_real_escape_string($con, $nom_inventario) . "','" . mysqli_real_escape_string($con, $stock) . "','" . mysqli_real_escape_string($con, $ctg) ."')";
                                         if (mysqli_query($con, $sql)) {
                                             echo '<script>alert("Nuevo implemento agregado") </script>';
                                         } else {
-                                            echo '<script>alert("Lo Siento ! Revisar el sistema") </script>';
+                                            echo '<script>alert("Lo Siento! Revisar el sistema") </script>';
                                         }
                                     }
                                 }

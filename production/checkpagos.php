@@ -7,13 +7,13 @@ if (!isset($_SESSION['username'])) {
 }
 ?>
 <?php
-		if(!isset($_GET["pid"]))
+		if(!isset($_GET["pig"]))
 		{
 				
 			 header("location:checkpagos.php");
 		}
 		else {
-        $id = $_GET["pid"]; $id = (int)$id;
+        $id = $_GET["pig"]; $id = (int)$id;
 				// $curdate=date("Y/m/d");
 				include ('../db.php');
 				// $id = $_GET['id'];
@@ -247,7 +247,7 @@ if (!isset($_SESSION['username'])) {
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>DETALLES DE LA RESERVA</h3>
+                <h3>DETALLES DEL PAGO</h3>
               </div>
               
 

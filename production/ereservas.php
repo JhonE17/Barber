@@ -270,7 +270,7 @@ if (!isset($_SESSION['username'])) {
                                                   <td class='text-center'>".$trow['nreservas']."</td>
                                                   <td class='text-center'>".$trow['tipo_servicio']."</td>
                                                   <td class='text-center'>".$trow['estado_reserva']."</td>
-                                                  <th class='text-center'><a href='checkreservas.php?rid=".$trow['id_ereservas']." ' class='btn btn-secondary mb-1 '> <i class = 'glyphicon glyphicon-eye-open'> </i> Más</a></th>
+                                                  <td class='text-center'><a href='checkreservas.php?rid=".$trow['id_ereservas']." ' class='btn btn-secondary mb-1 '> <i class = 'glyphicon glyphicon-eye-open'> </i> Más</a></td>
                                                   </tr>";
                                                 }
                                               }	

@@ -10,7 +10,7 @@ if (!isset($_SESSION['username'])) {
 		if(!isset($_GET["rid"]))
 		{
 				
-			 header("location:checkreservas.php");
+			 header("location:ereservas.php");
 		}
 		else {
         $id = $_GET["rid"]; $id = (int)$id;

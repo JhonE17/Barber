@@ -312,7 +312,7 @@ while ($fila=mysqli_fetch_array($rs)) {
                           <table class="table table-striped">
                             <thead>
                               <tr>
-                                <th class="text-center">#</th>
+                                <th class="text-center">N° Factura</th>
                                 <th class="text-center">Servicio</th>
                                 <th class="text-center">Barbero</th>
                                 <th class="text-center">N° de reservas</th>
@@ -353,17 +353,21 @@ while ($fila=mysqli_fetch_array($rs)) {
                           <div class="table-responsive" >
                             <table class="table table-hover">
                               <tbody class="text-center">
+                              
                                 <tr>
-                                  <th class="text-left">Subtotal:</th>
-                                  <td><?php echo "$".$total; ?></td>
-                                </tr>
-                                <tr>
-                                  <th class="text-left">Iva (19%)</th>
-                                  <td>19%</td>
+                                  <th class="text-left">Iva (16%)</th>
+                                  <td>16%</td>
                                 </tr>
                                 <tr>
                                   <th class="text-letf">Total:</th>
-                                  <td><?php echo "$".$nreservas*$total; ?></td>
+                                  <?php
+                                  $iva = 0.16;
+                                  $totaliva= ($nreservas * $total);
+                                  $totalF = $totaliva * $iva;
+                                  $tot = $totaliva + $totalF;
+
+                                  // echo $tot; ?>
+                                  <td><?php echo "$".$tot ; ?></td>
                                 </tr>
                               </tbody>
                             </table>
@@ -377,8 +381,8 @@ while ($fila=mysqli_fetch_array($rs)) {
                       <div class="row no-print">
                         <div class="col-xs-12">
                           <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i> Imprimir</button>
-                          <button class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Pagar </button>
-                  
+                          <button class="btn btn-success pull-right"><a href='checkpagos.php?pig= ."$id" '<i class="fa fa-credit-card"></i> Pagar </button></a>
+                          
                           <button class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="glyphicon glyphicon-floppy-save"></i> Generar PDF</button>
                         </div>
                       </div>
