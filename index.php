@@ -184,7 +184,7 @@ include('db.php');
 				</ul>
 			</div>
 			    </nav>
-			  <!-- </div> -->
+			  </div> 
 		  </div>
 	</header>
 
