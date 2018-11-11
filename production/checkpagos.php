@@ -7,13 +7,13 @@ if (!isset($_SESSION['username'])) {
 }
 ?>
 <?php
-		if(!isset($_GET["pig"]))
+		if(!isset($_GET["eid"]))
 		{
 				
 			 header("location:checkpagos.php");
 		}
 		else {
-        $id = $_GET["pig"]; $id = (int)$id;
+        $id = $_GET["eid"]; $id = (int)$id;
 				// $curdate=date("Y/m/d");
 				include ('../db.php');
 				// $id = $_GET['id'];
@@ -319,11 +319,11 @@ if (!isset($_SESSION['username'])) {
 
                                 <label>Que acción desea hacer?</label>
                             <div class="form-group">
-                                <form method="POST" action="estadoreserva.php?eid= <?php echo $id;?>">
+                                <form method="POST" action="estadopago.php?eid= <?php echo $id;?>">
                                 <select  name="conf" id="conf" class="form-control"required>
                                     <option value selected>Escoga una opción</option>
-                                    <option value="Confirmado">Confirmar reserva</option>
-                                    <option value="Cancelado">Cancelar reserva</option> 
+                                    <option value="Pagado">Confirmar pago</option>
+                                    <option value="Cancelado">Cancelar pago</option> 
                                 </select> <br>
                               
                               <input type="submit" name="co" value="Aceptar" class="btn btn-secondary mb-1" >  

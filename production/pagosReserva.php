@@ -252,15 +252,15 @@ while ($fila=mysqli_fetch_array($rs)) {
                                   <tr>
                                     <th class="text-center">#</th>
                                     <th class="text-center">Nombre completo</th>
-                                    <th class="text-center">Email</th>
+                                    
                                     <th class="text-center">Barbero</th>
                                     <th class="text-center">Fecha</th>
                                     <th class="text-center">N° Reservas</th>
                                     <th class="text-center">Tipo De Servicio</th>
-                                    <th class="text-center">Telefono</th>
+                                    
                                     <th class="text-center">Estado Reserva</th>
                                     <th class="text-center">Estado Pago</th>
-                                    <th class="text-center">Sub-Total</th>
+                                    <th class="text-center">Sub Total</th>
                                     <th class="text-center">Total</th>
                                     <th class="text-center">Acciones</th>	
                                   </tr>
@@ -273,26 +273,25 @@ while ($fila=mysqli_fetch_array($rs)) {
                                         
                                         while($trow=mysqli_fetch_array($tre) )
                                         {	
-                                          $co =$trow['estado_reserva']; 
-                                          if($co=="Confirmado")
                                           $row = $trow['nreservas'];
                                           $row2 = $trow['total'];
+                                          $co =$trow['estado_reserva']; 
+                                          $pa = $trow['estado_pago'];
+                                          if($co=="Confirmado" AND $pa=="Pendiente")
+                                          
                                           {
                                             echo"<tr>
                                             <td class='text-center'>".$trow['id_ereservas']."</td>
                                             <td class='text-center'>".$trow['fullname']."</td>
-                                            <td class='text-center'>".$trow['email']."</td>
                                             <td class='text-center'>".$trow['barbero']."</td>
                                             <td class='text-center'>".$trow['fecha']."</td>
                                             <td class='text-center'>".$trow['nreservas']."</td>
                                             <td class='text-center'>".$trow['tipo_servicio']."</td>
-                                            <td class='text-center'>".$trow['telefono']."</td>
                                             <td class='text-center'>".$trow['estado_reserva']."</td>
                                             <td class='text-center'>".$trow['estado_pago']."</td>
                                             <td class='text-center'>".$trow['total']."</td>
                                             <td class='text-center'>".$row * $row2. "</td>
-                                            <td class='text-center'><a href=despedir.php?eid=".$trow['id_ereservas'] ." <button class='btn btn-success'> <i class='glyphicon glyphicon-ban-circle' ></i> Despedir</button></td>
-                                            
+                                            <td class='text-center'><a href=checkpagos.php?eid=".$trow['id_ereservas'] ." <button class='btn btn-success'><i class='fa fa-credit-card'></i> Pagar</button></td>
                                             </tr>";
                                           }
                                         }	

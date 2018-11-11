@@ -122,6 +122,7 @@ while ($fila=mysqli_fetch_array($rs)) {
             <li><a href="reservas.php">Crear Reserva</a></li>
             <li><a href="pagos.php">Facturas</a></li>
             <li><a href="ereservas.php">Estado</a></li>
+            <li><a href="pagosReserva.php">Pagos</a></li>
           </ul>
         </li>
 
@@ -381,8 +382,6 @@ while ($fila=mysqli_fetch_array($rs)) {
                       <div class="row no-print">
                         <div class="col-xs-12">
                           <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i> Imprimir</button>
-                          <button class="btn btn-success pull-right"><a href='checkpagos.php?pig= ."$id" '<i class="fa fa-credit-card"></i> Pagar </button></a>
-                          
                           <button class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="glyphicon glyphicon-floppy-save"></i> Generar PDF</button>
                         </div>
                       </div>

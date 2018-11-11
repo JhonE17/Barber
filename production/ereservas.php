@@ -84,6 +84,7 @@ if (!isset($_SESSION['username'])) {
             <li><a href="reservas.php">Crear Reserva</a></li>
             <li><a href="pagos.php">Facturas</a></li>
             <li><a href="ereservas.php">Estado</a></li>
+            <li><a href="pagosReserva.php">Pagos</a></li>
           </ul>
         </li>
 
