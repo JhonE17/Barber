@@ -53,7 +53,7 @@ while ($fila=mysqli_fetch_array($rs)) {
         <div class="col-md-3 left_col menu_fixed">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.php" class="site_title"><img src="images/logo3-150*54.png" alt=""><span> BarberShopQuib</span></a>
+              <a href="index.php" class="site_title"><img src="images/logo2.png" alt=""><small>Barbershopquib</small></a>
             </div>
 
             <div class="clearfix"></div>

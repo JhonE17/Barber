@@ -241,86 +241,62 @@ while ($fila=mysqli_fetch_array($rs)) {
 
               <div class="clearfix"></div>
                   <!-- Tabla de personal registrado -->
-      <div class="col-md-12 col-sm-12 col-xs-12">
+                 <div class="row">
+              
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-
+               
                   <div class="x_content">
-                    <?php
-                        include ('../db.php');
-                        $sql = "SELECT * FROM `personal` ";
-                        $re = mysqli_query($con,$sql)
-                    ?>
-                    <table class="table table-responsive table-hover">
-                      <thead >
-                        <tr >
-                          <th class="text-center">#</th>
-                          <th class="text-center">Nombre completo</th>
-                          <th class="text-center">Documento</th>
-                          <th class="text-center">Email</th>
-                          <th class="text-center">Telefóno</th>
-                          <th class="text-center">Dirección</th>
-                          <th class="text-center">Cargo</th>
-                          <th class="text-center">Estado</th>
-                          <th class="text-center">Fecha de registro</th>
-                          <th class="text-center">Acciones</th>
-                        </tr>
-                      </thead>
-                      <tbody class="text-center">
+                          <table class="table table-hover table-condensed " >
+                              <thead>
+                                  <tr>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center">Nombre completo</th>
+                                    <th class="text-center">Documento</th>
+                                    <th class="text-center">Email</th>
+                                    <th class="text-center">Telefóno</th>
+                                    <th class="text-center">Dirección</th>
+                                    <th class="text-center">Cargo</th>
+                                    <th class="text-center">Estado</th>
+                                    <th class="text-center">Fecha de registro</th>
+                                    <th class="text-right">Acciones</th>	
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                    <?php
+                                        include("../db.php");	
+                                        $tsql = "SELECT * FROM personal";
+                                        $tre = mysqli_query($con,$tsql);
+                                        
+                                        while($trow=mysqli_fetch_array($tre) )
+                                        {	
+                                          $co =$trow['estado']; 
+                                          if($co=="Activo")
+                                          {
+                                            echo"<tr>
+                                            <td class='text-center'>".$trow['id']."</td>
+                                            <td class='text-center'>".$trow['nombre']."</td>
+                                            <td class='text-center'>".$trow['documento']."</td>
+                                            <td class='text-center'>".$trow['emailP']."</td>
+                                            <td class='text-center'>".$trow['telefono']."</td>
+                                            <td class='text-center'>".$trow['direccion']."</td>
+                                            <td class='text-center'>".$trow['cargo']."</td>
+                                            <td class='text-center'>".$trow['estado']."</td>
+                                            <td class='text-center'>".$trow['fecha_registro']."</td>
+                                            <td class='text-center'><a href=despedir.php?eid=".$trow['id'] ." <button class='btn btn-warning'> <i class='glyphicon glyphicon-ban-circle' ></i> Despedir</button></td>
+                                            <td class='text-center'><a href=removepersonal.php?eid=".$trow['id'] ." <button class='btn btn-danger'> <i class='fa fa-trash' ></i> Eliminar</button></td>
+                                            </tr>";
+                                          }
+                                        }	
+                                     ?>
+                              </tbody>
+                          </table>
+                  </div>
+              </div>
+            </div>
+            </div>
 
-                      <?php
-										while($row = mysqli_fetch_array($re))
-										{
-										
-                      $id_personal = $row['id'];
-                      $nombreP = $row['nombre'];
-                      $emailP = $row['emailP'];
-                      $dirP = $row['direccion'];
-                      $cargoP = $row['cargo'];
-                      $docP = $row['documento'];
-                      $telP = $row['telefono'];
-                      $estadoP = $row['estado'];
-                      $fechaP = $row['fecha_registro'];
-
-											if($id_personal % 2 == 0 )
-											{
-												echo"<tr>
-													<td>".$id_personal."</td>
-													<td>".$nombreP."</td>
-                          <td>".$docP."</td>
-                          <td>".$emailP."</td>
-                          <td>".$telP."</td>
-                          <td>".$dirP."</td>
-                          <td>".$cargoP."</td>
-                          <td>".$estadoP."</td>
-                          <td>".$fechaP."</td>
-                          <td><a href=despedir.php?eid=".$id_personal ." <button class='btn btn-warning'> <i class='glyphicon glyphicon-ban-circle' ></i> Despedir</button></td>
-                          <td><a href=removepersonal.php?eid=".$id_personal ." <button class='btn btn-danger'> <i class='fa fa-trash' ></i> Eliminar</button></td>
-												</tr>";
-											}
-											else
-											{
-												echo"<tr>
-                        <td>".$id_personal."</td>
-                        <td>".$nombreP."</td>
-                        <td>".$docP."</td>
-                        <td>".$emailP."</td>
-                        <td>".$telP."</td>
-                        <td>".$dirP."</td>
-                        <td>".$cargoP."</td>
-                        <td>".$estadoP."</td>
-                        <td>".$fechaP."</td>
-                        <td><a href=despedir.php?eid=".$id_personal ." <button class='btn btn-warning'> <i class='glyphicon glyphicon-ban-circle' ></i> Despedir</button></td>
-                        <td><a href=removepersonal.php?eid=".$id_personal ." <button class='btn btn-danger'> <i class='fa fa-trash' ></i> Eliminar</button></td>
-                      </tr>";
-                   
-                      // <td><a href=despedir.php?eid=".$id ." <button class='btn btn-warning'> <i class='fa fa-edit' ></i> Despedir</button></td>
-											}
-										
-										}
-                    ?>   
-                      </tbody>
-
-                    </table>
                      <!-- Boton agregar -->
                      <div class="form-group" class="text-center">
                         <div class="col-md-offset-5 col-xs-offset-4">
@@ -331,15 +307,16 @@ while ($fila=mysqli_fetch_array($rs)) {
                     </div>
                       <!-- Fin boton -->   
            
+          </div>
+
                   </div>
                 
                 </div>
               
               </div>
               <div class="clearfix"></div>
-            </div>
-          </div>
-        </div>
+
+
         <!-- /page content -->
       <!-- Fin tabla -->
             </div>

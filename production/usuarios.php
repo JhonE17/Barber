@@ -234,70 +234,55 @@ while ($fila=mysqli_fetch_array($rs)) {
 
             <div class="clearfix"></div>
 
-            <div class="row">
+        
+                    <div class="row">
               
 
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                
                   <div class="x_content">
-                    <?php
-                        include ('../db.php');
-                        $sql = "SELECT * FROM `login` ";
-                        $re = mysqli_query($con,$sql)
-                    ?>
-                    <table class="table table-responsive table-hover">
-                      <thead >
-                        <tr >
-                          <th class="text-center">#</th>
-                          <th class="text-center">Nombre de usuario</th>
-                          <th class="text-center">Email</th>
-                          <th class="text-center">Tipo de usuario</th>
-                          <th class="text-center">Fecha de registro</th>
-                          <th class="text-center">Acciones</th>
-                        </tr>
-                      </thead>
-                      <tbody class="text-center">
-                      <?php
-										while($row = mysqli_fetch_array($re))
-										{
-										
-                      $id_login = $row['id_login'];
-											$user_login = $row['username'];
-											$fecha_login = $row['fecha_registro'];
-                      $email_login = $row['email'];
-                      $tipoU_login = $row['tipoUsuario'];
-                    
+                          <table class="table table-hover table-condensed " >
+                              <thead>
+                                  <tr>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center">Nombre de usuario</th>
+                                    <th class="text-center">Email</th>
+                                    <th class="text-center">Tipo de usuario</th>
+                                    <th class="text-center">Fecha de registro</th>
+                                    <th class="text-center">Acciones</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                    <?php
+                                        include("../db.php");	
+                                        $tsql = "SELECT * FROM login";
+                                        $tre = mysqli_query($con,$tsql);
+                                        
+                                        while($trow=mysqli_fetch_array($tre) )
+                                        {	
+                                          $co =$trow['tipoUsuario']; 
+                                          if($co=="Usuario" || "Trabajador")
+                                          {
+                                            echo"<tr>
+                                            <td class='text-center'>".$trow['id_login']."</td>
+                                            <td class='text-center'>".$trow['username']."</td>
+                                            <td class='text-center'>".$trow['email']."</td>
+                                            <td class='text-center'>".$trow['tipoUsuario']."</td>
+                                            <td class='text-center'>".$trow['fecha_registro']."</td>
+                                            <td class='text-center'><a href=removeusuarios.php?eid=".$trow['id_login']." <button class='btn btn-danger'> <i class='fa fa-trash' ></i> Eliminar</button></td>
+                                            
+                                            </tr>";
+                                          }
+                                        }	
+                                     ?>
+                              </tbody>
+                          </table>
+                  </div>
+              </div>
+            </div>
+         
 
-											if($id_login % 2 ==0 )
-											{
-												echo"<tr>
-													<td>".$id_login."</td>
-													<td>".$user_login."</td>
-                          <td>".$email_login."</td>
-                          <td>".$tipoU_login."</td>
-                          <td>".$fecha_login."</td>
-                          <td><a href=removeusuarios.php?eid=".$id_login ." <button class='btn btn-danger'> <i class='fa fa-trash' ></i> Eliminar</button></td>
-												</tr>";
-											}
-											else
-											{
-												echo"<tr>
-                        <td>".$id_login."</td>
-													<td>".$user_login."</td>
-                          <td>".$email_login."</td>
-                          <td>".$tipoU_login."</td>
-                          <td>".$fecha_login."</td>
-                          <td><a href=removeusuarios.php?eid=".$id_login ." <button class='btn btn-danger'> <i class='fa fa-trash' ></i> Eliminar</button></td>
-                      </tr>";
-											
-											}
-										
-										}
-                    ?>   
-                      </tbody>
-
-                    </table>
                      <!-- Boton agregar -->
                   <div class="form-group" class="text-center">
                         <div class="col-md-offset-5 col-xs-offset-4">
@@ -385,7 +370,7 @@ while ($fila=mysqli_fetch_array($rs)) {
 						if(isset($_POST['inU']))
 						{
 							$newuserU = $_POST['username'];
-							$newpassU = $_POST['pass'];
+							$newpassU = base64_decode($_POST['pass']) ;
               $newemU = $_POST['email'];
               $newpriU = $_POST['priU'];
               $newtipU = $_POST['tipU'];
