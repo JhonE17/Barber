@@ -413,7 +413,7 @@ while ($fila=mysqli_fetch_array($rs)) {
         //Desahabilitar dias domingos
         disabledWeekDays: [6],
         //Formato de fecha & hora.
-         format: 'd/m/Y h:i a',
+         format: 'd/m/Y H:i a',
          //Hora por defecto.
         // defaultTime: ('8:00'),
          //intervalo de hora
