@@ -252,37 +252,48 @@ while ($fila=mysqli_fetch_array($rs)) {
                           INFORMACIÓN DE RESERVA
                         </div>
                         <div class="panel-body">
-								          <div class="form-group">
-                            <label>Tipo de servicio*</label>
-                            <select name="tservicio"  class="form-control" required>
-                              <option value selected ></option>
-                              <option value="BARBER SHOP">  BARBER SHOP</option>
-                              <option value="AFEITAR">AFEITAR</option>
-                              <option value="CERQUILLO">CERQUILLO</option>
-                              <option value="DEPILACIÓN">DEPILACIÓN</option>
+                        <from >
+                        <?php 
+                        $service=mysqli_query($con,"SELECT servicio FROM servicios ");
+                        ?>
+								            <div class="form-group">
+                             <label>Tipo de servicio*</label>
+                              <select name="tservicio"  class="form-control" required>
+                              <option>[Escoge tu servicio]</option>
+                              <?php 
+                                while ($data = mysqli_fetch_array($service)) { ?>
+                                <option value="<?php echo$data['servicio']?>"><?php echo$data['servicio']?></option>
+                                <?php } ?>  
+                              </select>
+                            </div>
+                          </from>
+                          <from >
+                          <?php 
+                        $barbers=mysqli_query($con,"SELECT nombre FROM personal ");
+                        ?>
+							              <div class="form-group">
+                              <label>Barberos</label>
+                            <select name="barbero" class="form-control" required>
+                                |<option>[Escoge tu barbero]</option>
+                                <?php 
+                                while ($data = mysqli_fetch_array($barbers)) { ?>
+                                <option value="<?php echo$data['nombre']?>"><?php echo$data['nombre']?></option>
+                                <?php } ?>                                          
                             </select>
-                          </div>
-							            <div class="form-group">
-                            <label>Barberos</label>
-                           <select name="barbero" class="form-control" required>
-												      <option value selected ></option>
-                              <option value="Andres Mejia"> Andres Mejia</option>
-                              <option value="Carlos Perea">Carlos Perea</option>
-												      <option value="Jorge Mosquera">Jorge Mosquera</option>
-                              <option value="William Zapata">William Zapata</option>                                             
-                           </select>
-                          </div>
-          							  <div class="form-group">
-                            <label>No. de reservas*</label>
-                            <select name="nreserva" class="form-control" required>
-												      <option value selected ></option>
-                              <option value="1">1</option>
-                              <option value="2">2</option> 
-												      <option value="3">3</option>
-												      <option value="4">4</option>
-                            </select>
-                          </div> 
-							        
+                            </div>
+                          <from/>
+                          <from >
+          							    <div class="form-group">
+                              <label>No. de reservas*</label>
+                              <select name="nreserva" class="form-control" required>
+												        <option value selected ></option>
+                                <option value="1">1</option>
+                                <option value="2">2</option> 
+												        <option value="3">3</option>
+												        <option value="4">4</option>
+                              </select>
+                            </div> 
+                          </from>
 							            <div class="form-group"> 
                             <label>Fecha Y Hora</label>
                             <input type="text" id="datetimepicker" min="07:00" max="18:00" name="fecha" class="form-control"> 
@@ -395,7 +406,6 @@ while ($fila=mysqli_fetch_array($rs)) {
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
 
-    <script src="../vendors/moment/min/moment.min.js"></script>
     <script src="./js/jquery.datetimepicker.full.js" > </script>
       <script>
       $(function(){
@@ -407,7 +417,7 @@ while ($fila=mysqli_fetch_array($rs)) {
          //Hora por defecto.
         // defaultTime: ('8:00'),
          //intervalo de hora
-         allowTimes: function getArr() {
+        allowTimes: function getArr() {
         var allowTimes = [
            '08:00', '08:30', '09:00', '09:30', '10:00', 
            '10:30', '11:00', '11:30', '14:00', '14:30', 
@@ -425,6 +435,7 @@ while ($fila=mysqli_fetch_array($rs)) {
          //Tiempo acutal en adelante para todos los dias.
          //minTime:0,
          //maxTime:0,
+         //inline: true,
          });
     });
       </script>                  
