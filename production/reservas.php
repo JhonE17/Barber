@@ -269,7 +269,7 @@ while ($fila=mysqli_fetch_array($rs)) {
                          
                          
                           <?php 
-                        $barbers=mysqli_query($con,"SELECT nombre FROM personal WHERE cargo = 'Barbero'");
+                        $barbers=mysqli_query($con,"SELECT nombre FROM personal WHERE cargo = 'Barbero' AND estado = 'Activo'");
                         ?>
 							              <div class="form-group">
                               <label>Barberos</label>

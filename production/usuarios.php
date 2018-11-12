@@ -371,7 +371,8 @@ while ($fila=mysqli_fetch_array($rs)) {
                                   include('../db.php');
 
                                     $newuserU = $_POST['username'];
-                                    $newpassU = base64_decode($_POST['pass']) ;
+                                    $newpassU = hash('sha512', $_POST['pass']) ;
+                                    $newpassU = substr($newpassU, 0, 30);
                                     $newemU = $_POST['email'];
                                     $newpriU = $_POST['priU'];
                                     $newtipU = $_POST['tipU'];

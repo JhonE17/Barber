@@ -107,41 +107,7 @@ if (empty($username) || empty($password)) {
           </section>
         </div>
 
-        <div id="register" class="animate form registration_form">
-          <section class="login_content">
-            <!-- <form>
-              <h1>Crear una cuenta</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="Nombre de usuario" required="" />
-              </div>
-              <div>
-                <input type="email" class="form-control" placeholder="Email" required="" />
-              </div>
-              <div>
-                <input type="password" class="form-control" placeholder="Contraseña" required="" />
-              </div>
-              <div>
-                <a class="btn btn-default submit" href="index.html">Registrar</a>
-              </div>
-
-              <div class="clearfix"></div>
-
-              <div class="separator">
-                <p class="change_link">Ya estas registrado?
-                  <a href="#signin" class="to_register">Inicia sesión</a>
-                </p>
-
-                <div class="clearfix"></div>
-                <br />
-
-                <div>
-                  <h1><i class="fa fa-paw"></i>BarberShopQuib</h1>
-                  <p>©2018 TODOS LOS DERECHOS SON RESERVADOS.</p>
-                </div>
-              </div>
-            </form> -->
-          </section>
-        </div>
+     
       </div>
     </div>
   </body>
