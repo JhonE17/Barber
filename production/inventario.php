@@ -334,7 +334,7 @@ include('../db.php');
                     </div>
                     <div class="x_content">
                     <?php
-                                    $sql = "SELECT * FROM `inventario` limit 0,10";
+                                    $sql = "SELECT * FROM `inventario` ";
                                     $re = mysqli_query($con, $sql)
                                     ?>
                       <table class="table table-responsive table-hover ">
