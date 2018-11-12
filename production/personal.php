@@ -335,7 +335,7 @@ while ($fila=mysqli_fetch_array($rs)) {
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <form method="post">
+              <form method="POST">
                   <div class="modal-body col-md-6 col-sm-6 col-xs-12">
                       <label>Nombre completo</label>
                       <input name="fullname" type="text"  class="form-control" placeholder="Ingrese nombre completo"></div>
@@ -383,27 +383,59 @@ while ($fila=mysqli_fetch_array($rs)) {
         </div>
         <!-- end modal medium -->
         <!-- Agregar Modal -->
-        <?php
-						if(isset($_POST['in']))
-						{
-							$newnom = $_POST['fullname'];
-							$newdoc = $_POST['doc'];
-              $newem = $_POST['email'];
-              $newtel = $_POST['phone'];
-              $newdir = $_POST['dir'];
-              $newcar = $_POST['cargoP'];
-              $newest = 'Activo';
-              
-							$newsql ="INSERT INTO personal (nombre,documento,emailP,telefono,direccion,cargo,estado) values ('$newnom','$newdoc','$newem','$newtel','$newdir','$newcar','$newest')";
-							if(mysqli_query($con,$newsql))
-							{
-							echo' <script language="javascript" type="text/javascript"> alert("!Nuevo personal agregado!") </script>';
-              
-              header("Location: personal.php");
-              }
-              
-						  }
-						?>
+
+                            <?php
+                                if (isset($_POST['in'])) {
+                                  include('../db.php');
+
+                                      $newnom = $_POST['fullname'];
+                                      $newdoc = $_POST['doc'];
+                                      $newem = $_POST['email'];
+                                      $newtel = $_POST['phone'];
+                                      $newdir = $_POST['dir'];
+                                      $newcar = $_POST['cargoP'];
+                                      $newest = 'Activo';
+
+                                    /* Uso "mysqli_real_escape_string()" para escapar las cadenas */
+                                    $check = " SELECT * FROM `personal` WHERE nombre = '" . mysqli_real_escape_string($con, $newnom) . "' AND documento = '" . mysqli_real_escape_string($con, $newdoc) . "'";
+                                    $rs = mysqli_query($con, $check);
+                                    /* Comprobamos si hubo un error durante la ejecución de la consulta */
+                                    if ($rs === false) {
+                                        die('ERROR SQL: ' . htmlspecialchars(mysqli_error($con)));
+                                    }
+                                    $data = mysqli_fetch_array($rs, MYSQLI_NUM);
+                                    if ($data[0] > 1) {
+                                        echo "<script type='text/javascript'> alert('El personal que desea agregar ya existe')</script>";
+                                    } else {
+                                        /* También hay que escapar aquí las cadenas */
+                                          $sql = "
+                                          INSERT INTO `personal` (
+                                            `nombre`,
+                                            `documento`,
+                                            `emailP`,
+                                            `telefono`,
+                                            `direccion`,
+                                            `cargo`,
+                                            `estado`
+                                           
+                                          ) VALUES (
+                                            '" . mysqli_real_escape_string($con, $newnom) . "',
+                                            '" . mysqli_real_escape_string($con, $newdoc) . "',
+                                            '" . mysqli_real_escape_string($con, $newem) . "',
+                                            '" . mysqli_real_escape_string($con, $newdir) . "',
+                                            '" . mysqli_real_escape_string($con, $newcar) . "',
+                                            '" . mysqli_real_escape_string($con, $newest) . "'
+                                          )
+                                        ";
+                                        if (mysqli_query($con, $sql)) {
+                                            echo '<script>alert("Usuario Agregado Con Exito") </script>';
+                                          } else {
+                                            echo '<script>alert("Lo Siento Hubo Un Fallo! Revisar el sistema") </script>';
+                                          }
+                                        }
+                                      }
+                                      
+                                ?>
         <!-- /Agregar Modal -->
         <!-- footer content -->
         <footer>

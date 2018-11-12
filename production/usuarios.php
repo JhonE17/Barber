@@ -411,7 +411,7 @@ while ($fila=mysqli_fetch_array($rs)) {
                                           }
                                         }
                                       }
-                                      header("Location: usuarios.php");
+                                      
                                 ?>
         <!-- /Agregar Modal -->
 
