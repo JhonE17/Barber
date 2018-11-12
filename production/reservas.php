@@ -252,9 +252,9 @@ while ($fila=mysqli_fetch_array($rs)) {
                           INFORMACIÓN DE RESERVA
                         </div>
                         <div class="panel-body">
-                        <from >
+                        
                         <?php 
-                        $service=mysqli_query($con,"SELECT servicio FROM servicios ");
+                        $service=mysqli_query($con,"SELECT servicio, precio FROM servicios ");
                         ?>
 								            <div class="form-group">
                              <label>Tipo de servicio*</label>
@@ -266,8 +266,8 @@ while ($fila=mysqli_fetch_array($rs)) {
                                 <?php } ?>  
                               </select>
                             </div>
-                          </from>
-                          <from >
+                         
+                         
                           <?php 
                         $barbers=mysqli_query($con,"SELECT nombre FROM personal WHERE cargo = 'Barbero'");
                         ?>
@@ -281,7 +281,7 @@ while ($fila=mysqli_fetch_array($rs)) {
                                 <?php } ?>                                          
                             </select>
                             </div>
-                          <from/>
+                          
                          
           							    <div class="form-group">
                               <label>No. de reservas*</label>
@@ -296,10 +296,11 @@ while ($fila=mysqli_fetch_array($rs)) {
                          
 							            <div class="form-group"> 
                             <label>Fecha Y Hora</label>
-                            <input type="text" id="datetimepicker" min="07:00" max="18:00" name="fecha" placeholder="Eliga una fecha y hora para la reserva" class="form-control"> 
-                          </div>  
+                            <input type="text" id="datetimepicker" min="07:00" max="18:00" name="fecha" placeholder="Eliga una fecha y hora para la reserva" class="form-control"> <br>
+                          </div>                
                        </div>
                     </div>
+                    
                     <input type="submit" name="submit" value="Crear reserva" class="btn btn-defautl">
                 </div>
                 <?php
@@ -314,6 +315,7 @@ while ($fila=mysqli_fetch_array($rs)) {
                                     $fecha = $_POST['fecha'];
                                     $est_reserva = "Pendiente";
                                     $est_pago = "Pendiente";
+                                    
 
                                     /* Uso "mysqli_real_escape_string()" para escapar las cadenas */
                                     $check = " SELECT * FROM `ereservas` WHERE fecha = '" . mysqli_real_escape_string($con, $fecha) . "' AND fullname = '" . mysqli_real_escape_string($con, $nombre) . "'";
@@ -337,7 +339,8 @@ while ($fila=mysqli_fetch_array($rs)) {
                                             `tipo_servicio`,
                                             `telefono`,
                                             `estado_reserva`,
-                                            `estado_pago`
+                                            `estado_pago`,
+                                            `total`
                                            
                                           ) VALUES (
                                             '" . mysqli_real_escape_string($con, $nombre) . "',
@@ -348,7 +351,8 @@ while ($fila=mysqli_fetch_array($rs)) {
                                             '" . mysqli_real_escape_string($con, $tipo_servicio) . "',
                                             '" . mysqli_real_escape_string($con, $telefono) . "',
                                             '" . mysqli_real_escape_string($con, $est_reserva) . "',
-                                            '" . mysqli_real_escape_string($con, $est_pago) . "'
+                                            '" . mysqli_real_escape_string($con, $est_pago) . "',
+                                            '" . mysqli_real_escape_string($con, $total) . "'
 
                                           )
                                         ";

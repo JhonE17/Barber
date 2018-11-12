@@ -365,25 +365,54 @@ while ($fila=mysqli_fetch_array($rs)) {
         <!-- end modal medium -->
         
                <!-- Agregar Modal -->
-               <?php
-						if(isset($_POST['inU']))
-						{
-							$newuserU = $_POST['username'];
-							$newpassU = base64_decode($_POST['pass']) ;
-              $newemU = $_POST['email'];
-              $newpriU = $_POST['priU'];
-              $newtipU = $_POST['tipU'];
 
-              
-							$newsql ="INSERT INTO login (username,password,email,privilegio,tipoUsuario) values ('$newuserU','$newpassU','$newemU','$newpriU','$newtipU')";
-							if(mysqli_query($con,$newsql))
-							{
-							echo' <script language="javascript" type="text/javascript"> alert("!Nuevo Usuario Agregado!") </script>';
-  					
-							}
-					
-						}
-						?>
+                            <?php
+                                if (isset($_POST['inU'])) {
+                                  include('../db.php');
+
+                                    $newuserU = $_POST['username'];
+                                    $newpassU = base64_decode($_POST['pass']) ;
+                                    $newemU = $_POST['email'];
+                                    $newpriU = $_POST['priU'];
+                                    $newtipU = $_POST['tipU'];
+
+                                    /* Uso "mysqli_real_escape_string()" para escapar las cadenas */
+                                    $check = " SELECT * FROM `login` WHERE username = '" . mysqli_real_escape_string($con, $newuserU) . "' AND email = '" . mysqli_real_escape_string($con, $newemU) . "'";
+                                    $rs = mysqli_query($con, $check);
+                                    /* Comprobamos si hubo un error durante la ejecución de la consulta */
+                                    if ($rs === false) {
+                                        die('ERROR SQL: ' . htmlspecialchars(mysqli_error($con)));
+                                    }
+                                    $data = mysqli_fetch_array($rs, MYSQLI_NUM);
+                                    if ($data[0] > 1) {
+                                        echo "<script type='text/javascript'> alert('El servicio que desea agregar ya existe')</script>";
+                                    } else {
+                                        /* También hay que escapar aquí las cadenas */
+                                        $sql = "
+                                          INSERT INTO `login` (
+                                            `username`,
+                                            `password`,
+                                            `email`,
+                                            `privilegio`,
+                                            `tipoUsuario`
+                                           
+                                          ) VALUES (
+                                            '" . mysqli_real_escape_string($con, $newuserU) . "',
+                                            '" . mysqli_real_escape_string($con, $newpassU) . "',
+                                            '" . mysqli_real_escape_string($con, $newemU) . "',
+                                            '" . mysqli_real_escape_string($con, $newpriU) . "',
+                                            '" . mysqli_real_escape_string($con, $newtipU) . "'
+                                          )
+                                        ";
+                                        if (mysqli_query($con, $sql)) {
+                                            echo '<script>alert("Usuario Agregado Con Exito") </script>';
+                                          } else {
+                                            echo '<script>alert("Lo Siento Hubo Un Fallo! Revisar el sistema") </script>';
+                                          }
+                                        }
+                                      }
+                                      header("Location: usuarios.php");
+                                ?>
         <!-- /Agregar Modal -->
 
         <!-- footer content -->
