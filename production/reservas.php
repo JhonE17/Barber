@@ -227,17 +227,17 @@ while ($fila=mysqli_fetch_array($rs)) {
                             
                               <div class="form-group">
                                 <label>Nombre completo</label> 
-                                <input name="nombre" class="form-control" required>
+                                <input name="nombre" class="form-control" placeholder="Ingrese su nombre completo" required>
                               </div>
                             
                               <div class="form-group">
                                 <label>Email</label>
-                                <input name="email" type="email" class="form-control" required>
+                                <input name="email" type="email" class="form-control" placeholder="Ingrese su email" required>
                               </div>
                               
                               <div class="form-group">
                                 <label>Teléfono</label>
-                                <input name="telefono" type ="text" class="form-control" required>                    
+                                <input name="telefono" type ="text" class="form-control" placeholder="Ingrese su teléfono" required>                    
                               </div>   
                        </div>
                         
@@ -269,7 +269,7 @@ while ($fila=mysqli_fetch_array($rs)) {
                           </from>
                           <from >
                           <?php 
-                        $barbers=mysqli_query($con,"SELECT nombre FROM personal ");
+                        $barbers=mysqli_query($con,"SELECT nombre FROM personal WHERE cargo = 'Barbero'");
                         ?>
 							              <div class="form-group">
                               <label>Barberos</label>
@@ -282,21 +282,21 @@ while ($fila=mysqli_fetch_array($rs)) {
                             </select>
                             </div>
                           <from/>
-                          <from >
+                         
           							    <div class="form-group">
                               <label>No. de reservas*</label>
                               <select name="nreserva" class="form-control" required>
-												        <option value selected ></option>
+												        <option value selected>Eliga la cantidad de reservas </option>
                                 <option value="1">1</option>
                                 <option value="2">2</option> 
 												        <option value="3">3</option>
 												        <option value="4">4</option>
                               </select>
                             </div> 
-                          </from>
+                         
 							            <div class="form-group"> 
                             <label>Fecha Y Hora</label>
-                            <input type="text" id="datetimepicker" min="07:00" max="18:00" name="fecha" class="form-control"> 
+                            <input type="text" id="datetimepicker" min="07:00" max="18:00" name="fecha" placeholder="Eliga una fecha y hora para la reserva" class="form-control"> 
                           </div>  
                        </div>
                     </div>
