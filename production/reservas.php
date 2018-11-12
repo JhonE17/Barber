@@ -259,10 +259,10 @@ while ($fila=mysqli_fetch_array($rs)) {
 								            <div class="form-group">
                              <label>Tipo de servicio*</label>
                               <select name="tservicio"  class="form-control" required>
-                              <option>[Escoge tu servicio]</option>
+                              <option>Escoge tu servicio</option>
                               <?php 
                                 while ($data = mysqli_fetch_array($service)) { ?>
-                                <option value="<?php echo$data['servicio']?>"><?php echo$data['servicio']?></option>
+                                <option value="<?php echo $data['servicio']?>"><?php echo $data['servicio']?></option>
                                 <?php } ?>  
                               </select>
                             </div>
@@ -274,10 +274,10 @@ while ($fila=mysqli_fetch_array($rs)) {
 							              <div class="form-group">
                               <label>Barberos</label>
                             <select name="barbero" class="form-control" required>
-                                |<option>[Escoge tu barbero]</option>
+                                |<option>Escoge tu barbero</option>
                                 <?php 
                                 while ($data = mysqli_fetch_array($barbers)) { ?>
-                                <option value="<?php echo$data['nombre']?>"><?php echo$data['nombre']?></option>
+                                <option value="<?php echo $data['nombre']?>"><?php echo $data['nombre']?></option>
                                 <?php } ?>                                          
                             </select>
                             </div>
