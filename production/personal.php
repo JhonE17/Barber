@@ -408,7 +408,7 @@ while ($fila=mysqli_fetch_array($rs)) {
                                         echo "<script type='text/javascript'> alert('El personal que desea agregar ya existe')</script>";
                                     } else {
                                         /* También hay que escapar aquí las cadenas */
-                                          $sql = "
+                                        $sql = " 
                                           INSERT INTO `personal` (
                                             `nombre`,
                                             `documento`,
@@ -417,7 +417,7 @@ while ($fila=mysqli_fetch_array($rs)) {
                                             `direccion`,
                                             `cargo`,
                                             `estado`
-                                           
+                                            
                                           ) VALUES (
                                             '" . mysqli_real_escape_string($con, $newnom) . "',
                                             '" . mysqli_real_escape_string($con, $newdoc) . "',

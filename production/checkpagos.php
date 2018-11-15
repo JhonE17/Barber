@@ -119,6 +119,7 @@ if (!isset($_SESSION['username'])) {
             <li><a href="reservas.php">Crear Reserva</a></li>
             <li><a href="pagos.php">Facturas</a></li>
             <li><a href="ereservas.php">Estado</a></li>
+            <li><a href="pagosReserva.php">Pagos</a></li>
           </ul>
         </li>
 
@@ -271,47 +272,47 @@ if (!isset($_SESSION['username'])) {
                                   <table class="table table-hover">
                                       <tr>
                                         <th>Codigo de reserva</th>
-                                        <th> <?php echo $id; ?> </th>
+                                        <td> <?php echo $id; ?> </td>
                                       </tr>
                                       <tr>
                                         <th>Nombre completo</th>
-                                        <th><?php echo $nombre; ?> </th>
+                                        <td><?php echo $nombre; ?> </td>
                                       </tr>
                                       <tr>
                                         <th>Email</th>
-                                        <th><?php echo $email; ?> </th>
+                                        <td><?php echo $email; ?> </td>
                                       </tr>
                                       <tr>
                                         <th>Telefóno</th>
-                                        <th><?php echo $telefono; ?> </th>
+                                        <td><?php echo $telefono; ?> </td>
                                       </tr>
                                       <tr>
                                         <th>Tipo de servicio</th>
-                                        <th><?php echo $tipservicio; ?> </th>
+                                        <td><?php echo $tipservicio; ?> </td>
                                       </tr>
                                       <tr>
                                         <th>N° de resevas</th>
-                                        <th><?php echo $nreservas; ?> </th>
+                                        <td><?php echo $nreservas; ?> </td>
                                       </tr>
                                       <tr>
                                         <th>Fecha & Hora de reserva</th>
-                                        <th><?php echo $fecha; ?> </th>
+                                        <td><?php echo $fecha; ?> </td>
                                       </tr>
                                       <tr>
                                       <th>Estado de reserva</th>
-                                      <th><?php echo $estadoR; ?> </th>
+                                      <td><?php echo $estadoR; ?> </td>
                                      </tr>
                                      <tr>
                                       <th>Estado de pago</th>
-                                      <th><?php echo $estadoP; ?> </th>
+                                      <td><?php echo $estadoP; ?> </td>
                                      </tr>
                                       <tr>
                                         <th>Sub-total</th>
-                                        <th><?php echo $subtotal = $total; ?> </th>
+                                        <td><?php echo $subtotal = $total; ?> </td>
                                       </tr>
                                       <tr>
                                         <th>Total</th>
-                                        <th><?php echo $total = $nreservas*$total; ?> </th>
+                                        <td><?php echo $total = $nreservas*$total; ?> </td>
                                       </tr>
                                 </table>
                                
