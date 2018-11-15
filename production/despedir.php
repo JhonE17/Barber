@@ -14,7 +14,6 @@ include ('../db.php');
 						
 				}
 			header("Location: personal.php");
-		
 ?>
 
 
